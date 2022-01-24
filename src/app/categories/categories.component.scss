@@ -24,9 +24,9 @@
   margin: 0px!important;
   resize: auto;
 }
-.form_section {
-  min-width: 500px;
-}
+// .form_section {
+//   min-width: 500px;
+// }
 .label, label {
   font-weight: 900;
 }
@@ -137,13 +137,27 @@ th, td {
   flex-direction: row;
 }
 
+
+.pres {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid lightblue;
+  padding: 12px;
+  font-weight: 500;
+}
+.pres_sub {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+
+}
 .list {
   padding: 20px;
   border-radius: 12px;
   background-color: #e4efee !important;
   border-color: #578191;
-  height: -moz-fit-content;
-  height: fit-content;
+  min-height: fit-content;
+  min-width: fit-content;
   border: 2px solid #75BECB;
   margin: 12px;
   max-height: 300px;

@@ -1,0 +1,11 @@
+#IframeContainer {
+  display: flex;
+    justify-content: center;
+}
+
+iframe {
+  resize: both;
+    border: 3px solid rgb(106, 175, 166);
+    width: 520px;
+    height: 275px;
+}

@@ -10,12 +10,16 @@ import { HttpClientModule } from '@angular/common/http';
 import {APOLLO_OPTIONS} from 'apollo-angular';
 import {HttpLink} from 'apollo-angular/http';
 import {InMemoryCache} from '@apollo/client/core';
+import { AbiOrComponent } from './abi-or/abi-or.component';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
-    CategoriesComponent
+    CategoriesComponent,
+    AbiOrComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
