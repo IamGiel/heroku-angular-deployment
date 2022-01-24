@@ -4,7 +4,7 @@
 </div>
 <div class="category_container">
 
-  <div>
+  <div class="res_first res_sub">
     <div class="upper-form form_section">
       <div id="nlusec"><span>SEARCH via NLU: {{isLoading}}</span></div>
     <form [formGroup]="nluForm" (ngSubmit)="onSubmitTestUtterance()" style="display:flex;flex-direction:column">
@@ -53,24 +53,12 @@
 
   </div>
 
-  <div class="res_sub">
+  <div class="res_mid res_sub">
 
     <div class="bot_response_container_sim">
-      <div id="nlusec"><span>Reactive response:</span></div>
+
       <div class="res_item">
-        <!-- <p>If 0 results, check three main entities:</p>
-        <p>categoryList and Region and priceKeyword entities </p>
-        <p>if priceKeyword is captured? it is a skillPrice intent</p>
-        <p>if not it? is not a skillPrice intent, question is not valid for this module</p>
-
-        <p>if priceKeyword entity is captured, check categoryList entity if its captured</p>
-        <p>if it is not, then the category at question is not matching our database</p>
-        <p>if categoryList is captured, then check if the region and category match in our db</p>
-        <p>if not, then the category in question does not exist in that region</p> -->
-
-        <!-- <p>{{checkif_priceIntent}}</p> -->
-
-        <!-- show div after api response -->
+        <div id="nlusec"><span>Reactive response:</span></div>
         <div class="response_result" *ngIf="!isLoading">
 
           <!-- show div if priceKeyWordEntity is captured -->
@@ -80,12 +68,12 @@
           </div>
           <div class="second_check">
             <p *ngIf="cat_name">The category is captured. - {{payload.category.name}}.  The score is {{payload.category.score}}.</p>
-            <p *ngIf="!cat_name && nlpData">The category in question is not captured matching our db. </p>
+            <p *ngIf="!cat_name && nlpData">The category in question is not captured. </p>
           </div>
           <div class="third_check">
             <p *ngIf="reg_name">The region is captured. - {{payload.region.name}}.  The score is {{payload.region.score}}. </p>
             <div *ngIf="!reg_name && nlpData">
-              <p>The region in question is not captured matching our db. </p>
+              <p>The region in question is not captured. </p>
 
             </div>
           </div>
@@ -93,8 +81,8 @@
       </div>
     </div>
 
-    <span>isLoading : {{isLoading}}</span>
-    <span>checkif_priceIntent: {{checkif_priceIntent}}</span>
+    <!-- <span>isLoading : {{isLoading}}</span>
+    <span>checkif_priceIntent: {{checkif_priceIntent}}</span> -->
     <!-- <span>nlpData: {{nlpData|json}}</span>
     <span>result: {{result|json}}</span> -->
       <!-- table -->
@@ -188,9 +176,18 @@
       </button>
     </div>
 
+
+  </div>
+  <div class="res_last res_sub">
     <div class="pres">
       <p>These are available data onInit:</p>
       <div class="pres_sub">
+        <div class="list" *ngIf="nlpData">
+          <div id="nlusec">ENTITIES CAPTURED:</div>
+          <div *ngFor="let entity of nlpData?.result?.entities">
+            <p>{{entity.entity}}: {{entity.value}}</p>
+          </div>
+        </div>
         <div class="list">
           <div id="nlusec">UNIQUE REGIONS</div>
           <div *ngFor="let region of regionList">
@@ -203,12 +200,7 @@
             <p>{{category}}</p>
           </div>
         </div>
-        <div class="list" *ngIf="nlpData">
-          <div id="nlusec">ENTITIES CAPTURED:</div>
-          <div *ngFor="let entity of nlpData?.result?.entities">
-            <p>{{entity.entity}}: {{entity.value}}</p>
-          </div>
-        </div>
+
       </div>
     </div>
   </div>

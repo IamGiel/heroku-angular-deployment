@@ -85,8 +85,8 @@ input {
   border-radius: 12px;
 }
 
-.result_container {
-
+.bot_response_container_sim{
+  padding: 12px;
 }
 .isLoading {
   min-width: 500px;
@@ -97,8 +97,9 @@ input {
 .res_sub {
   display: flex;
   flex-direction: column;
-  gap: 24px;
-  margin: 12px;
+  gap: 12px;
+  // margin: 12px;
+  min-width: 33%;
 }
 
 .table-container > * {
@@ -147,7 +148,7 @@ th, td {
 }
 .pres_sub {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: space-between;
 
 }
@@ -162,7 +163,7 @@ th, td {
   margin: 12px;
   max-height: 300px;
   overflow: auto;
-  width: 50%;
+  // width: 50%;
 }
 
 .disabled {
