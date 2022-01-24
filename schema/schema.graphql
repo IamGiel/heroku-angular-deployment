@@ -1,0 +1,67 @@
+type Query {
+  characters(offset: Int = 0, limit: Int = 10): CharactersResult
+  character(name: String!): Character
+  species(name: String!): Species
+  categories(
+    offset: Int = 0
+    limit: Int = 10
+    name: String
+    period: String
+    guidance:String
+    grade:String
+    Grade_ID:String
+    region:String
+  ): CategoryResult
+  category(name: String!, period: String!): Category
+}
+
+type CharactersResult {
+  count: Int
+  characters: [Character]
+}
+
+type Character {
+  name: String
+  height: Int
+  mass: String
+  hair_color: String
+  skin_color: String
+  eye_color: String
+  birth_year: String
+  gender: String
+  homeworld: String
+  species: String
+}
+
+type Species {
+  name: String
+  classification: String
+  designation: String
+  average_height: String
+  skin_colors: String
+  hair_colors: String
+  eye_colors: String
+  average_lifespan: String
+  language: String
+  homeworld: String
+}
+
+type CategoryResult {
+  count: Int
+  category: [Category]
+}
+
+type Category {
+  Category_ID: String
+  Name_of_Category:String
+  Name_of_Sub_Category: String
+  Guidance:String
+  Actual_Period: String
+  Market_Overview: String
+  Grade_ID: String
+  Grade: String
+  Region:String
+  Price_Point:String
+  Currency:String
+  Unit:String
+}
