@@ -1,0 +1,223 @@
+
+<div class="page_title">
+  <span>Browse Category Dashboard</span>
+</div>
+<div class="category_container">
+
+  <div class="form_section">
+
+    <div id="nlusec"><span>SEARCH via NLU: {{isLoading}}</span></div>
+    <form [formGroup]="nluForm" (ngSubmit)="onSubmitTestUtterance()" style="display:flex;flex-direction:column">
+      <label for="kbid" style="font-weight: 800;">kbId: </label>
+      <input autocomplete="off" id="kbid" type="text" formControlName="kbid">
+
+      <label for="appid" style="font-weight: 800;">App Id: </label>
+      <input autocomplete="off" id="appid" type="text" formControlName="appid">
+
+      <label for="user_input" style="font-weight: 800;">User Input: </label>
+      <input autocomplete="off" id="user_input" type="text" formControlName="user_input">
+      <div></div>
+      <div class="btn-container">
+        <p *ngIf="!nluForm.valid" style="margin: 10px;">Type a query to enable button.</p>
+        <button class="btn btn-info" [ngClass]="isLoading ? 'disabled' : 'notDisabled' "  type="submit" [disabled]="isLoading">Submit</button>
+        <button class="btn btn-info" (click)="searchAgain()" [disabled]="!nluForm.valid && isLoading">Search again</button>
+      </div>
+    </form>
+
+    <hr>
+
+    <div id="nlusec"><span>SEARCH via a form:</span></div>
+    <form [formGroup]="profileForm" (ngSubmit)="onSubmit()" style="display:flex;flex-direction:column">
+      <label for="category-name">Category Name: </label>
+      <input id="category-name" type="text" formControlName="categoryName">
+      <label for="period">Period: </label>
+      <input id="period" type="text" formControlName="period">
+      <label for="guidance">Guidance: </label>
+      <input id="guidance" type="text" formControlName="guidance">
+      <label for="gradeID">Grade ID: </label>
+      <input id="gradeID" type="text" formControlName="gradeID">
+      <label for="grade">Grade: </label>
+      <input id="grade" type="text" formControlName="grade">
+      <label for="region">Region: </label>
+      <input id="region" type="text" formControlName="region">
+
+      <div></div>
+      <div class="btn-container">
+        <p *ngIf="!profileForm.valid" style="margin: 10px;">Complete the form to enable button.</p>
+        <button class="btn btn-info" type="submit" [disabled]="!profileForm.valid">Submit</button>
+        <button class="btn btn-info" (click)="searchAgain()" [disabled]="!profileForm.valid">Search again</button>
+      </div>
+    </form>
+
+  </div>
+
+  <div class="res_sub">
+
+    <div class="bot_response_container_sim">
+      <div id="nlusec"><span>Reactive response:</span></div>
+      <div class="res_item">
+        <!-- <p>If 0 results, check three main entities:</p>
+        <p>categoryList and Region and priceKeyword entities </p>
+        <p>if priceKeyword is captured? it is a skillPrice intent</p>
+        <p>if not it? is not a skillPrice intent, question is not valid for this module</p>
+
+        <p>if priceKeyword entity is captured, check categoryList entity if its captured</p>
+        <p>if it is not, then the category at question is not matching our database</p>
+        <p>if categoryList is captured, then check if the region and category match in our db</p>
+        <p>if not, then the category in question does not exist in that region</p> -->
+
+        <!-- <p>{{checkif_priceIntent}}</p> -->
+
+        <!-- show div after api response -->
+        <div class="response_result" *ngIf="!isLoading">
+
+          <!-- show div if priceKeyWordEntity is captured -->
+          <div class="first_check">
+            <p *ngIf="checkif_priceIntent">This is a price forecast question.  I can take this one!</p>
+            <p *ngIf="!checkif_priceIntent && nlpData">First of all, this is not a price forecast type of question.</p>
+          </div>
+          <div class="second_check">
+            <p *ngIf="cat_name">The category is captured. - {{payload.category.name}}.  The score is {{payload.category.score}}.</p>
+            <p *ngIf="!cat_name && nlpData">The category in question is not captured matching our db. </p>
+          </div>
+          <div class="third_check">
+            <p *ngIf="reg_name">The region is captured. - {{payload.region.name}}.  The score is {{payload.region.score}}. </p>
+            <div *ngIf="!reg_name && nlpData">
+              <p>The region in question is not captured matching our db. </p>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- <span>mlpDAta : {{nlpData}}</span> -->
+    <hr style="width: 350px; color: black;">
+    <span>isLoading : {{isLoading}}</span>
+    <span>checkif_priceIntent: {{checkif_priceIntent}}</span>
+    <!-- <span>nlpData: {{nlpData|json}}</span>
+    <span>result: {{result|json}}</span> -->
+      <!-- table -->
+    <div *ngIf="result">
+      <div class="page_title">Data Collected <span >total: {{result.length}}</span></div>
+      <div class="table-container" >
+
+        <table>
+          <tr>
+            <th>#</th>
+            <th>Category Name (subcategory name)</th>
+            <th>Region</th>
+            <th>Actual Period</th>
+            <th>Price Point</th>
+            <th>Currency</th>
+            <th>Unit</th>
+            <th>Grade</th>
+            <th>Grade ID</th>
+            <th>Market Overview</th>
+            <th>Guidance</th>
+          </tr>
+          <tr *ngFor="let item of result; index as i">
+            <!-- <td>
+              <a
+                [routerLink]="['/character']"
+                [queryParams]="{ name: character.name }"
+                >{{ character.name }}</a
+              >
+            </td> -->
+            <td>
+              <a>{{ i+1 }}</a>
+            </td>
+            <td>
+              <a>{{ item.Name_of_Sub_Category }}</a>
+            </td>
+            <td>
+              <a>{{ item.Region }}</a>
+            </td>
+            <td>
+              <a>{{ item.Actual_Period }}</a>
+            </td>
+            <td>
+              <a>{{ item.Price_Point }}</a>
+            </td>
+            <td>
+              <a>{{ item.Currency }}</a>
+            </td>
+            <td>
+              <a>{{ item.Unit }}</a>
+            </td>
+            <td>
+              <a>{{ item.Grade }}</a>
+            </td>
+            <td>
+              <a>{{ item.Grade_ID }}</a>
+            </td>
+            <td>
+              <a>click for more info</a>
+            </td>
+            <td>
+              <a>{{ item.Guidance }}</a>
+            </td>
+          </tr>
+        </table>
+        <div class="pager">
+          <button class="prev" *ngIf="showPrevious()" (click)="onPrevious()">
+            prev
+          </button>
+          <button class="next" *ngIf="showNext()" (click)="onNext()">next</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="result_section isLoading" *ngIf="isLoading">
+      <button mdbBtn color="primary" type="button" disabled>
+        <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+        Loading...
+      </button>
+    </div>
+    <div class="result_section" *ngIf="nlpData">
+      <div class="page_title">NLU Response</div>
+      <div class="result_container" >
+        <pre>{{nlpData|json}}</pre>
+      </div>
+    </div>
+
+    <div class="result_section isLoading" *ngIf="isLoading">
+      <button mdbBtn color="primary" type="button" disabled>
+        <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+        Loading...
+      </button>
+    </div>
+
+    <div class="pres" style="display: flex;flex-direction: row;justify-content: space-between;">
+      <div class="list">
+        <div id="nlusec">UNIQUE REGIONS</div>
+        <div *ngFor="let region of regionList">
+          <p>{{region}}</p>
+        </div>
+      </div>
+      <div class="list">
+        <div id="nlusec">UNIQUE CATEGORY LIST</div>
+        <div *ngFor="let category of categoryList">
+          <p>{{category}}</p>
+        </div>
+      </div>
+      <div class="list" *ngIf="nlpData">
+        <div id="nlusec">ENTITIES CAPTURED:</div>
+        <div *ngFor="let entity of nlpData?.result?.entities">
+          <p>{{entity.entity}}: {{entity.value}}</p>
+        </div>
+      </div>
+
+
+
+
+
+
+    </div>
+  </div>
+
+
+
+</div>
+
+

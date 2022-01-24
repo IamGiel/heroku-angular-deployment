@@ -13,7 +13,7 @@ const axios = require("axios");
 
 const app = express().use(cors()).use(json());
 app.use(express.static(__dirname + "/dist/heroku-angular"));
-app.get("/*", function (req, res) {
+app.get("/home", function (req, res) {
   res.sendFile(path.join(__dirname + "/dist/heroku-angular/index.html"));
 });
 const schema = buildSchema(fs.readFileSync("./schema/schema.graphql", "utf8"));
@@ -375,6 +375,7 @@ app.use(
   })
 );
 
-app.listen(process.env.PORT || 8080, () => {
-  console.log("running in port ", 8080);
-});
+// app.listen(process.env.PORT || 8080, () => {
+//   console.log("running in port ", 8080);
+// });
+app.listen(4000);

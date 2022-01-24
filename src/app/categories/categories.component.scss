@@ -1,0 +1,152 @@
+
+.category_container {
+  display: flex;
+  flex-direction: row;
+  gap: 12px;
+  justify-content: flex-start;
+}
+
+.form_section, .result_section {
+  border: 2px solid grey;
+  padding: 12px;
+  margin: 12px;
+  border-radius: 12px;
+  background-color: #e4efee !important;
+  border-color: #578191;
+  /* width: 33%; */
+  overflow: auto;
+}
+
+.result_section {
+  height: 300px;
+  overflow: auto;
+  min-width: 450px!important;
+  margin: 0px!important;
+  resize: auto;
+}
+.form_section {
+  min-width: 500px;
+}
+.label, label {
+  font-weight: 900;
+}
+label,button {
+  margin: 10px;
+}
+#nlusec {
+
+  padding: 12px;
+    font-weight: 800;
+    border: 1px solid #3f8caf;
+    margin-bottom: 12px;
+}
+#ntReq {
+  font-size: 8px;
+  color: grey;
+  opacity: 0.9;
+  margin-right: 10px;
+}
+
+.btn {
+  max-width: 300px;
+  border: 1px solid grey;
+  border-radius: 4px;
+  padding: 5px;
+  cursor: pointer;
+}
+.btn-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+
+}
+
+
+input {
+  margin: 1px 12px;
+  max-width: 290px;
+}
+.page_title{
+  margin: 12px;
+  padding: 7px;
+  font-weight: 700;
+  font-size: 20px;
+}
+
+.table-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 328px;
+  overflow: auto;
+  border: 2px solid #578191;
+  padding: 25px;
+  border-radius: 12px;
+}
+
+.result_container {
+
+}
+.isLoading {
+  min-width: 500px;
+  background: #ffffff8f!important;
+  border-color: #b4d5f3;
+  border-style: dashed;
+}
+.res_sub {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  margin: 12px;
+}
+
+.table-container > * {
+  /* width: 100%;
+  max-width: 800px; */
+}
+
+table {
+  margin-top: 16px;
+  margin-bottom: 16px;
+  border-collapse: collapse;
+  border: 1px solid #43909b;
+}
+
+tr:nth-child(odd) {
+  background-color: #e4efee !important;
+}
+
+th, td {
+  padding: 4px 8px;
+  border-right: 1px solid #4d8fcb;
+  border-left: 1px solid #4959a1;
+}
+
+.prev {
+  float: left;
+}
+
+.next {
+  float: right;
+}
+
+
+.mc {
+  display: flex;
+  flex-direction: row;
+}
+
+.list {
+  padding: 20px;
+  border-radius: 12px;
+  background-color: #e4efee !important;
+  border-color: #578191;
+  height: fit-content;
+  border: 2px solid #75BECB;
+  margin: 12px;
+}
+
+.disabled {
+  cursor: not-allowed;
+}
