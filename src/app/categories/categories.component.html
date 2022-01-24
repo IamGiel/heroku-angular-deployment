@@ -20,7 +20,7 @@
       <div class="btn-container">
         <p *ngIf="!nluForm.valid" style="margin: 10px;">Type a query to enable button.</p>
         <button class="btn btn-info" [ngClass]="isLoading ? 'disabled' : 'notDisabled' "  type="submit" [disabled]="isLoading">Submit</button>
-        <button class="btn btn-info" (click)="searchAgain()" [disabled]="!nluForm.valid && isLoading">Search again</button>
+        <!-- <button class="btn btn-info" (click)="searchAgain()" [disabled]="!nluForm.valid && isLoading">Search again</button> -->
       </div>
     </form>
 
@@ -45,7 +45,7 @@
       <div class="btn-container">
         <p *ngIf="!profileForm.valid" style="margin: 10px;">Complete the form to enable button.</p>
         <button class="btn btn-info" type="submit" [disabled]="!profileForm.valid">Submit</button>
-        <button class="btn btn-info" (click)="searchAgain()" [disabled]="!profileForm.valid">Search again</button>
+        <!-- <button class="btn btn-info" (click)="searchAgain()" [disabled]="!profileForm.valid">Search again</button> -->
       </div>
     </form>
 

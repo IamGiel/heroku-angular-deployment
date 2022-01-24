@@ -142,9 +142,13 @@ th, td {
   border-radius: 12px;
   background-color: #e4efee !important;
   border-color: #578191;
+  height: -moz-fit-content;
   height: fit-content;
   border: 2px solid #75BECB;
   margin: 12px;
+  max-height: 300px;
+  overflow: auto;
+  width: 50%;
 }
 
 .disabled {
