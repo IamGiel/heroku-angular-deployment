@@ -19,7 +19,7 @@
       <div></div>
       <div class="btn-container">
         <p *ngIf="!nluForm.valid" style="margin: 10px;">Type a query to enable button. </p>
-        <button class="btn btn-info" [ngClass]="isLoading ? 'disabled' : 'notDisabled' "  type="submit" [disabled]="isLoading">Submit</button>
+        <button class="btn btn-info" [ngClass]="!nluForm.valid ? 'disabled' : 'notDisabled' "  type="submit" [disabled]="isLoading">Submit</button>
         <!-- <button class="btn btn-info" (click)="searchAgain()" [disabled]="!nluForm.valid && isLoading">Search again</button> -->
       </div>
     </form>
@@ -27,7 +27,7 @@
     <div class="lower_form form_section">
       <div id="nlusec"><span>SEARCH via a form:</span></div>
       <form [formGroup]="profileForm" (ngSubmit)="onSubmit()" style="display:flex;flex-direction:column">
-        <label for="category-name">Category Name: </label>
+        <label for="category-name">Category Name (required): </label>
         <input id="category-name" type="text" formControlName="categoryName">
         <label for="period">Period: </label>
         <input id="period" type="text" formControlName="period">
@@ -37,12 +37,12 @@
         <input id="gradeID" type="text" formControlName="gradeID">
         <label for="grade">Grade: </label>
         <input id="grade" type="text" formControlName="grade">
-        <label for="region">Region: </label>
+        <label for="region">Region (required): </label>
         <input id="region" type="text" formControlName="region">
 
         <div></div>
         <div class="btn-container">
-          <p *ngIf="!profileForm.valid" style="margin: 10px;">Complete the form to enable button.</p>
+          <p *ngIf="!profileForm.valid" style="margin: 10px;">Enter required fields to enable button.</p>
           <button class="btn btn-info" type="submit" [disabled]="!profileForm.valid">Submit</button>
           <!-- <button class="btn btn-info" (click)="searchAgain()" [disabled]="!profileForm.valid">Search again</button> -->
         </div>

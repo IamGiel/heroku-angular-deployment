@@ -95,11 +95,11 @@ export class CategoriesComponent implements OnInit {
 
 
   profileForm = this.fb.group({
-    categoryName: [''],
+    categoryName: ['', Validators.required],
     period: [''],
     guidance: [''],
     gradeID: [''],
-    region:[''],
+    region:['', Validators.required],
     grade: ['']
     // region: ['',Validators.required]
     // ,
@@ -129,15 +129,15 @@ export class CategoriesComponent implements OnInit {
     this.updateAllRegions()
     // updateAllCategoryNames()
     this.updateAllCategoryNames()
-    this.nluForm.valueChanges.subscribe(onchange=>{
-      // console.log(onchange)
-      if(onchange.user_input.length <= 0){
-        this.isLoading = true;
-        console.log("1")
-      } else {
-        this.isLoading = false;
-      }
-    })
+    // this.nluForm.valueChanges.subscribe(onchange=>{
+    //   // console.log(onchange)
+    //   if(onchange.user_input.length <= 0){
+    //     this.isLoading = true;
+    //     console.log("1")
+    //   } else {
+    //     this.isLoading = false;
+    //   }
+    // })
   }
 
   lavenshtein(wordA:string, wordB:string){
