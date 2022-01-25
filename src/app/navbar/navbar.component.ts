@@ -7,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavbarComponent implements OnInit {
   isMobile = false;
+  isEn:any = '';
   constructor() { }
 
   ngOnInit(): void {
@@ -15,6 +16,11 @@ export class NavbarComponent implements OnInit {
   openNavMenu(){
     console.log("clicked open nav");
     this.isMobile = !this.isMobile;
+  }
+
+  isActive(en:any){
+    console.log(en)
+    this.isEn = en;
   }
 
 }

@@ -38,18 +38,23 @@ a {
   padding: 14px 16px;
   text-decoration: none;
   font-size: 17px;
+  background: #4a7ba5;
+  border: 1px solid;
+  width: 113px;
 }
 
 .topnav a:hover {
-  background-color: none;
-  color: black;
+  // color: #a8d3e7;
+  font-weight: 900;
 }
 
-.topnav a.active {
-  background-color: #71b4cd;
-  color: white;
-  border: 1px solid;
-  border-color: #4db5b1;
+.topnav a.active, .isActive {
+  color: #a8d3e7;
+  font-weight: 900;
+}
+
+.isActive {
+  color: #a8d3e7!important;
 }
 
 .topnav .icon {
@@ -65,7 +70,7 @@ img {
 @media screen and (max-width: 600px) {
   .topnav a:not(:first-child) {
     display: none;
-    color: black;
+    // color: black;
     font-weight: 700;
   }
   .topnav a.icon {
@@ -83,7 +88,9 @@ img {
   }
   .topnav.responsive a {
     float: none;
-    display: block;
+    display: flex;
     text-align: left;
+    flex-direction: column;
+    width: 100%;
   }
 }
