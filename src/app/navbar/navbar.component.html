@@ -1,14 +1,19 @@
-<div class="navbar">
+<!-- <div class="navbar">
   <div>GraphQL + NLU + Angular App</div>
   <nav>
     <ul>
-
-
       <li><a routerLink="/">Categories</a></li>
       <li><a routerLink="/home">Abi</a></li>
       <li><a routerLink="/abi-training">Admin</a></li>
-      <!-- <li><a routerLink="/abi-training">Test Abi</a></li> -->
-      <!-- <li><a routerLink="/browse">Characters</a></li> -->
     </ul>
   </nav>
+</div> -->
+
+<div class="topnav" id="myTopnav" [ngClass]="isMobile?'responsive':'topnav'">
+  <a routerLink="/" class="active">Categories</a>
+  <a routerLink="/home">Abi</a>
+  <a routerLink="/">Login</a>
+  <a href="javascript:void(0);" class="icon" (click)="openNavMenu()">
+    <img src="../../assets/icons/slider.svg" alt="drop">
+  </a>
 </div>
