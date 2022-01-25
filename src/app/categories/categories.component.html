@@ -6,7 +6,7 @@
 
   <div class="res_first res_sub">
     <div class="upper-form form_section">
-      <div id="nlusec"><span>SEARCH via NLU: {{isLoading}}</span></div>
+      <div id="nlusec"><span>SEARCH via NLU: </span></div>
     <form [formGroup]="nluForm" (ngSubmit)="onSubmitTestUtterance()" style="display:flex;flex-direction:column">
       <label for="kbid" style="font-weight: 800;">kbId: </label>
       <input autocomplete="off" id="kbid" type="text" formControlName="kbid">
@@ -14,11 +14,11 @@
       <label for="appid" style="font-weight: 800;">App Id: </label>
       <input autocomplete="off" id="appid" type="text" formControlName="appid">
 
-      <label for="user_input" style="font-weight: 800;">User Input: </label>
+      <label for="user_input" style="font-weight: 800;">User Input: <span id="try">(try: 'Nylon prices in Europe')</span></label>
       <input autocomplete="off" id="user_input" type="text" formControlName="user_input">
       <div></div>
       <div class="btn-container">
-        <p *ngIf="!nluForm.valid" style="margin: 10px;">Type a query to enable button.</p>
+        <p *ngIf="!nluForm.valid" style="margin: 10px;">Type a query to enable button. </p>
         <button class="btn btn-info" [ngClass]="isLoading ? 'disabled' : 'notDisabled' "  type="submit" [disabled]="isLoading">Submit</button>
         <!-- <button class="btn btn-info" (click)="searchAgain()" [disabled]="!nluForm.valid && isLoading">Search again</button> -->
       </div>

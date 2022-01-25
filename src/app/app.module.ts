@@ -35,7 +35,7 @@ import { HomeComponent } from './home/home.component';
         return {
           cache: new InMemoryCache(),
           link: httpLink.create({
-            uri: 'http://localhost:4000/graphql',
+            uri: 'https://angular-deployment-1.herokuapp.com/graphql',
           }),
         };
       },

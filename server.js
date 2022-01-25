@@ -346,7 +346,7 @@ function trainBot(utterance) {
       console.log(error);
     });
 }
-// trainBot("nylon prices in japan");
+trainBot("nylon prices in japan");
 // add synonyms to categoryList
 function addSynonyms() {
   let listEntities = [
