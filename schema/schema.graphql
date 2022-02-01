@@ -11,8 +11,26 @@ type Query {
     grade:String
     Grade_ID:String
     region:String
+    daterange:String
+  ): CategoryResult
+  categoriesv2(
+    offset: Int = 0
+    limit: Int = 10
+    name: String
+    period: String
+    guidance:String
+    grade:String
+    Grade_ID:String
+    region:String
+    daterange:String
   ): CategoryResult
   category(name: String!, period: String!): Category
+  test_data(name:String, age:Int):Test
+}
+
+type DateRange {
+  start:String
+  end:String
 }
 
 type CharactersResult {
@@ -64,4 +82,9 @@ type Category {
   Price_Point:String
   Currency:String
   Unit:String
+}
+
+type Test {
+  name:String
+  age:Int
 }

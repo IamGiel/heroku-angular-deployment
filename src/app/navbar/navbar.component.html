@@ -10,9 +10,10 @@
 </div> -->
 
 <div class="topnav" id="myTopnav" [ngClass]="isMobile?'responsive':'topnav'">
-  <a [class]="isEn == 'cat'? 'isActive':null" (click)="isActive('cat')" routerLink="/">Categories</a>
+  <a [class]="isEn == 'cat'? 'isActive':null" (click)="isActive('cat')" routerLink="/">Price/Cost</a>
+  <a [class]="isEn == 'shl'? 'isActive':null" (click)="isActive('shl')" routerLink="/shortlist">Shortlist</a>
   <a [class]="isEn == 'abi'? 'isActive':null" (click)="isActive('abi')" routerLink="/home">Abi</a>
-  <a [class]="isEn == 'log'? 'isActive':null" (click)="isActive('log')" routerLink="/">Login</a>
+  <!-- <a [class]="isEn == 'log'? 'isActive':null" (click)="isActive('log')" routerLink="/">Login</a> -->
   <a href="javascript:void(0);" class="icon" (click)="openNavMenu()">
     <img src="../../assets/icons/slider.svg" alt="drop">
   </a>

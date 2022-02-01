@@ -1,6 +1,6 @@
 
 <div class="page_title">
-  <span>Search for Category Data:</span>
+  <span>Price Cost Index Training Dashboard</span>
 </div>
 <div class="category_container">
 
@@ -60,23 +60,41 @@
       <div class="res_item">
         <div id="nlusec"><span>Reactive response:</span></div>
         <div class="response_result" *ngIf="!isLoading">
-
+          <!-- <pre>{{payload|json}}</pre> -->
           <!-- show div if priceKeyWordEntity is captured -->
-          <div class="first_check">
-            <p *ngIf="checkif_priceIntent">This is a price forecast question.  I can take this one!</p>
-            <p *ngIf="!checkif_priceIntent && nlpData">First of all, this is not a price forecast type of question.</p>
+          <!-- <div class="first_check">
+            <p *ngIf="payload?.priceIntent">This is a price forecast question.  I can take this one!</p>
+            <p *ngIf="!payload?.priceIntent && nlpData">First of all, this is not a price forecast type of question.</p>
           </div>
           <div class="second_check">
-            <p *ngIf="cat_name">The category is captured. - {{payload.category.name}}.  The score is {{payload.category.score}}.</p>
-            <p *ngIf="!cat_name && nlpData">The category in question is not captured. </p>
+            <p *ngIf="payload?.category?.score !== null">The category is captured. - {{payload?.category?.name}}.  The score is {{payload?.category?.score}}.</p>
+            <p *ngIf="!payload?.category?.score && nlpData">The category in question is not captured. </p>
           </div>
           <div class="third_check">
-            <p *ngIf="reg_name">The region is captured. - {{payload.region.name}}.  The score is {{payload.region.score}}. </p>
-            <div *ngIf="!reg_name && nlpData">
+            <p *ngIf="payload?.region?.score">The region is captured. - {{payload?.region?.name}}.  The score is {{payload?.region?.score}}. </p>
+            <div *ngIf="!payload?.region?.score">
               <p>The region in question is not captured. </p>
 
             </div>
           </div>
+          <div class="fourth_check">
+            <p *ngIf="payload?.period?.name">The date is captured. - {{payload?.period?.name}}.  The score is {{payload?.period?.score}}. </p>
+            <div *ngIf="!payload?.period?.name && nlpData">
+              <p>The date in question is not captured. </p>
+
+            </div>
+          </div>
+          <div class="fifth_check">
+            <p *ngIf="payload?.daterange">The ranges of dates are captured. - {{payload?.daterange|json}}.</p>
+            <div *ngIf="!payload?.daterange && nlpData">
+              <p>The ranges of dates in question are not captured. </p>
+
+            </div>
+          </div> -->
+
+
+
+
         </div>
       </div>
     </div>
@@ -198,6 +216,13 @@
           <div id="nlusec">UNIQUE CATEGORY LIST</div>
           <div *ngFor="let category of categoryList">
             <p>{{category}}</p>
+          </div>
+        </div>
+
+        <div class="list">
+          <div id="nlusec">UNIQUE DATE LIST</div>
+          <div *ngFor="let period of periodList">
+            <p>{{period}}</p>
           </div>
         </div>
 

@@ -25,3 +25,9 @@ Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To u
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+
+
+
+## Notes:
+1. Need to go to graphql server and design a way to pass a argument that takes in a range of dates
+2. This range of date will return the db items that are in those range of dates.

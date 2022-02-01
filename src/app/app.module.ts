@@ -12,6 +12,7 @@ import {HttpLink} from 'apollo-angular/http';
 import {InMemoryCache} from '@apollo/client/core';
 import { AbiOrComponent } from './abi-or/abi-or.component';
 import { HomeComponent } from './home/home.component';
+import { ShortlistComponent } from './shortlist/shortlist.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { HomeComponent } from './home/home.component';
     NavbarComponent,
     CategoriesComponent,
     AbiOrComponent,
-    HomeComponent
+    HomeComponent,
+    ShortlistComponent
   ],
   imports: [
     BrowserModule,
@@ -36,6 +38,8 @@ import { HomeComponent } from './home/home.component';
           cache: new InMemoryCache(),
           link: httpLink.create({
             uri: 'https://angular-deployment-1.herokuapp.com/graphql',
+            // uri: 'http://localhost:4000/graphql',
+
           }),
         };
       },

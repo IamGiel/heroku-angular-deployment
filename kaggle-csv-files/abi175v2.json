@@ -1,0 +1,4804 @@
+{
+    "prebuiltModelIds": [],
+    "applications": [
+        {
+            "luis_schema_version": "7.0.0",
+            "name": "ToAnalyst",
+            "desc": "",
+            "culture": "en-us",
+            "composites": [],
+            "model_features": [],
+            "regex_features": [],
+            "settings": [],
+            "dateCreated": 1627404895198,
+            "id": "Y7C_ySaoyK242O2wWa7Cc",
+            "closedLists": [],
+            "patternAnyEntities": [],
+            "patterns": []
+        },
+        {
+            "luis_schema_version": "7.0.0",
+            "name": "SupplierDetails",
+            "desc": "",
+            "culture": "en-us",
+            "composites": [],
+            "model_features": [],
+            "regex_features": [],
+            "settings": [],
+            "dateCreated": 1627904677549,
+            "id": "9pO68jiLOj8YiK9LScLjH",
+            "closedLists": [],
+            "patternAnyEntities": [],
+            "patterns": []
+        },
+        {
+            "luis_schema_version": "7.0.0",
+            "name": "NoneIntent",
+            "desc": "",
+            "culture": "en-us",
+            "composites": [],
+            "model_features": [],
+            "regex_features": [],
+            "settings": [],
+            "dateCreated": 1631188900343,
+            "id": "eiti30sKR89dgqsXeEufq",
+            "closedLists": [],
+            "patternAnyEntities": [],
+            "patterns": []
+        },
+        {
+            "luis_schema_version": "7.0.0",
+            "name": "Supplier",
+            "desc": "",
+            "culture": "en-us",
+            "composites": [],
+            "model_features": [],
+            "regex_features": [],
+            "settings": [],
+            "dateCreated": 1622122388704,
+            "id": "MyVPQEMpMCDWV1LPHj7jc",
+            "closedLists": [],
+            "patternAnyEntities": [],
+            "patterns": []
+        },
+        {
+            "luis_schema_version": "7.0.0",
+            "name": "PriceCostInfo",
+            "desc": "",
+            "culture": "en-us",
+            "composites": [],
+            "model_features": [],
+            "regex_features": [],
+            "settings": [],
+            "dateCreated": 1629894071032,
+            "id": "UT_C1rbFQU56IvShb5wFr",
+            "closedLists": [],
+            "patternAnyEntities": [],
+            "patterns": []
+        }
+    ],
+    "intents": [
+        {
+            "name": "skillSupplierRisk",
+            "type": "TEXT",
+            "application": "MyVPQEMpMCDWV1LPHj7jc",
+            "postprocessFlows": [],
+            "features": [
+                {
+                    "modelName": "geographyV2",
+                    "isRequired": false
+                },
+                {
+                    "featureName": "risks",
+                    "isRequired": false
+                },
+                {
+                    "modelName": "GeoPoliticalRisk",
+                    "isRequired": false
+                },
+                {
+                    "modelName": "FinancialRiskEntity",
+                    "isRequired": false
+                },
+                {
+                    "modelName": "RiskKeyWordEntity",
+                    "isRequired": false
+                },
+                {
+                    "modelName": "CyberSecurityRisk",
+                    "isRequired": false
+                },
+                {
+                    "modelName": "AdverseMediaRiskEntity",
+                    "isRequired": false
+                }
+            ],
+            "dateCreated": 1622123527323,
+            "id": "6lBZ6ya5BISU5CvNZvKRW"
+        },
+        {
+            "name": "skillSupplierLookUp",
+            "type": "TEXT",
+            "application": "MyVPQEMpMCDWV1LPHj7jc",
+            "postprocessFlows": [],
+            "features": [
+                {
+                    "modelName": "LookUpEntity",
+                    "isRequired": false
+                },
+                {
+                    "featureName": "find",
+                    "isRequired": false
+                },
+                {
+                    "modelName": "DiversityEntity",
+                    "isRequired": false
+                },
+                {
+                    "featureName": "diversity",
+                    "isRequired": false
+                },
+                {
+                    "featureName": "sustainability",
+                    "isRequired": false
+                },
+                {
+                    "modelName": "HierarchicalEntity",
+                    "isRequired": false
+                },
+                {
+                    "modelName": "SupplierKeyWord",
+                    "isRequired": false
+                },
+                {
+                    "modelName": "SustainabilityEntity",
+                    "isRequired": false
+                },
+                {
+                    "modelName": "UniqueQueryEntity",
+                    "isRequired": false
+                }
+            ],
+            "dateCreated": 1622122390550,
+            "id": "LGLDxpIRj9_8VLeYIKrB9",
+            "customData": {
+                "confirmationPhrase": null
+            }
+        },
+        {
+            "name": "skillNone",
+            "type": "TEXT",
+            "application": "eiti30sKR89dgqsXeEufq",
+            "postprocessFlows": [],
+            "features": [],
+            "dateCreated": 1631188902035,
+            "id": "bQCgK958So2z4RwNK46Oo"
+        },
+        {
+            "name": "skillSupplierDetail",
+            "type": "TEXT",
+            "application": "9pO68jiLOj8YiK9LScLjH",
+            "postprocessFlows": [],
+            "features": [],
+            "dateCreated": 1627904679560,
+            "id": "fRVsMWeBng5aKZliBsjEp"
+        },
+        {
+            "name": "toAnalyst",
+            "type": "TEXT",
+            "application": "Y7C_ySaoyK242O2wWa7Cc",
+            "postprocessFlows": [],
+            "features": [],
+            "dateCreated": 1627404897202,
+            "id": "xN0Ys7MyXbLo05bD85C0S"
+        },
+        {
+            "name": "skillPriceCost",
+            "type": "TEXT",
+            "application": "UT_C1rbFQU56IvShb5wFr",
+            "postprocessFlows": [],
+            "features": [],
+            "dateCreated": 1629894072651,
+            "id": "jOdq7n0VYcoMSzxxaPfEd"
+        }
+    ],
+    "utterances": [
+        {
+            "appCreated": 1629894071032,
+            "autoGenerated": false,
+            "unrecognized": false,
+            "text": "what is the change in cost of Petrol in Asia",
+            "intent": "jOdq7n0VYcoMSzxxaPfEd",
+            "intentCreated": 1629894072651,
+            "entities": [
+                {
+                    "entity": "DetailRequest",
+                    "children": [],
+                    "value": "the",
+                    "startPos": 0,
+                    "endPos": 10
+                },
+                {
+                    "entity": "PriceChangeEntity",
+                    "children": [],
+                    "value": "in",
+                    "startPos": 12,
+                    "endPos": 20
+                },
+                {
+                    "entity": "PriceKeyWordEntity",
+                    "children": [],
+                    "value": "of",
+                    "startPos": 22,
+                    "endPos": 28
+                }
+            ],
+            "dateCreated": 1632924747410,
+            "entityPredictions": [],
+            "application": "UT_C1rbFQU56IvShb5wFr"
+        },
+        {
+            "appCreated": 1622122388704,
+            "autoGenerated": false,
+            "unrecognized": false,
+            "text": "Show me the women owned suppliers who provide strategy consulting in Germany",
+            "intent": "LGLDxpIRj9_8VLeYIKrB9",
+            "intentCreated": 1622122390550,
+            "entities": [
+                {
+                    "entity": "LookUpEntity",
+                    "children": [],
+                    "value": "me",
+                    "startPos": 0,
+                    "endPos": 6
+                },
+                {
+                    "entity": "DiversityEntity",
+                    "children": [],
+                    "value": "owned",
+                    "startPos": 12,
+                    "endPos": 22
+                },
+                {
+                    "entity": "SupplierKeyWord",
+                    "children": [],
+                    "value": "suppliers",
+                    "startPos": 24,
+                    "endPos": 32
+                }
+            ],
+            "dateCreated": 1627265545629,
+            "entityPredictions": [
+                {
+                    "phrase": "germany",
+                    "entityName": "geographyV2",
+                    "entityType": 2,
+                    "startTokenIndex": 11,
+                    "endTokenIndex": 11,
+                    "startPos": 69,
+                    "endPos": 75
+                }
+            ],
+            "application": "MyVPQEMpMCDWV1LPHj7jc"
+        },
+        {
+            "intent": "jOdq7n0VYcoMSzxxaPfEd",
+            "dateCreated": 1632928292510,
+            "intentCreated": 1629894072651,
+            "appCreated": 1629894071032,
+            "entities": [
+                {
+                    "entity": "PriceKeyWordEntity",
+                    "children": [],
+                    "value": "is",
+                    "startPos": 0,
+                    "endPos": 10
+                }
+            ],
+            "entityPredictions": [
+                {
+                    "phrase": "tata",
+                    "entityName": "geographyV2",
+                    "entityType": 2,
+                    "startTokenIndex": 3,
+                    "endTokenIndex": 3,
+                    "startPos": 12,
+                    "endPos": 15
+                },
+                {
+                    "phrase": "japan",
+                    "entityName": "geographyV2",
+                    "entityType": 2,
+                    "startTokenIndex": 5,
+                    "endTokenIndex": 5,
+                    "startPos": 20,
+                    "endPos": 24
+                }
+            ],
+            "text": "how much is TATA in japan",
+            "autoGenerated": false,
+            "unrecognized": false,
+            "application": "UT_C1rbFQU56IvShb5wFr"
+        },
+        {
+            "appCreated": 1629894071032,
+            "autoGenerated": false,
+            "unrecognized": false,
+            "text": "whats the price of coal in Kenya",
+            "intent": "jOdq7n0VYcoMSzxxaPfEd",
+            "intentCreated": 1629894072651,
+            "entities": [
+                {
+                    "entity": "DetailRequest",
+                    "children": [],
+                    "value": "the",
+                    "startPos": 0,
+                    "endPos": 8
+                },
+                {
+                    "entity": "PriceKeyWordEntity",
+                    "children": [],
+                    "value": "of",
+                    "startPos": 10,
+                    "endPos": 17
+                }
+            ],
+            "dateCreated": 1632924649256,
+            "entityPredictions": [
+                {
+                    "phrase": "kenya",
+                    "entityName": "geographyV2",
+                    "entityType": 2,
+                    "startTokenIndex": 6,
+                    "endTokenIndex": 6,
+                    "startPos": 27,
+                    "endPos": 31
+                }
+            ],
+            "application": "UT_C1rbFQU56IvShb5wFr"
+        },
+        {
+            "appCreated": 1622122388704,
+            "autoGenerated": false,
+            "unrecognized": false,
+            "text": "are my suppliers financially risky",
+            "intent": "6lBZ6ya5BISU5CvNZvKRW",
+            "intentCreated": 1622123527323,
+            "entities": [
+                {
+                    "entity": "SupplierKeyWord",
+                    "startPos": 7,
+                    "endPos": 15,
+                    "children": [],
+                    "value": "suppliers"
+                },
+                {
+                    "entity": "RiskKeyWordEntity",
+                    "children": [],
+                    "value": "risky",
+                    "startPos": 29,
+                    "endPos": 33
+                },
+                {
+                    "entity": "FinancialRiskEntity",
+                    "children": [],
+                    "value": "risky",
+                    "startPos": 17,
+                    "endPos": 33
+                }
+            ],
+            "dateCreated": 1625798660557,
+            "entityPredictions": [],
+            "application": "MyVPQEMpMCDWV1LPHj7jc"
+        },
+        {
+            "autoGenerated": false,
+            "unrecognized": false,
+            "text": "hi there",
+            "entities": [
+                {
+                    "entity": "GreetingEntity",
+                    "children": [],
+                    "value": "there",
+                    "startPos": 0,
+                    "endPos": 7
+                }
+            ],
+            "intent": "bQCgK958So2z4RwNK46Oo",
+            "dateCreated": 1631533956044,
+            "intentCreated": 1631188902035,
+            "appCreated": 1631188900343,
+            "entityPredictions": [],
+            "application": "eiti30sKR89dgqsXeEufq"
+        },
+        {
+            "appCreated": 1622122388704,
+            "autoGenerated": false,
+            "unrecognized": false,
+            "text": "Show the minority owned non mbb suppliers who provide strategy consulting with sustainability Certification A",
+            "intent": "LGLDxpIRj9_8VLeYIKrB9",
+            "intentCreated": 1622122390550,
+            "entities": [
+                {
+                    "entity": "LookUpEntity",
+                    "children": [],
+                    "value": "Show",
+                    "startPos": 0,
+                    "endPos": 3
+                },
+                {
+                    "entity": "DiversityEntity",
+                    "children": [],
+                    "value": "owned",
+                    "startPos": 9,
+                    "endPos": 22
+                },
+                {
+                    "entity": "UniqueQueryEntity",
+                    "children": [],
+                    "value": "mbb",
+                    "startPos": 24,
+                    "endPos": 30
+                },
+                {
+                    "entity": "SupplierKeyWord",
+                    "children": [],
+                    "value": "suppliers",
+                    "startPos": 32,
+                    "endPos": 40
+                },
+                {
+                    "entity": "SustainabilityEntity",
+                    "children": [],
+                    "value": "Certification",
+                    "startPos": 79,
+                    "endPos": 106
+                }
+            ],
+            "dateCreated": 1627299642402,
+            "entityPredictions": [],
+            "application": "MyVPQEMpMCDWV1LPHj7jc"
+        },
+        {
+            "appCreated": 1622122388704,
+            "autoGenerated": false,
+            "unrecognized": false,
+            "text": "search for abc suppliers",
+            "intent": "LGLDxpIRj9_8VLeYIKrB9",
+            "intentCreated": 1622122390550,
+            "entities": [
+                {
+                    "entity": "LookUpEntity",
+                    "children": [],
+                    "value": "search",
+                    "startPos": 0,
+                    "endPos": 9
+                },
+                {
+                    "entity": "SupplierKeyWord",
+                    "children": [],
+                    "value": "suppliers",
+                    "startPos": 15,
+                    "endPos": 23
+                }
+            ],
+            "dateCreated": 1627261246329,
+            "entityPredictions": [],
+            "application": "MyVPQEMpMCDWV1LPHj7jc"
+        },
+        {
+            "appCreated": 1622122388704,
+            "autoGenerated": false,
+            "unrecognized": false,
+            "text": "find asdasd suppliers",
+            "intent": "LGLDxpIRj9_8VLeYIKrB9",
+            "intentCreated": 1622122390550,
+            "entities": [
+                {
+                    "entity": "SupplierKeyWord",
+                    "startPos": 12,
+                    "endPos": 20,
+                    "children": [],
+                    "value": "suppliers"
+                },
+                {
+                    "entity": "LookUpEntity",
+                    "children": [],
+                    "value": "find",
+                    "startPos": 0,
+                    "endPos": 3
+                }
+            ],
+            "dateCreated": 1626203315331,
+            "entityPredictions": [],
+            "application": "MyVPQEMpMCDWV1LPHj7jc"
+        },
+        {
+            "appCreated": 1622122388704,
+            "autoGenerated": false,
+            "unrecognized": false,
+            "text": "give me a list of the top ten dairy products suppliers in Kenya",
+            "intent": "LGLDxpIRj9_8VLeYIKrB9",
+            "intentCreated": 1622122390550,
+            "entities": [
+                {
+                    "entity": "SupplierKeyWord",
+                    "startPos": 45,
+                    "endPos": 53,
+                    "children": [],
+                    "value": "suppliers"
+                },
+                {
+                    "entity": "LookUpEntity",
+                    "children": [],
+                    "value": "list",
+                    "startPos": 0,
+                    "endPos": 13
+                }
+            ],
+            "dateCreated": 1626792930404,
+            "entityPredictions": [
+                {
+                    "entity": "geographyV2",
+                    "startPos": 22,
+                    "endPos": 24,
+                    "value": "kenya",
+                    "phrase": "top",
+                    "entityName": "HierarchicalEntity",
+                    "entityType": 5,
+                    "startTokenIndex": 6,
+                    "endTokenIndex": 6
+                },
+                {
+                    "phrase": "ten",
+                    "entityName": "number",
+                    "entityType": 2,
+                    "startTokenIndex": 7,
+                    "endTokenIndex": 7,
+                    "startPos": 26,
+                    "endPos": 28
+                },
+                {
+                    "phrase": "kenya",
+                    "entityName": "geographyV2",
+                    "entityType": 2,
+                    "startTokenIndex": 12,
+                    "endTokenIndex": 12,
+                    "startPos": 58,
+                    "endPos": 62
+                }
+            ],
+            "application": "MyVPQEMpMCDWV1LPHj7jc"
+        },
+        {
+            "autoGenerated": false,
+            "unrecognized": false,
+            "text": "Can you show me Strategy Consulting Suppliers",
+            "entities": [
+                {
+                    "entity": "LookUpEntity",
+                    "children": [],
+                    "value": "me",
+                    "startPos": 0,
+                    "endPos": 14
+                },
+                {
+                    "entity": "SupplierKeyWord",
+                    "children": [],
+                    "value": "Suppliers",
+                    "startPos": 36,
+                    "endPos": 44
+                }
+            ],
+            "intent": "LGLDxpIRj9_8VLeYIKrB9",
+            "dateCreated": 1628004342152,
+            "intentCreated": 1622122390550,
+            "appCreated": 1622122388704,
+            "entityPredictions": [],
+            "application": "MyVPQEMpMCDWV1LPHj7jc"
+        },
+        {
+            "appCreated": 1631188900343,
+            "autoGenerated": false,
+            "unrecognized": false,
+            "text": "hello",
+            "intent": "bQCgK958So2z4RwNK46Oo",
+            "intentCreated": 1631188902035,
+            "entities": [
+                {
+                    "entity": "GreetingEntity",
+                    "children": [],
+                    "value": "hello",
+                    "startPos": 0,
+                    "endPos": 4
+                }
+            ],
+            "dateCreated": 1631533687895,
+            "entityPredictions": [],
+            "application": "eiti30sKR89dgqsXeEufq"
+        },
+        {
+            "autoGenerated": false,
+            "unrecognized": false,
+            "text": "what is the price of ammonia",
+            "entities": [
+                {
+                    "entity": "DetailRequest",
+                    "children": [],
+                    "value": "the",
+                    "startPos": 0,
+                    "endPos": 10
+                },
+                {
+                    "entity": "PriceKeyWordEntity",
+                    "children": [],
+                    "value": "of",
+                    "startPos": 12,
+                    "endPos": 19
+                }
+            ],
+            "intent": "jOdq7n0VYcoMSzxxaPfEd",
+            "dateCreated": 1633620523027,
+            "intentCreated": 1629894072651,
+            "appCreated": 1629894071032,
+            "entityPredictions": [],
+            "application": "UT_C1rbFQU56IvShb5wFr"
+        },
+        {
+            "appCreated": 1622122388704,
+            "autoGenerated": false,
+            "unrecognized": false,
+            "text": "search for women owned cheese suppliers",
+            "intent": "LGLDxpIRj9_8VLeYIKrB9",
+            "intentCreated": 1622122390550,
+            "entities": [
+                {
+                    "entity": "LookUpEntity",
+                    "children": [],
+                    "value": "for",
+                    "startPos": 0,
+                    "endPos": 9
+                },
+                {
+                    "entity": "DiversityEntity",
+                    "children": [],
+                    "value": "owned",
+                    "startPos": 11,
+                    "endPos": 21
+                },
+                {
+                    "entity": "SupplierKeyWord",
+                    "children": [],
+                    "value": "suppliers",
+                    "startPos": 30,
+                    "endPos": 38
+                }
+            ],
+            "dateCreated": 1627261618748,
+            "entityPredictions": [],
+            "application": "MyVPQEMpMCDWV1LPHj7jc"
+        },
+        {
+            "autoGenerated": false,
+            "unrecognized": false,
+            "text": "whats up",
+            "entities": [
+                {
+                    "entity": "GreetingEntity",
+                    "children": [],
+                    "value": "up",
+                    "startPos": 0,
+                    "endPos": 7
+                }
+            ],
+            "intent": "bQCgK958So2z4RwNK46Oo",
+            "dateCreated": 1631202326578,
+            "intentCreated": 1631188902035,
+            "appCreated": 1631188900343,
+            "entityPredictions": [],
+            "application": "eiti30sKR89dgqsXeEufq"
+        },
+        {
+            "appCreated": 1627904677549,
+            "autoGenerated": false,
+            "unrecognized": false,
+            "text": "what do you know about Cisco",
+            "intent": "fRVsMWeBng5aKZliBsjEp",
+            "intentCreated": 1627904679560,
+            "entities": [
+                {
+                    "entity": "DetailRequest",
+                    "children": [],
+                    "value": "about",
+                    "startPos": 0,
+                    "endPos": 21
+                }
+            ],
+            "dateCreated": 1627904872789,
+            "entityPredictions": [],
+            "application": "9pO68jiLOj8YiK9LScLjH"
+        },
+        {
+            "autoGenerated": false,
+            "unrecognized": false,
+            "text": "what is the price of oil in Saudi Arabia",
+            "entities": [
+                {
+                    "entity": "DetailRequest",
+                    "children": [],
+                    "value": "the",
+                    "startPos": 0,
+                    "endPos": 10
+                },
+                {
+                    "entity": "PriceKeyWordEntity",
+                    "children": [],
+                    "value": "of",
+                    "startPos": 12,
+                    "endPos": 19
+                }
+            ],
+            "intent": "jOdq7n0VYcoMSzxxaPfEd",
+            "dateCreated": 1632941170112,
+            "intentCreated": 1629894072651,
+            "appCreated": 1629894071032,
+            "entityPredictions": [
+                {
+                    "phrase": "saudi arabia",
+                    "entityName": "geographyV2",
+                    "entityType": 2,
+                    "startTokenIndex": 7,
+                    "endTokenIndex": 8,
+                    "startPos": 28,
+                    "endPos": 39
+                }
+            ],
+            "application": "UT_C1rbFQU56IvShb5wFr"
+        },
+        {
+            "appCreated": 1627404895198,
+            "autoGenerated": false,
+            "unrecognized": false,
+            "text": "I want to talk to an analyst",
+            "intent": "xN0Ys7MyXbLo05bD85C0S",
+            "intentCreated": 1627404897202,
+            "entities": [
+                {
+                    "entity": "ConnectToAnalystEntity",
+                    "children": [],
+                    "value": "analyst",
+                    "startPos": 0,
+                    "endPos": 27
+                }
+            ],
+            "dateCreated": 1627408775716,
+            "entityPredictions": [],
+            "application": "Y7C_ySaoyK242O2wWa7Cc"
+        },
+        {
+            "appCreated": 1622122388704,
+            "autoGenerated": false,
+            "unrecognized": false,
+            "text": "what is the geopolitical risk exposure of cisco",
+            "intent": "6lBZ6ya5BISU5CvNZvKRW",
+            "intentCreated": 1622123527323,
+            "entities": [
+                {
+                    "entity": "GeoPoliticalRisk",
+                    "children": [],
+                    "value": "risk",
+                    "startPos": 12,
+                    "endPos": 28
+                }
+            ],
+            "dateCreated": 1625835333365,
+            "entityPredictions": [],
+            "application": "MyVPQEMpMCDWV1LPHj7jc"
+        },
+        {
+            "autoGenerated": false,
+            "unrecognized": false,
+            "text": "where can I find tennis ball suppliers in the United States",
+            "entities": [
+                {
+                    "entity": "LookUpEntity",
+                    "children": [],
+                    "value": "find",
+                    "startPos": 0,
+                    "endPos": 15
+                }
+            ],
+            "intent": "LGLDxpIRj9_8VLeYIKrB9",
+            "dateCreated": 1627682179656,
+            "intentCreated": 1622122390550,
+            "appCreated": 1622122388704,
+            "entityPredictions": [
+                {
+                    "phrase": "united states",
+                    "entityName": "geographyV2",
+                    "entityType": 2,
+                    "startTokenIndex": 9,
+                    "endTokenIndex": 10,
+                    "startPos": 46,
+                    "endPos": 58
+                }
+            ],
+            "application": "MyVPQEMpMCDWV1LPHj7jc"
+        },
+        {
+            "autoGenerated": false,
+            "unrecognized": false,
+            "text": "tell me about farm cheese",
+            "entities": [
+                {
+                    "entity": "DetailRequest",
+                    "children": [],
+                    "value": "about",
+                    "startPos": 0,
+                    "endPos": 12
+                }
+            ],
+            "intent": "fRVsMWeBng5aKZliBsjEp",
+            "dateCreated": 1632743953033,
+            "intentCreated": 1627904679560,
+            "appCreated": 1627904677549,
+            "entityPredictions": [],
+            "application": "9pO68jiLOj8YiK9LScLjH"
+        },
+        {
+            "autoGenerated": false,
+            "unrecognized": false,
+            "text": "leather prices in Asia",
+            "entities": [
+                {
+                    "entity": "PriceKeyWordEntity",
+                    "children": [],
+                    "value": "prices",
+                    "startPos": 8,
+                    "endPos": 13
+                }
+            ],
+            "intent": "jOdq7n0VYcoMSzxxaPfEd",
+            "dateCreated": 1632941219962,
+            "intentCreated": 1629894072651,
+            "appCreated": 1629894071032,
+            "entityPredictions": [],
+            "application": "UT_C1rbFQU56IvShb5wFr"
+        },
+        {
+            "appCreated": 1627404895198,
+            "autoGenerated": false,
+            "unrecognized": false,
+            "text": "transfer me to analyst",
+            "intent": "xN0Ys7MyXbLo05bD85C0S",
+            "intentCreated": 1627404897202,
+            "entities": [
+                {
+                    "entity": "ConnectToAnalystEntity",
+                    "children": [],
+                    "value": "analyst",
+                    "startPos": 0,
+                    "endPos": 21
+                }
+            ],
+            "dateCreated": 1627408730675,
+            "entityPredictions": [],
+            "application": "Y7C_ySaoyK242O2wWa7Cc"
+        },
+        {
+            "autoGenerated": false,
+            "unrecognized": false,
+            "text": "find nearest Walmart",
+            "entities": [
+                {
+                    "entity": "LookUpEntity",
+                    "children": [],
+                    "value": "find",
+                    "startPos": 0,
+                    "endPos": 3
+                },
+                {
+                    "entity": "DistanceEntity",
+                    "children": [],
+                    "value": "nearest",
+                    "startPos": 5,
+                    "endPos": 11
+                }
+            ],
+            "intent": "bQCgK958So2z4RwNK46Oo",
+            "dateCreated": 1631549065500,
+            "intentCreated": 1631188902035,
+            "appCreated": 1631188900343,
+            "entityPredictions": [],
+            "application": "eiti30sKR89dgqsXeEufq"
+        },
+        {
+            "autoGenerated": false,
+            "unrecognized": false,
+            "text": "are there petrol suppliers in Mexico ?",
+            "entities": [
+                {
+                    "entity": "LookUpEntity",
+                    "children": [],
+                    "value": "there",
+                    "startPos": 0,
+                    "endPos": 8
+                },
+                {
+                    "entity": "SupplierKeyWord",
+                    "children": [],
+                    "value": "suppliers",
+                    "startPos": 17,
+                    "endPos": 25
+                }
+            ],
+            "intent": "LGLDxpIRj9_8VLeYIKrB9",
+            "dateCreated": 1631646252521,
+            "intentCreated": 1622122390550,
+            "appCreated": 1622122388704,
+            "entityPredictions": [
+                {
+                    "phrase": "mexico",
+                    "entityName": "geographyV2",
+                    "entityType": 2,
+                    "startTokenIndex": 5,
+                    "endTokenIndex": 5,
+                    "startPos": 30,
+                    "endPos": 35
+                }
+            ],
+            "application": "MyVPQEMpMCDWV1LPHj7jc"
+        },
+        {
+            "appCreated": 1627404895198,
+            "autoGenerated": false,
+            "unrecognized": false,
+            "text": "I want to talk to a human",
+            "intent": "xN0Ys7MyXbLo05bD85C0S",
+            "intentCreated": 1627404897202,
+            "entities": [
+                {
+                    "entity": "ConnectToAnalystEntity",
+                    "children": [],
+                    "value": "human",
+                    "startPos": 0,
+                    "endPos": 24
+                }
+            ],
+            "dateCreated": 1627409458471,
+            "entityPredictions": [],
+            "application": "Y7C_ySaoyK242O2wWa7Cc"
+        },
+        {
+            "appCreated": 1622122388704,
+            "autoGenerated": false,
+            "unrecognized": false,
+            "text": "find beverage can suppliers owned by women",
+            "intent": "LGLDxpIRj9_8VLeYIKrB9",
+            "intentCreated": 1622122390550,
+            "entities": [
+                {
+                    "entity": "LookUpEntity",
+                    "startPos": 0,
+                    "endPos": 3,
+                    "children": [],
+                    "value": "find"
+                },
+                {
+                    "entity": "DiversityEntity",
+                    "children": [],
+                    "value": "women",
+                    "startPos": 28,
+                    "endPos": 41
+                },
+                {
+                    "entity": "SupplierKeyWord",
+                    "children": [],
+                    "value": "suppliers",
+                    "startPos": 18,
+                    "endPos": 26
+                }
+            ],
+            "dateCreated": 1624390168738,
+            "entityPredictions": [],
+            "application": "MyVPQEMpMCDWV1LPHj7jc"
+        },
+        {
+            "appCreated": 1622122388704,
+            "autoGenerated": false,
+            "unrecognized": false,
+            "text": "identify the strategy consulting suppliers in germany/frankfurt",
+            "intent": "LGLDxpIRj9_8VLeYIKrB9",
+            "intentCreated": 1622122390550,
+            "entities": [
+                {
+                    "entity": "SupplierKeyWord",
+                    "startPos": 33,
+                    "endPos": 41,
+                    "children": [],
+                    "value": "suppliers"
+                },
+                {
+                    "entity": "LookUpEntity",
+                    "children": [],
+                    "value": "identify",
+                    "startPos": 0,
+                    "endPos": 7
+                }
+            ],
+            "dateCreated": 1626791855497,
+            "entityPredictions": [
+                {
+                    "entity": "geographyV2",
+                    "startPos": 46,
+                    "endPos": 52,
+                    "value": "germany",
+                    "phrase": "germany",
+                    "entityName": "geographyV2",
+                    "entityType": 2,
+                    "startTokenIndex": 6,
+                    "endTokenIndex": 6
+                }
+            ],
+            "application": "MyVPQEMpMCDWV1LPHj7jc"
+        },
+        {
+            "autoGenerated": false,
+            "unrecognized": false,
+            "text": "tell me about breaks and fuel pumps",
+            "entities": [
+                {
+                    "entity": "DetailRequest",
+                    "children": [],
+                    "value": "about",
+                    "startPos": 0,
+                    "endPos": 12
+                },
+                {
+                    "entity": "CommonWordEntity",
+                    "children": [],
+                    "value": "and",
+                    "startPos": 21,
+                    "endPos": 23
+                }
+            ],
+            "intent": "fRVsMWeBng5aKZliBsjEp",
+            "dateCreated": 1628004342152,
+            "intentCreated": 1627904679560,
+            "appCreated": 1627904677549,
+            "entityPredictions": [],
+            "application": "9pO68jiLOj8YiK9LScLjH"
+        },
+        {
+            "appCreated": 1627404895198,
+            "autoGenerated": false,
+            "unrecognized": false,
+            "text": "connect me to analyst",
+            "intent": "xN0Ys7MyXbLo05bD85C0S",
+            "intentCreated": 1627404897202,
+            "entities": [
+                {
+                    "entity": "ConnectToAnalystEntity",
+                    "children": [],
+                    "value": "analyst",
+                    "startPos": 0,
+                    "endPos": 20
+                }
+            ],
+            "dateCreated": 1627404900215,
+            "entityPredictions": [],
+            "application": "Y7C_ySaoyK242O2wWa7Cc"
+        },
+        {
+            "appCreated": 1627404895198,
+            "autoGenerated": false,
+            "unrecognized": false,
+            "text": "I want to talk to a person",
+            "intent": "xN0Ys7MyXbLo05bD85C0S",
+            "intentCreated": 1627404897202,
+            "entities": [
+                {
+                    "entity": "ConnectToAnalystEntity",
+                    "children": [],
+                    "value": "person",
+                    "startPos": 0,
+                    "endPos": 25
+                }
+            ],
+            "dateCreated": 1627409475126,
+            "entityPredictions": [],
+            "application": "Y7C_ySaoyK242O2wWa7Cc"
+        },
+        {
+            "appCreated": 1622122388704,
+            "autoGenerated": false,
+            "unrecognized": false,
+            "text": "is supplier x present in sanctions list of mexico",
+            "intent": "6lBZ6ya5BISU5CvNZvKRW",
+            "intentCreated": 1622123527323,
+            "entities": [
+                {
+                    "entity": "GeoPoliticalRisk",
+                    "startPos": 25,
+                    "endPos": 41,
+                    "children": [],
+                    "value": "sanctions list of"
+                }
+            ],
+            "dateCreated": 1626720473199,
+            "entityPredictions": [
+                {
+                    "entity": "geographyV2",
+                    "startPos": 43,
+                    "endPos": 48,
+                    "value": "mexico",
+                    "phrase": "mexico",
+                    "entityName": "geographyV2",
+                    "entityType": 2,
+                    "startTokenIndex": 8,
+                    "endTokenIndex": 8
+                }
+            ],
+            "application": "MyVPQEMpMCDWV1LPHj7jc"
+        },
+        {
+            "appCreated": 1622122388704,
+            "autoGenerated": false,
+            "unrecognized": false,
+            "text": "What is the financial risk position of xyz",
+            "intent": "6lBZ6ya5BISU5CvNZvKRW",
+            "intentCreated": 1622123527323,
+            "entities": [],
+            "dateCreated": 1626274800935,
+            "entityPredictions": [],
+            "application": "MyVPQEMpMCDWV1LPHj7jc"
+        },
+        {
+            "appCreated": 1622122388704,
+            "autoGenerated": false,
+            "unrecognized": false,
+            "text": "what is the financial risk position of cisco",
+            "intent": "6lBZ6ya5BISU5CvNZvKRW",
+            "intentCreated": 1622123527323,
+            "entities": [
+                {
+                    "entity": "FinancialRiskEntity",
+                    "children": [],
+                    "value": "financial",
+                    "startPos": 12,
+                    "endPos": 20
+                },
+                {
+                    "entity": "RiskKeyWordEntity",
+                    "children": [],
+                    "value": "risk",
+                    "startPos": 22,
+                    "endPos": 25
+                }
+            ],
+            "dateCreated": 1625798289389,
+            "entityPredictions": [],
+            "application": "MyVPQEMpMCDWV1LPHj7jc"
+        },
+        {
+            "appCreated": 1622122388704,
+            "autoGenerated": false,
+            "unrecognized": false,
+            "text": "is garbage in sanctions list of mexico",
+            "intent": "6lBZ6ya5BISU5CvNZvKRW",
+            "intentCreated": 1622123527323,
+            "entities": [
+                {
+                    "entity": "GeoPoliticalRisk",
+                    "children": [],
+                    "value": "list",
+                    "startPos": 14,
+                    "endPos": 27
+                }
+            ],
+            "dateCreated": 1626729476502,
+            "entityPredictions": [
+                {
+                    "phrase": "mexico",
+                    "entityName": "geographyV2",
+                    "entityType": 2,
+                    "startTokenIndex": 6,
+                    "endTokenIndex": 6,
+                    "startPos": 32,
+                    "endPos": 37
+                }
+            ],
+            "application": "MyVPQEMpMCDWV1LPHj7jc"
+        },
+        {
+            "appCreated": 1622122388704,
+            "autoGenerated": false,
+            "unrecognized": false,
+            "text": "what is blah's cyber risk rating",
+            "intent": "6lBZ6ya5BISU5CvNZvKRW",
+            "intentCreated": 1622123527323,
+            "entities": [],
+            "dateCreated": 1626280441039,
+            "entityPredictions": [],
+            "application": "MyVPQEMpMCDWV1LPHj7jc"
+        },
+        {
+            "appCreated": 1622122388704,
+            "autoGenerated": false,
+            "unrecognized": false,
+            "text": "find mobile phone supplier in USA",
+            "intent": "LGLDxpIRj9_8VLeYIKrB9",
+            "intentCreated": 1622122390550,
+            "entities": [],
+            "application": "MyVPQEMpMCDWV1LPHj7jc",
+            "dateCreated": 1629139682412,
+            "entityPredictions": [
+                {
+                    "phrase": "usa",
+                    "entityName": "geographyV2",
+                    "entityType": 2,
+                    "startTokenIndex": 5,
+                    "endTokenIndex": 5,
+                    "startPos": 30,
+                    "endPos": 32
+                }
+            ]
+        },
+        {
+            "autoGenerated": false,
+            "unrecognized": false,
+            "text": "what is the change in price of crude oil between 2020 to 2021",
+            "entities": [
+                {
+                    "entity": "DetailRequest",
+                    "children": [],
+                    "value": "the",
+                    "startPos": 0,
+                    "endPos": 10
+                },
+                {
+                    "entity": "PriceChangeEntity",
+                    "children": [],
+                    "value": "in",
+                    "startPos": 12,
+                    "endPos": 20
+                },
+                {
+                    "entity": "PriceKeyWordEntity",
+                    "children": [],
+                    "value": "of",
+                    "startPos": 22,
+                    "endPos": 29
+                }
+            ],
+            "intent": "jOdq7n0VYcoMSzxxaPfEd",
+            "dateCreated": 1633920662447,
+            "intentCreated": 1629894072651,
+            "appCreated": 1629894071032,
+            "entityPredictions": [
+                {
+                    "phrase": "between 2020 to 2021",
+                    "entityName": "datetimeV2",
+                    "entityType": 2,
+                    "startTokenIndex": 9,
+                    "endTokenIndex": 12,
+                    "startPos": 41,
+                    "endPos": 60
+                },
+                {
+                    "phrase": "2020",
+                    "entityName": "number",
+                    "entityType": 2,
+                    "startTokenIndex": 10,
+                    "endTokenIndex": 10,
+                    "startPos": 49,
+                    "endPos": 52
+                },
+                {
+                    "phrase": "2021",
+                    "entityName": "number",
+                    "entityType": 2,
+                    "startTokenIndex": 12,
+                    "endTokenIndex": 12,
+                    "startPos": 57,
+                    "endPos": 60
+                }
+            ],
+            "application": "UT_C1rbFQU56IvShb5wFr"
+        },
+        {
+            "appCreated": 1629894071032,
+            "autoGenerated": false,
+            "unrecognized": false,
+            "text": "what is the change in price of cofee in india",
+            "intent": "jOdq7n0VYcoMSzxxaPfEd",
+            "intentCreated": 1629894072651,
+            "entities": [
+                {
+                    "entity": "DetailRequest",
+                    "children": [],
+                    "value": "the",
+                    "startPos": 0,
+                    "endPos": 10
+                },
+                {
+                    "entity": "PriceChangeEntity",
+                    "children": [],
+                    "value": "in",
+                    "startPos": 12,
+                    "endPos": 20
+                },
+                {
+                    "entity": "PriceKeyWordEntity",
+                    "children": [],
+                    "value": "of",
+                    "startPos": 22,
+                    "endPos": 29
+                }
+            ],
+            "dateCreated": 1632924067387,
+            "entityPredictions": [
+                {
+                    "phrase": "india",
+                    "entityName": "geographyV2",
+                    "entityType": 2,
+                    "startTokenIndex": 9,
+                    "endTokenIndex": 9,
+                    "startPos": 40,
+                    "endPos": 44
+                }
+            ],
+            "application": "UT_C1rbFQU56IvShb5wFr"
+        },
+        {
+            "appCreated": 1622122388704,
+            "autoGenerated": false,
+            "unrecognized": false,
+            "text": "Is cisco present in Sanctions lists ?",
+            "intent": "6lBZ6ya5BISU5CvNZvKRW",
+            "intentCreated": 1622123527323,
+            "entities": [
+                {
+                    "entity": "GeoPoliticalRisk",
+                    "children": [],
+                    "value": "lists",
+                    "startPos": 20,
+                    "endPos": 34
+                }
+            ],
+            "dateCreated": 1625844295748,
+            "entityPredictions": [],
+            "application": "MyVPQEMpMCDWV1LPHj7jc"
+        },
+        {
+            "appCreated": 1622122388704,
+            "autoGenerated": false,
+            "unrecognized": false,
+            "text": "what is cisco economic standpoint since 1973 in china",
+            "intent": "6lBZ6ya5BISU5CvNZvKRW",
+            "intentCreated": 1622123527323,
+            "entities": [
+                {
+                    "entity": "FinancialRiskEntity",
+                    "children": [],
+                    "value": "economic",
+                    "startPos": 14,
+                    "endPos": 21
+                }
+            ],
+            "dateCreated": 1626177773304,
+            "entityPredictions": [
+                {
+                    "entity": "datetimeV2",
+                    "startPos": 34,
+                    "endPos": 43,
+                    "value": "since 1973",
+                    "phrase": "since 1973",
+                    "entityName": "datetimeV2",
+                    "entityType": 2,
+                    "startTokenIndex": 5,
+                    "endTokenIndex": 6
+                },
+                {
+                    "entity": "geographyV2",
+                    "startPos": 40,
+                    "endPos": 43,
+                    "value": "china",
+                    "phrase": "1973",
+                    "entityName": "number",
+                    "entityType": 2,
+                    "startTokenIndex": 6,
+                    "endTokenIndex": 6
+                },
+                {
+                    "phrase": "china",
+                    "entityName": "geographyV2",
+                    "entityType": 2,
+                    "startTokenIndex": 8,
+                    "endTokenIndex": 8,
+                    "startPos": 48,
+                    "endPos": 52
+                }
+            ],
+            "application": "MyVPQEMpMCDWV1LPHj7jc"
+        },
+        {
+            "appCreated": 1622122388704,
+            "autoGenerated": false,
+            "unrecognized": false,
+            "text": "Find suppliers who can launch space shuttles",
+            "intent": "LGLDxpIRj9_8VLeYIKrB9",
+            "intentCreated": 1622122390550,
+            "entities": [
+                {
+                    "entity": "LookUpEntity",
+                    "children": [],
+                    "value": "Find",
+                    "startPos": 0,
+                    "endPos": 3
+                },
+                {
+                    "entity": "SupplierKeyWord",
+                    "children": [],
+                    "value": "suppliers",
+                    "startPos": 5,
+                    "endPos": 13
+                }
+            ],
+            "dateCreated": 1626897938974,
+            "entityPredictions": [],
+            "application": "MyVPQEMpMCDWV1LPHj7jc"
+        },
+        {
+            "autoGenerated": false,
+            "unrecognized": false,
+            "text": "Search for meat supplier ",
+            "entities": [
+                {
+                    "entity": "LookUpEntity",
+                    "children": [],
+                    "value": "for",
+                    "startPos": 0,
+                    "endPos": 9
+                },
+                {
+                    "entity": "SupplierKeyWord",
+                    "children": [],
+                    "value": "supplier",
+                    "startPos": 16,
+                    "endPos": 23
+                }
+            ],
+            "intent": "LGLDxpIRj9_8VLeYIKrB9",
+            "dateCreated": 1628050633086,
+            "intentCreated": 1622122390550,
+            "appCreated": 1622122388704,
+            "entityPredictions": [],
+            "application": "MyVPQEMpMCDWV1LPHj7jc"
+        },
+        {
+            "appCreated": 1622122388704,
+            "autoGenerated": false,
+            "unrecognized": false,
+            "text": "between 2019 - 2021 what is the price change for caustic soda",
+            "intent": "6lBZ6ya5BISU5CvNZvKRW",
+            "intentCreated": 1622123527323,
+            "entities": [],
+            "dateCreated": 1626447621096,
+            "entityPredictions": [
+                {
+                    "phrase": "between 2019 - 2021",
+                    "entityName": "datetimeV2",
+                    "entityType": 2,
+                    "startTokenIndex": 0,
+                    "endTokenIndex": 3,
+                    "startPos": 0,
+                    "endPos": 18
+                },
+                {
+                    "phrase": "2019",
+                    "entityName": "number",
+                    "entityType": 2,
+                    "startTokenIndex": 1,
+                    "endTokenIndex": 1,
+                    "startPos": 8,
+                    "endPos": 11
+                },
+                {
+                    "phrase": "2021",
+                    "entityName": "number",
+                    "entityType": 2,
+                    "startTokenIndex": 3,
+                    "endTokenIndex": 3,
+                    "startPos": 15,
+                    "endPos": 18
+                }
+            ],
+            "application": "MyVPQEMpMCDWV1LPHj7jc"
+        },
+        {
+            "appCreated": 1622122388704,
+            "autoGenerated": false,
+            "unrecognized": false,
+            "text": "does cisco have adverse media mentions since 2017",
+            "intent": "6lBZ6ya5BISU5CvNZvKRW",
+            "intentCreated": 1622123527323,
+            "entities": [
+                {
+                    "entity": "AdverseMediaRiskEntity",
+                    "children": [],
+                    "value": "mentions",
+                    "startPos": 16,
+                    "endPos": 37
+                }
+            ],
+            "dateCreated": 1625797559841,
+            "entityPredictions": [
+                {
+                    "phrase": "since 2017",
+                    "entityName": "datetimeV2",
+                    "entityType": 2,
+                    "startTokenIndex": 6,
+                    "endTokenIndex": 7,
+                    "startPos": 39,
+                    "endPos": 48
+                },
+                {
+                    "phrase": "2017",
+                    "entityName": "number",
+                    "entityType": 2,
+                    "startTokenIndex": 7,
+                    "endTokenIndex": 7,
+                    "startPos": 45,
+                    "endPos": 48
+                }
+            ],
+            "application": "MyVPQEMpMCDWV1LPHj7jc"
+        },
+        {
+            "autoGenerated": false,
+            "unrecognized": false,
+            "text": "what's the price of Coffee in India",
+            "entities": [
+                {
+                    "entity": "DetailRequest",
+                    "children": [],
+                    "value": "the",
+                    "startPos": 0,
+                    "endPos": 9
+                },
+                {
+                    "entity": "PriceKeyWordEntity",
+                    "children": [],
+                    "value": "of",
+                    "startPos": 11,
+                    "endPos": 18
+                }
+            ],
+            "intent": "jOdq7n0VYcoMSzxxaPfEd",
+            "dateCreated": 1632926941781,
+            "intentCreated": 1629894072651,
+            "appCreated": 1629894071032,
+            "entityPredictions": [
+                {
+                    "phrase": "india",
+                    "entityName": "geographyV2",
+                    "entityType": 2,
+                    "startTokenIndex": 8,
+                    "endTokenIndex": 8,
+                    "startPos": 30,
+                    "endPos": 34
+                }
+            ],
+            "application": "UT_C1rbFQU56IvShb5wFr"
+        },
+        {
+            "autoGenerated": false,
+            "unrecognized": false,
+            "text": "what is the price of beverage cans",
+            "entities": [
+                {
+                    "entity": "PriceKeyWordEntity",
+                    "children": [],
+                    "value": "of",
+                    "startPos": 12,
+                    "endPos": 19
+                },
+                {
+                    "entity": "DetailRequest",
+                    "children": [],
+                    "value": "the",
+                    "startPos": 0,
+                    "endPos": 10
+                }
+            ],
+            "intent": "jOdq7n0VYcoMSzxxaPfEd",
+            "dateCreated": 1631906710059,
+            "intentCreated": 1629894072651,
+            "appCreated": 1629894071032,
+            "entityPredictions": [],
+            "application": "UT_C1rbFQU56IvShb5wFr"
+        },
+        {
+            "appCreated": 1627404895198,
+            "autoGenerated": false,
+            "unrecognized": false,
+            "text": "chat with a human",
+            "intent": "xN0Ys7MyXbLo05bD85C0S",
+            "intentCreated": 1627404897202,
+            "entities": [
+                {
+                    "entity": "ConnectToAnalystEntity",
+                    "children": [],
+                    "value": "human",
+                    "startPos": 0,
+                    "endPos": 16
+                }
+            ],
+            "dateCreated": 1627408806738,
+            "entityPredictions": [],
+            "application": "Y7C_ySaoyK242O2wWa7Cc"
+        },
+        {
+            "appCreated": 1622122388704,
+            "autoGenerated": false,
+            "unrecognized": false,
+            "text": "Does cisco have sustainability risk",
+            "intent": "6lBZ6ya5BISU5CvNZvKRW",
+            "intentCreated": 1622123527323,
+            "entities": [
+                {
+                    "entity": "RiskKeyWordEntity",
+                    "children": [],
+                    "value": "risk",
+                    "startPos": 31,
+                    "endPos": 34
+                },
+                {
+                    "entity": "SustainabilityEntity",
+                    "children": [],
+                    "value": "sustainability",
+                    "startPos": 16,
+                    "endPos": 29
+                }
+            ],
+            "dateCreated": 1625844070001,
+            "entityPredictions": [],
+            "application": "MyVPQEMpMCDWV1LPHj7jc"
+        },
+        {
+            "appCreated": 1622122388704,
+            "autoGenerated": false,
+            "unrecognized": false,
+            "text": "show cheese suppliers from kenya",
+            "intent": "LGLDxpIRj9_8VLeYIKrB9",
+            "intentCreated": 1622122390550,
+            "entities": [
+                {
+                    "entity": "LookUpEntity",
+                    "children": [],
+                    "value": "show",
+                    "startPos": 0,
+                    "endPos": 3
+                },
+                {
+                    "entity": "SupplierKeyWord",
+                    "children": [],
+                    "value": "suppliers",
+                    "startPos": 12,
+                    "endPos": 20
+                }
+            ],
+            "dateCreated": 1627301405886,
+            "entityPredictions": [
+                {
+                    "phrase": "kenya",
+                    "entityName": "geographyV2",
+                    "entityType": 2,
+                    "startTokenIndex": 4,
+                    "endTokenIndex": 4,
+                    "startPos": 27,
+                    "endPos": 31
+                }
+            ],
+            "application": "MyVPQEMpMCDWV1LPHj7jc"
+        },
+        {
+            "appCreated": 1629894071032,
+            "autoGenerated": false,
+            "unrecognized": false,
+            "text": "what is the change in price of abc in Japan from October 2020 to July 2020 ?",
+            "intent": "jOdq7n0VYcoMSzxxaPfEd",
+            "intentCreated": 1629894072651,
+            "entities": [
+                {
+                    "entity": "DetailRequest",
+                    "children": [],
+                    "value": "the",
+                    "startPos": 0,
+                    "endPos": 10
+                },
+                {
+                    "entity": "PriceChangeEntity",
+                    "children": [],
+                    "value": "in",
+                    "startPos": 12,
+                    "endPos": 20
+                },
+                {
+                    "entity": "PriceKeyWordEntity",
+                    "children": [],
+                    "value": "of",
+                    "startPos": 22,
+                    "endPos": 29
+                }
+            ],
+            "dateCreated": 1633380649533,
+            "entityPredictions": [
+                {
+                    "phrase": "japan",
+                    "entityName": "geographyV2",
+                    "entityType": 2,
+                    "startTokenIndex": 9,
+                    "endTokenIndex": 9,
+                    "startPos": 38,
+                    "endPos": 42
+                },
+                {
+                    "phrase": "from october 2020 to july 2020",
+                    "entityName": "datetimeV2",
+                    "entityType": 2,
+                    "startTokenIndex": 10,
+                    "endTokenIndex": 15,
+                    "startPos": 44,
+                    "endPos": 73
+                },
+                {
+                    "phrase": "2020",
+                    "entityName": "number",
+                    "entityType": 2,
+                    "startTokenIndex": 12,
+                    "endTokenIndex": 12,
+                    "startPos": 57,
+                    "endPos": 60
+                },
+                {
+                    "phrase": "2020",
+                    "entityName": "number",
+                    "entityType": 2,
+                    "startTokenIndex": 15,
+                    "endTokenIndex": 15,
+                    "startPos": 70,
+                    "endPos": 73
+                }
+            ],
+            "application": "UT_C1rbFQU56IvShb5wFr"
+        },
+        {
+            "appCreated": 1629894071032,
+            "autoGenerated": false,
+            "unrecognized": false,
+            "text": "whats the price of oil in Japan",
+            "intent": "jOdq7n0VYcoMSzxxaPfEd",
+            "intentCreated": 1629894072651,
+            "entities": [
+                {
+                    "entity": "PriceKeyWordEntity",
+                    "children": [],
+                    "value": "of",
+                    "startPos": 10,
+                    "endPos": 17
+                },
+                {
+                    "entity": "DetailRequest",
+                    "children": [],
+                    "value": "the",
+                    "startPos": 0,
+                    "endPos": 8
+                }
+            ],
+            "dateCreated": 1632923722946,
+            "entityPredictions": [
+                {
+                    "phrase": "japan",
+                    "entityName": "geographyV2",
+                    "entityType": 2,
+                    "startTokenIndex": 6,
+                    "endTokenIndex": 6,
+                    "startPos": 26,
+                    "endPos": 30
+                }
+            ],
+            "application": "UT_C1rbFQU56IvShb5wFr"
+        },
+        {
+            "appCreated": 1622122388704,
+            "autoGenerated": false,
+            "unrecognized": false,
+            "text": "are any of my suppliers in the news",
+            "intent": "6lBZ6ya5BISU5CvNZvKRW",
+            "intentCreated": 1622123527323,
+            "entities": [
+                {
+                    "entity": "SupplierKeyWord",
+                    "children": [],
+                    "value": "suppliers",
+                    "startPos": 14,
+                    "endPos": 22
+                },
+                {
+                    "entity": "AdverseMediaRiskEntity",
+                    "children": [],
+                    "value": "in",
+                    "startPos": 24,
+                    "endPos": 34
+                }
+            ],
+            "dateCreated": 1622123714545,
+            "entityPredictions": [],
+            "application": "MyVPQEMpMCDWV1LPHj7jc"
+        },
+        {
+            "appCreated": 1622122388704,
+            "autoGenerated": false,
+            "unrecognized": false,
+            "text": "give me minority owned beverage can suppliers",
+            "intent": "LGLDxpIRj9_8VLeYIKrB9",
+            "intentCreated": 1622122390550,
+            "entities": [
+                {
+                    "entity": "LookUpEntity",
+                    "children": [],
+                    "value": "me",
+                    "startPos": 0,
+                    "endPos": 6
+                },
+                {
+                    "entity": "DiversityEntity",
+                    "children": [],
+                    "value": "owned",
+                    "startPos": 8,
+                    "endPos": 21
+                },
+                {
+                    "entity": "SupplierKeyWord",
+                    "children": [],
+                    "value": "suppliers",
+                    "startPos": 36,
+                    "endPos": 44
+                }
+            ],
+            "dateCreated": 1627903722422,
+            "entityPredictions": [],
+            "application": "MyVPQEMpMCDWV1LPHj7jc"
+        },
+        {
+            "appCreated": 1622122388704,
+            "autoGenerated": false,
+            "unrecognized": false,
+            "text": "What is the Labor Health & Safety risk position of cisco",
+            "intent": "6lBZ6ya5BISU5CvNZvKRW",
+            "intentCreated": 1622123527323,
+            "entities": [
+                {
+                    "entity": "GeoPoliticalRisk",
+                    "children": [],
+                    "value": "risk",
+                    "startPos": 12,
+                    "endPos": 37
+                }
+            ],
+            "dateCreated": 1625800300906,
+            "entityPredictions": [],
+            "application": "MyVPQEMpMCDWV1LPHj7jc"
+        },
+        {
+            "appCreated": 1627904677549,
+            "autoGenerated": false,
+            "unrecognized": false,
+            "text": "give me more info from The Count of Monte Carlo",
+            "intent": "fRVsMWeBng5aKZliBsjEp",
+            "intentCreated": 1627904679560,
+            "entities": [
+                {
+                    "entity": "CommonWordEntity",
+                    "children": [],
+                    "value": "from",
+                    "startPos": 18,
+                    "endPos": 21
+                },
+                {
+                    "entity": "DetailRequest",
+                    "children": [],
+                    "value": "info",
+                    "startPos": 0,
+                    "endPos": 16
+                }
+            ],
+            "dateCreated": 1627904760668,
+            "entityPredictions": [
+                {
+                    "phrase": "monte carlo",
+                    "entityName": "geographyV2",
+                    "entityType": 2,
+                    "startTokenIndex": 8,
+                    "endTokenIndex": 9,
+                    "startPos": 36,
+                    "endPos": 46
+                }
+            ],
+            "application": "9pO68jiLOj8YiK9LScLjH"
+        },
+        {
+            "appCreated": 1629894071032,
+            "autoGenerated": false,
+            "unrecognized": false,
+            "text": "what is the price of TATA in japan",
+            "intent": "jOdq7n0VYcoMSzxxaPfEd",
+            "intentCreated": 1629894072651,
+            "entities": [
+                {
+                    "entity": "DetailRequest",
+                    "children": [],
+                    "value": "the",
+                    "startPos": 0,
+                    "endPos": 10
+                },
+                {
+                    "entity": "PriceKeyWordEntity",
+                    "children": [],
+                    "value": "of",
+                    "startPos": 12,
+                    "endPos": 19
+                }
+            ],
+            "dateCreated": 1632928277871,
+            "entityPredictions": [
+                {
+                    "phrase": "tata",
+                    "entityName": "geographyV2",
+                    "entityType": 2,
+                    "startTokenIndex": 5,
+                    "endTokenIndex": 5,
+                    "startPos": 21,
+                    "endPos": 24
+                },
+                {
+                    "phrase": "japan",
+                    "entityName": "geographyV2",
+                    "entityType": 2,
+                    "startTokenIndex": 7,
+                    "endTokenIndex": 7,
+                    "startPos": 29,
+                    "endPos": 33
+                }
+            ],
+            "application": "UT_C1rbFQU56IvShb5wFr"
+        },
+        {
+            "autoGenerated": false,
+            "unrecognized": false,
+            "text": "what is the change in price of cotton in the last two years",
+            "entities": [
+                {
+                    "entity": "DetailRequest",
+                    "children": [],
+                    "value": "the",
+                    "startPos": 0,
+                    "endPos": 10
+                },
+                {
+                    "entity": "PriceChangeEntity",
+                    "children": [],
+                    "value": "in",
+                    "startPos": 12,
+                    "endPos": 20
+                },
+                {
+                    "entity": "PriceKeyWordEntity",
+                    "children": [],
+                    "value": "of",
+                    "startPos": 22,
+                    "endPos": 29
+                }
+            ],
+            "intent": "jOdq7n0VYcoMSzxxaPfEd",
+            "dateCreated": 1633381796751,
+            "intentCreated": 1629894072651,
+            "appCreated": 1629894071032,
+            "entityPredictions": [
+                {
+                    "phrase": "last two years",
+                    "entityName": "datetimeV2",
+                    "entityType": 2,
+                    "startTokenIndex": 10,
+                    "endTokenIndex": 12,
+                    "startPos": 45,
+                    "endPos": 58
+                },
+                {
+                    "phrase": "two",
+                    "entityName": "number",
+                    "entityType": 2,
+                    "startTokenIndex": 11,
+                    "endTokenIndex": 11,
+                    "startPos": 50,
+                    "endPos": 52
+                }
+            ],
+            "application": "UT_C1rbFQU56IvShb5wFr"
+        },
+        {
+            "appCreated": 1622122388704,
+            "autoGenerated": false,
+            "unrecognized": false,
+            "text": "are cisco locations impacted by disruptions for caustic soda",
+            "intent": "6lBZ6ya5BISU5CvNZvKRW",
+            "intentCreated": 1622123527323,
+            "entities": [
+                {
+                    "entity": "DisruptionRiskEntity",
+                    "children": [],
+                    "value": "disruptions",
+                    "startPos": 32,
+                    "endPos": 42
+                }
+            ],
+            "dateCreated": 1625798017226,
+            "entityPredictions": [],
+            "application": "MyVPQEMpMCDWV1LPHj7jc"
+        },
+        {
+            "appCreated": 1622122388704,
+            "autoGenerated": false,
+            "unrecognized": false,
+            "text": "which of my suppliers are at risk of bankruptcy",
+            "intent": "6lBZ6ya5BISU5CvNZvKRW",
+            "intentCreated": 1622123527323,
+            "entities": [
+                {
+                    "entity": "SupplierKeyWord",
+                    "children": [],
+                    "value": "suppliers",
+                    "startPos": 12,
+                    "endPos": 20
+                },
+                {
+                    "entity": "RiskKeyWordEntity",
+                    "children": [],
+                    "value": "risk",
+                    "startPos": 29,
+                    "endPos": 32
+                },
+                {
+                    "entity": "FinancialRiskEntity",
+                    "children": [],
+                    "value": "bankruptcy",
+                    "startPos": 37,
+                    "endPos": 46
+                }
+            ],
+            "dateCreated": 1622123678188,
+            "entityPredictions": [],
+            "application": "MyVPQEMpMCDWV1LPHj7jc"
+        },
+        {
+            "autoGenerated": false,
+            "unrecognized": false,
+            "text": "give me details on Stephanou's Liberty Service Center",
+            "entities": [
+                {
+                    "entity": "DetailRequest",
+                    "children": [],
+                    "value": "on",
+                    "startPos": 0,
+                    "endPos": 17
+                },
+                {
+                    "entity": "SupplierKeyWord",
+                    "children": [],
+                    "value": "Center",
+                    "startPos": 47,
+                    "endPos": 52
+                }
+            ],
+            "intent": "fRVsMWeBng5aKZliBsjEp",
+            "dateCreated": 1628113431785,
+            "intentCreated": 1627904679560,
+            "appCreated": 1627904677549,
+            "entityPredictions": [],
+            "application": "9pO68jiLOj8YiK9LScLjH"
+        },
+        {
+            "appCreated": 1622122388704,
+            "autoGenerated": false,
+            "unrecognized": false,
+            "text": "What is the Cyber Security Risk rating of Ball Corp",
+            "intent": "6lBZ6ya5BISU5CvNZvKRW",
+            "intentCreated": 1622123527323,
+            "entities": [
+                {
+                    "entity": "RiskKeyWordEntity",
+                    "children": [],
+                    "value": "Risk",
+                    "startPos": 12,
+                    "endPos": 30
+                },
+                {
+                    "entity": "CyberSecurityRisk",
+                    "children": [],
+                    "value": "Risk",
+                    "startPos": 12,
+                    "endPos": 30
+                }
+            ],
+            "dateCreated": 1625776479994,
+            "entityPredictions": [],
+            "application": "MyVPQEMpMCDWV1LPHj7jc"
+        },
+        {
+            "appCreated": 1631188900343,
+            "autoGenerated": false,
+            "unrecognized": false,
+            "text": "why is the earth round",
+            "intent": "bQCgK958So2z4RwNK46Oo",
+            "intentCreated": 1631188902035,
+            "entities": [],
+            "application": "eiti30sKR89dgqsXeEufq",
+            "dateCreated": 1631202360118,
+            "entityPredictions": []
+        },
+        {
+            "autoGenerated": false,
+            "unrecognized": false,
+            "text": "what is the price of coffee in India",
+            "entities": [
+                {
+                    "entity": "DetailRequest",
+                    "children": [],
+                    "value": "the",
+                    "startPos": 0,
+                    "endPos": 10
+                },
+                {
+                    "entity": "PriceKeyWordEntity",
+                    "children": [],
+                    "value": "of",
+                    "startPos": 12,
+                    "endPos": 19
+                }
+            ],
+            "intent": "jOdq7n0VYcoMSzxxaPfEd",
+            "dateCreated": 1632926941781,
+            "intentCreated": 1629894072651,
+            "appCreated": 1629894071032,
+            "entityPredictions": [
+                {
+                    "phrase": "india",
+                    "entityName": "geographyV2",
+                    "entityType": 2,
+                    "startTokenIndex": 7,
+                    "endTokenIndex": 7,
+                    "startPos": 31,
+                    "endPos": 35
+                }
+            ],
+            "application": "UT_C1rbFQU56IvShb5wFr"
+        },
+        {
+            "appCreated": 1622122388704,
+            "autoGenerated": false,
+            "unrecognized": false,
+            "text": "Is my supplier risky",
+            "intent": "6lBZ6ya5BISU5CvNZvKRW",
+            "intentCreated": 1622123527323,
+            "entities": [
+                {
+                    "entity": "SupplierKeyWord",
+                    "children": [],
+                    "value": "supplier",
+                    "startPos": 6,
+                    "endPos": 13
+                },
+                {
+                    "entity": "RiskKeyWordEntity",
+                    "children": [],
+                    "value": "risky",
+                    "startPos": 15,
+                    "endPos": 19
+                }
+            ],
+            "dateCreated": 1625774235220,
+            "entityPredictions": [],
+            "application": "MyVPQEMpMCDWV1LPHj7jc"
+        },
+        {
+            "appCreated": 1622122388704,
+            "autoGenerated": false,
+            "unrecognized": false,
+            "text": "i would like to see the women owned non mbb suppliers who provide strategy consulting with sustainability certification a",
+            "intent": "LGLDxpIRj9_8VLeYIKrB9",
+            "intentCreated": 1622122390550,
+            "entities": [
+                {
+                    "entity": "DiversityEntity",
+                    "children": [],
+                    "value": "owned",
+                    "startPos": 24,
+                    "endPos": 34
+                },
+                {
+                    "entity": "SupplierKeyWord",
+                    "children": [],
+                    "value": "suppliers",
+                    "startPos": 44,
+                    "endPos": 52
+                },
+                {
+                    "entity": "SustainabilityEntity",
+                    "children": [],
+                    "value": "a",
+                    "startPos": 91,
+                    "endPos": 120
+                },
+                {
+                    "entity": "LookUpEntity",
+                    "children": [],
+                    "value": "see",
+                    "startPos": 16,
+                    "endPos": 18
+                }
+            ],
+            "dateCreated": 1626797794348,
+            "entityPredictions": [],
+            "application": "MyVPQEMpMCDWV1LPHj7jc"
+        },
+        {
+            "appCreated": 1627904677549,
+            "autoGenerated": false,
+            "unrecognized": false,
+            "text": "tell me about Ghsdfhd",
+            "intent": "fRVsMWeBng5aKZliBsjEp",
+            "intentCreated": 1627904679560,
+            "entities": [
+                {
+                    "entity": "DetailRequest",
+                    "children": [],
+                    "value": "about",
+                    "startPos": 0,
+                    "endPos": 12
+                }
+            ],
+            "dateCreated": 1627908531496,
+            "entityPredictions": [],
+            "application": "9pO68jiLOj8YiK9LScLjH"
+        },
+        {
+            "appCreated": 1622122388704,
+            "autoGenerated": false,
+            "unrecognized": false,
+            "text": "I would like to see suppliers who provide Strategy Consulting",
+            "intent": "LGLDxpIRj9_8VLeYIKrB9",
+            "intentCreated": 1622122390550,
+            "entities": [
+                {
+                    "entity": "LookUpEntity",
+                    "children": [],
+                    "value": "see",
+                    "startPos": 16,
+                    "endPos": 18
+                },
+                {
+                    "entity": "SupplierKeyWord",
+                    "children": [],
+                    "value": "suppliers",
+                    "startPos": 20,
+                    "endPos": 28
+                }
+            ],
+            "dateCreated": 1627264337259,
+            "entityPredictions": [],
+            "application": "MyVPQEMpMCDWV1LPHj7jc"
+        },
+        {
+            "autoGenerated": false,
+            "unrecognized": false,
+            "text": "pull out strategy consulting suppliers",
+            "entities": [
+                {
+                    "entity": "LookUpEntity",
+                    "children": [],
+                    "value": "out",
+                    "startPos": 0,
+                    "endPos": 7
+                },
+                {
+                    "entity": "SupplierKeyWord",
+                    "children": [],
+                    "value": "suppliers",
+                    "startPos": 29,
+                    "endPos": 37
+                }
+            ],
+            "intent": "LGLDxpIRj9_8VLeYIKrB9",
+            "dateCreated": 1628004720055,
+            "intentCreated": 1622122390550,
+            "appCreated": 1622122388704,
+            "entityPredictions": [],
+            "application": "MyVPQEMpMCDWV1LPHj7jc"
+        },
+        {
+            "appCreated": 1631188900343,
+            "autoGenerated": false,
+            "unrecognized": false,
+            "text": "how far is the airport from my location",
+            "intent": "bQCgK958So2z4RwNK46Oo",
+            "intentCreated": 1631188902035,
+            "entities": [
+                {
+                    "entity": "DistanceEntity",
+                    "children": [],
+                    "value": "far",
+                    "startPos": 4,
+                    "endPos": 6
+                }
+            ],
+            "dateCreated": 1631549568975,
+            "entityPredictions": [],
+            "application": "eiti30sKR89dgqsXeEufq"
+        },
+        {
+            "appCreated": 1631188900343,
+            "autoGenerated": false,
+            "unrecognized": false,
+            "text": "how long can a fully charged tesla drive",
+            "intent": "bQCgK958So2z4RwNK46Oo",
+            "intentCreated": 1631188902035,
+            "entities": [],
+            "application": "eiti30sKR89dgqsXeEufq",
+            "dateCreated": 1631202394132,
+            "entityPredictions": []
+        },
+        {
+            "autoGenerated": false,
+            "unrecognized": false,
+            "text": "what is the change in price of wine from January 2019 to January 2020",
+            "entities": [
+                {
+                    "entity": "DetailRequest",
+                    "children": [],
+                    "value": "the",
+                    "startPos": 0,
+                    "endPos": 10
+                },
+                {
+                    "entity": "PriceChangeEntity",
+                    "children": [],
+                    "value": "in",
+                    "startPos": 12,
+                    "endPos": 20
+                },
+                {
+                    "entity": "PriceKeyWordEntity",
+                    "children": [],
+                    "value": "of",
+                    "startPos": 22,
+                    "endPos": 29
+                }
+            ],
+            "intent": "jOdq7n0VYcoMSzxxaPfEd",
+            "dateCreated": 1633381862748,
+            "intentCreated": 1629894072651,
+            "appCreated": 1629894071032,
+            "entityPredictions": [
+                {
+                    "phrase": "from january 2019 to january 2020",
+                    "entityName": "datetimeV2",
+                    "entityType": 2,
+                    "startTokenIndex": 8,
+                    "endTokenIndex": 13,
+                    "startPos": 36,
+                    "endPos": 68
+                },
+                {
+                    "phrase": "2019",
+                    "entityName": "number",
+                    "entityType": 2,
+                    "startTokenIndex": 10,
+                    "endTokenIndex": 10,
+                    "startPos": 49,
+                    "endPos": 52
+                },
+                {
+                    "phrase": "2020",
+                    "entityName": "number",
+                    "entityType": 2,
+                    "startTokenIndex": 13,
+                    "endTokenIndex": 13,
+                    "startPos": 65,
+                    "endPos": 68
+                }
+            ],
+            "application": "UT_C1rbFQU56IvShb5wFr"
+        },
+        {
+            "appCreated": 1622122388704,
+            "autoGenerated": false,
+            "unrecognized": false,
+            "text": "what is the latest news on Abc",
+            "intent": "6lBZ6ya5BISU5CvNZvKRW",
+            "intentCreated": 1622123527323,
+            "entities": [
+                {
+                    "entity": "AdverseMediaRiskEntity",
+                    "children": [],
+                    "value": "news",
+                    "startPos": 12,
+                    "endPos": 22
+                }
+            ],
+            "dateCreated": 1626441191657,
+            "entityPredictions": [],
+            "application": "MyVPQEMpMCDWV1LPHj7jc"
+        },
+        {
+            "appCreated": 1622122388704,
+            "autoGenerated": false,
+            "unrecognized": false,
+            "text": "Display the list of Top Management Consulting Suppliers by Revenue",
+            "intent": "LGLDxpIRj9_8VLeYIKrB9",
+            "intentCreated": 1622122390550,
+            "entities": [
+                {
+                    "entity": "SupplierKeyWord",
+                    "startPos": 46,
+                    "endPos": 54,
+                    "children": [],
+                    "value": "suppliers"
+                },
+                {
+                    "entity": "LookUpEntity",
+                    "children": [],
+                    "value": "Display",
+                    "startPos": 0,
+                    "endPos": 6
+                }
+            ],
+            "dateCreated": 1626792564120,
+            "entityPredictions": [
+                {
+                    "phrase": "top",
+                    "entityName": "HierarchicalEntity",
+                    "entityType": 5,
+                    "startTokenIndex": 4,
+                    "endTokenIndex": 4,
+                    "startPos": 20,
+                    "endPos": 22
+                }
+            ],
+            "application": "MyVPQEMpMCDWV1LPHj7jc"
+        },
+        {
+            "autoGenerated": false,
+            "unrecognized": false,
+            "text": "I'm looking for beverage can suppliers",
+            "entities": [
+                {
+                    "entity": "LookUpEntity",
+                    "children": [],
+                    "value": "for",
+                    "startPos": 0,
+                    "endPos": 14
+                },
+                {
+                    "entity": "SupplierKeyWord",
+                    "children": [],
+                    "value": "suppliers",
+                    "startPos": 29,
+                    "endPos": 37
+                }
+            ],
+            "intent": "LGLDxpIRj9_8VLeYIKrB9",
+            "dateCreated": 1628041979779,
+            "intentCreated": 1622122390550,
+            "appCreated": 1622122388704,
+            "entityPredictions": [],
+            "application": "MyVPQEMpMCDWV1LPHj7jc"
+        },
+        {
+            "appCreated": 1627904677549,
+            "autoGenerated": false,
+            "unrecognized": false,
+            "text": "give me details on In and Out Burger",
+            "intent": "fRVsMWeBng5aKZliBsjEp",
+            "intentCreated": 1627904679560,
+            "entities": [
+                {
+                    "entity": "DetailRequest",
+                    "children": [],
+                    "value": "details",
+                    "startPos": 0,
+                    "endPos": 14
+                },
+                {
+                    "entity": "CommonWordEntity",
+                    "children": [],
+                    "value": "on",
+                    "startPos": 16,
+                    "endPos": 17
+                }
+            ],
+            "dateCreated": 1627909083297,
+            "entityPredictions": [],
+            "application": "9pO68jiLOj8YiK9LScLjH"
+        },
+        {
+            "appCreated": 1622122388704,
+            "autoGenerated": false,
+            "unrecognized": false,
+            "text": "display non mbb suppliers providing strategy consulting",
+            "intent": "LGLDxpIRj9_8VLeYIKrB9",
+            "intentCreated": 1622122390550,
+            "entities": [
+                {
+                    "entity": "SupplierKeyWord",
+                    "children": [],
+                    "value": "suppliers",
+                    "startPos": 16,
+                    "endPos": 24
+                },
+                {
+                    "entity": "UniqueQueryEntity",
+                    "children": [],
+                    "value": "mbb",
+                    "startPos": 12,
+                    "endPos": 14
+                },
+                {
+                    "entity": "LookUpEntity",
+                    "children": [],
+                    "value": "display",
+                    "startPos": 0,
+                    "endPos": 6
+                }
+            ],
+            "dateCreated": 1626803681312,
+            "entityPredictions": [],
+            "application": "MyVPQEMpMCDWV1LPHj7jc"
+        },
+        {
+            "autoGenerated": false,
+            "unrecognized": false,
+            "text": "I'm looking for a tennis ball supplier in the United States",
+            "entities": [
+                {
+                    "entity": "LookUpEntity",
+                    "children": [],
+                    "value": "a",
+                    "startPos": 0,
+                    "endPos": 16
+                },
+                {
+                    "entity": "SupplierKeyWord",
+                    "children": [],
+                    "value": "supplier",
+                    "startPos": 30,
+                    "endPos": 37
+                }
+            ],
+            "intent": "LGLDxpIRj9_8VLeYIKrB9",
+            "dateCreated": 1628092980114,
+            "intentCreated": 1622122390550,
+            "appCreated": 1622122388704,
+            "entityPredictions": [
+                {
+                    "phrase": "united states",
+                    "entityName": "geographyV2",
+                    "entityType": 2,
+                    "startTokenIndex": 11,
+                    "endTokenIndex": 12,
+                    "startPos": 46,
+                    "endPos": 58
+                }
+            ],
+            "application": "MyVPQEMpMCDWV1LPHj7jc"
+        },
+        {
+            "autoGenerated": false,
+            "unrecognized": false,
+            "text": "what is the price of hair cut in china",
+            "entities": [
+                {
+                    "entity": "DetailRequest",
+                    "children": [],
+                    "value": "the",
+                    "startPos": 0,
+                    "endPos": 10
+                },
+                {
+                    "entity": "PriceKeyWordEntity",
+                    "children": [],
+                    "value": "of",
+                    "startPos": 12,
+                    "endPos": 19
+                }
+            ],
+            "intent": "jOdq7n0VYcoMSzxxaPfEd",
+            "dateCreated": 1632947051620,
+            "intentCreated": 1629894072651,
+            "appCreated": 1629894071032,
+            "entityPredictions": [
+                {
+                    "phrase": "china",
+                    "entityName": "geographyV2",
+                    "entityType": 2,
+                    "startTokenIndex": 8,
+                    "endTokenIndex": 8,
+                    "startPos": 33,
+                    "endPos": 37
+                }
+            ],
+            "application": "UT_C1rbFQU56IvShb5wFr"
+        },
+        {
+            "appCreated": 1622122388704,
+            "autoGenerated": false,
+            "unrecognized": false,
+            "text": "what is the impact of disruptions on abc's capacity",
+            "intent": "6lBZ6ya5BISU5CvNZvKRW",
+            "intentCreated": 1622123527323,
+            "entities": [],
+            "dateCreated": 1626354796519,
+            "entityPredictions": [
+                {
+                    "phrase": "capacity",
+                    "entityName": "TypesDisruptionEntity",
+                    "entityType": 5,
+                    "startTokenIndex": 10,
+                    "endTokenIndex": 10,
+                    "startPos": 43,
+                    "endPos": 50
+                }
+            ],
+            "application": "MyVPQEMpMCDWV1LPHj7jc"
+        },
+        {
+            "appCreated": 1622122388704,
+            "autoGenerated": false,
+            "unrecognized": false,
+            "text": "is heidi financially at risk ?",
+            "intent": "6lBZ6ya5BISU5CvNZvKRW",
+            "intentCreated": 1622123527323,
+            "entities": [
+                {
+                    "entity": "FinancialRiskEntity",
+                    "children": [],
+                    "value": "financially",
+                    "startPos": 9,
+                    "endPos": 19
+                },
+                {
+                    "entity": "RiskKeyWordEntity",
+                    "children": [],
+                    "value": "risk",
+                    "startPos": 24,
+                    "endPos": 27
+                }
+            ],
+            "dateCreated": 1626281701255,
+            "entityPredictions": [
+                {
+                    "entity": "NounEntity",
+                    "startPos": 3,
+                    "endPos": 29,
+                    "value": "heidi financially at risk ?"
+                }
+            ],
+            "application": "MyVPQEMpMCDWV1LPHj7jc"
+        },
+        {
+            "appCreated": 1631188900343,
+            "autoGenerated": false,
+            "unrecognized": false,
+            "text": "test",
+            "intent": "bQCgK958So2z4RwNK46Oo",
+            "intentCreated": 1631188902035,
+            "entities": [],
+            "application": "eiti30sKR89dgqsXeEufq",
+            "dateCreated": 1631188904881,
+            "entityPredictions": []
+        },
+        {
+            "autoGenerated": false,
+            "unrecognized": false,
+            "text": "what's up with you",
+            "entities": [
+                {
+                    "entity": "GreetingEntity",
+                    "children": [],
+                    "value": "up",
+                    "startPos": 0,
+                    "endPos": 8
+                }
+            ],
+            "intent": "bQCgK958So2z4RwNK46Oo",
+            "dateCreated": 1631202326578,
+            "intentCreated": 1631188902035,
+            "appCreated": 1631188900343,
+            "entityPredictions": [],
+            "application": "eiti30sKR89dgqsXeEufq"
+        }
+    ],
+    "patterns": [],
+    "postprocessFlows": [],
+    "simpleEntities": [
+        {
+            "name": "FinancialRiskEntity",
+            "roles": [],
+            "children": [],
+            "features": [
+                {
+                    "featureName": "FinancialRisk",
+                    "isRequired": false
+                }
+            ]
+        },
+        {
+            "name": "SustainabilityEntity",
+            "roles": [],
+            "children": [],
+            "features": [
+                {
+                    "featureName": "sustainability",
+                    "isRequired": false
+                }
+            ]
+        },
+        {
+            "name": "PriceChangeEntity",
+            "roles": [],
+            "children": [],
+            "features": [
+                {
+                    "featureName": "price_change",
+                    "isRequired": false
+                }
+            ]
+        },
+        {
+            "name": "GreetingEntity",
+            "roles": [],
+            "children": [],
+            "features": [
+                {
+                    "featureName": "greet",
+                    "isRequired": false
+                }
+            ]
+        },
+        {
+            "name": "ConnectToAnalystEntity",
+            "roles": [],
+            "children": [],
+            "features": [
+                {
+                    "featureName": "toAnalyst",
+                    "isRequired": false
+                }
+            ]
+        },
+        {
+            "name": "UniqueQueryEntity",
+            "roles": [],
+            "children": [],
+            "features": [
+                {
+                    "featureName": "UniqueQuery",
+                    "isRequired": false
+                }
+            ]
+        },
+        {
+            "name": "RiskKeyWordEntity",
+            "roles": [],
+            "children": [],
+            "features": [
+                {
+                    "featureName": "risks",
+                    "isRequired": false
+                }
+            ]
+        },
+        {
+            "name": "PriceKeyWordEntity",
+            "roles": [],
+            "children": [],
+            "features": [
+                {
+                    "featureName": "price",
+                    "isRequired": false
+                }
+            ]
+        },
+        {
+            "name": "ContributingFactorEntity",
+            "roles": [],
+            "children": [],
+            "features": [
+                {
+                    "featureName": "contribution",
+                    "isRequired": false
+                }
+            ]
+        },
+        {
+            "name": "DiversityEntity",
+            "roles": [],
+            "children": [
+                {
+                    "name": "business type",
+                    "features": [
+                        {
+                            "featureName": "businessTypes",
+                            "isRequired": false
+                        }
+                    ],
+                    "children": [],
+                    "id": "A3kHkamizqKawI0ji_0PK"
+                },
+                {
+                    "name": "diversity type",
+                    "features": [
+                        {
+                            "featureName": "diversity",
+                            "isRequired": false
+                        }
+                    ],
+                    "children": [],
+                    "id": "P8bELKQLek4cl8lN_pU7C"
+                }
+            ],
+            "features": []
+        },
+        {
+            "name": "SupplierKeyWord",
+            "roles": [],
+            "children": [],
+            "features": [
+                {
+                    "featureName": "supplier",
+                    "isRequired": false
+                }
+            ]
+        },
+        {
+            "name": "CyberSecurityRisk",
+            "roles": [],
+            "children": [],
+            "features": [
+                {
+                    "featureName": "cyber",
+                    "isRequired": false
+                }
+            ]
+        },
+        {
+            "name": "DistanceEntity",
+            "roles": [],
+            "children": [],
+            "features": [
+                {
+                    "featureName": "distance",
+                    "isRequired": false
+                }
+            ]
+        },
+        {
+            "name": "LookUpEntity",
+            "roles": [],
+            "children": [],
+            "features": [
+                {
+                    "featureName": "find",
+                    "isRequired": false
+                }
+            ]
+        },
+        {
+            "name": "GeoPoliticalRisk",
+            "roles": [],
+            "children": [],
+            "features": [
+                {
+                    "featureName": "geopolitcalRisk",
+                    "isRequired": false
+                }
+            ]
+        },
+        {
+            "name": "AdverseMediaRiskEntity",
+            "roles": [],
+            "children": [],
+            "features": [
+                {
+                    "featureName": "AdverseMedia",
+                    "isRequired": false
+                }
+            ]
+        },
+        {
+            "name": "DisruptionRiskEntity",
+            "roles": [],
+            "children": [],
+            "features": [
+                {
+                    "featureName": "disruptions",
+                    "isRequired": false
+                }
+            ]
+        },
+        {
+            "name": "DetailRequest",
+            "roles": [],
+            "children": [],
+            "features": [
+                {
+                    "featureName": "details",
+                    "isRequired": false
+                }
+            ]
+        },
+        {
+            "name": "CommonWordEntity",
+            "roles": [],
+            "children": [],
+            "features": [
+                {
+                    "featureName": "commonWords",
+                    "isRequired": false
+                }
+            ]
+        }
+    ],
+    "regexEntities": [
+    ],
+    "prebuiltEntities": [
+        {
+            "name": "geographyV2",
+            "roles": []
+        },
+        {
+            "name": "number",
+            "roles": []
+        },
+        {
+            "name": "datetimeV2",
+            "roles": []
+        },
+        {
+            "name": "ordinal",
+            "roles": []
+        }
+    ],
+    "listEntities": [
+        {
+          "name": "CategoryListEntity",
+          "subLists": [
+              {
+                  "canonicalForm": "Beverage Cans",
+                  "list": [
+                      "beverage can"
+                  ]
+              },
+              {
+                  "canonicalForm": "Big Data Solutions",
+                  "list": []
+              },
+              {
+                  "canonicalForm": "Biomarkers",
+                  "list": []
+              },
+              {
+                  "canonicalForm": "Blister Packaging",
+                  "list": []
+              },
+              {
+                  "canonicalForm": "Bulk Drums",
+                  "list": []
+              },
+              {
+                  "canonicalForm": "Business Intelligence",
+                  "list": []
+              },
+              {
+                  "canonicalForm": "Butter",
+                  "list": []
+              },
+              {
+                  "canonicalForm": "CMO Formulation",
+                  "list": []
+              },
+              {
+                  "canonicalForm": "Cable Harnesses",
+                  "list": []
+              },
+              {
+                  "canonicalForm": "Cables",
+                  "list": []
+              },
+              {
+                  "canonicalForm": "Calcium Carbonate (CaCo3)",
+                  "list": []
+              },
+              {
+                  "canonicalForm": "Calcium Chloride (CaCl2)",
+                  "list": []
+              },
+              {
+                  "canonicalForm": "Calcium Phosphate (CA3(PO4)2",
+                  "list": []
+              },
+              {
+                  "canonicalForm": "Caps and Closures",
+                  "list": []
+              },
+              {
+                  "canonicalForm": "Car Rentals",
+                  "list": []
+              },
+              {
+                  "canonicalForm": "Carbon Black",
+                  "list": []
+              },
+              {
+                  "canonicalForm": "Carbon Steel",
+                  "list": []
+              },
+              {
+                  "canonicalForm": "Carrageenan",
+                  "list": []
+              },
+              {
+                  "canonicalForm": "Carton Boards",
+                  "list": []
+              },
+              {
+                  "canonicalForm": "Cash-In-Transit Services",
+                  "list": []
+              },
+              {
+                  "canonicalForm": "Cashew Nuts",
+                  "list": []
+              },
+              {
+                  "canonicalForm": "Castor Oil",
+                  "list": []
+              },
+              {
+                  "canonicalForm": "Catering Services",
+                  "list": []
+              },
+              {
+                  "canonicalForm": "Caustic Soda",
+                  "list": []
+              },
+              {
+                  "canonicalForm": "Cedar Wood Oil",
+                  "list": []
+              },
+              {
+                  "canonicalForm": "Cell Culture Media",
+                  "list": []
+              },
+              {
+                  "canonicalForm": "Cellulose Ethers and Its Derivatives",
+                  "list": []
+              },
+              {
+                  "canonicalForm": "Cementing Chemicals",
+                  "list": []
+              },
+              {
+                  "canonicalForm": "Cheese",
+                  "list": []
+              },
+              {
+                  "canonicalForm": "Cheque Processing Services",
+                  "list": []
+              },
+              {
+                  "canonicalForm": "Chromatography Resins",
+                  "list": []
+              },
+              {
+                  "canonicalForm": "Citric Acid",
+                  "list": []
+              },
+              {
+                  "canonicalForm": "Benzene",
+                  "list": []
+              },
+              {
+                  "canonicalForm": "Beef",
+                  "list": []
+              },
+              {
+                  "canonicalForm": "Bearings",
+                  "list": []
+              },
+              {
+                  "canonicalForm": "Batteries",
+                  "list": []
+              },
+              {
+                  "canonicalForm": "Base Oil - Group II",
+                  "list": []
+              },
+              {
+                  "canonicalForm": "Barley",
+                  "list": []
+              },
+              {
+                  "canonicalForm": "BA/BE Studies",
+                  "list": []
+              },
+              {
+                  "canonicalForm": "Aspirin",
+                  "list": []
+              },
+              {
+                  "canonicalForm": "Aspartame",
+                  "list": []
+              },
+              {
+                  "canonicalForm": "Artificial Intelligence",
+                  "list": []
+              },
+              {
+                  "canonicalForm": "Apples",
+                  "list": []
+              },
+              {
+                  "canonicalForm": "Antibody Vaccines",
+                  "list": []
+              },
+              {
+                  "canonicalForm": "Anti-Money Laundering Software",
+                  "list": []
+              },
+              {
+                  "canonicalForm": "Analytical Testing Services",
+                  "list": []
+              },
+              {
+                  "canonicalForm": "Ammonia",
+                  "list": []
+              },
+              {
+                  "canonicalForm": "Aluminum Foils",
+                  "list": []
+              },
+              {
+                  "canonicalForm": "Aluminum Collapsible Tubes",
+                  "list": []
+              },
+              {
+                  "canonicalForm": "Aluminum",
+                  "list": []
+              },
+              {
+                  "canonicalForm": "Almonds",
+                  "list": []
+              },
+              {
+                  "canonicalForm": "Air Freight Services",
+                  "list": []
+              },
+              {
+                  "canonicalForm": "Aerosol Cans",
+                  "list": []
+              },
+              {
+                  "canonicalForm": "Advertisement Production",
+                  "list": []
+              },
+              {
+                  "canonicalForm": "Active Components",
+                  "list": []
+              },
+              {
+                  "canonicalForm": "Activated Carbon",
+                  "list": []
+              },
+              {
+                  "canonicalForm": "Acrylic Acid",
+                  "list": []
+              },
+              {
+                  "canonicalForm": "Acetone",
+                  "list": []
+              },
+              {
+                  "canonicalForm": "Acetic Acid",
+                  "list": []
+              },
+              {
+                  "canonicalForm": "Ace-K",
+                  "list": []
+              },
+              {
+                  "canonicalForm": "Academic Research",
+                  "list": []
+              },
+              {
+                  "canonicalForm": "ATM Services",
+                  "list": []
+              },
+              {
+                  "canonicalForm": "API Povidone Iodine",
+                  "list": []
+              },
+              {
+                  "canonicalForm": "ABS",
+                  "list": []
+              },
+              {
+                  "canonicalForm": "4PL Services",
+                  "list": []
+              },
+              {
+                  "canonicalForm": "3PL Services",
+                  "list": []
+              },
+              {
+                  "canonicalForm": "3D Printing Services",
+                  "list": [
+                      "aluminum"
+                  ]
+              },
+              {
+                  "canonicalForm": "Cleaning Services",
+                  "list": []
+              },
+              {
+                  "canonicalForm": "Clinical IT Services",
+                  "list": []
+              },
+              {
+                  "canonicalForm": "Clinical Logistics",
+                  "list": []
+              },
+              {
+                  "canonicalForm": "Clinical Staffing Services",
+                  "list": []
+              },
+              {
+                  "canonicalForm": "Clinical Trials",
+                  "list": []
+              },
+              {
+                  "canonicalForm": "Clinical Wearables",
+                  "list": []
+              },
+              {
+                  "canonicalForm": "Clove Oil",
+                  "list": []
+              },
+              {
+                  "canonicalForm": "Cocoa",
+                  "list": []
+              },
+              {
+                  "canonicalForm": "Coconut Oil",
+                  "list": []
+              },
+              {
+                  "canonicalForm": "Cold Chain Logistics",
+                  "list": []
+              },
+              {
+                  "canonicalForm": "Commercial Print Services",
+                  "list": []
+              },
+              {
+                  "canonicalForm": "Commercial Real Estate Services",
+                  "list": []
+              },
+              {
+                  "canonicalForm": "Commissioning Services",
+                  "list": []
+              },
+              {
+                  "canonicalForm": "Comparator Drugs",
+                  "list": []
+              },
+              {
+                  "canonicalForm": "Completion Chemicals",
+                  "list": []
+              },
+              {
+                  "canonicalForm": "Connectors",
+                  "list": []
+              },
+              {
+                  "canonicalForm": "Consumer Healthcare Services",
+                  "list": []
+              },
+              {
+                  "canonicalForm": "Contact Centers",
+                  "list": []
+              },
+              {
+                  "canonicalForm": "Contract Mining Services",
+                  "list": []
+              },
+              {
+                  "canonicalForm": "Contract Sales Organization",
+                  "list": []
+              },
+              {
+                  "canonicalForm": "Copper and Copper Semis",
+                  "list": []
+              },
+              {
+                  "canonicalForm": "Core Labs",
+                  "list": []
+              },
+              {
+                  "canonicalForm": "Corn",
+                  "list": []
+              },
+              {
+                  "canonicalForm": "Corporate Cards",
+                  "list": []
+              },
+              {
+                  "canonicalForm": "Corporate Health And Wellness Management",
+                  "list": []
+              },
+              {
+                  "canonicalForm": "Corporate Tax Services",
+                  "list": []
+              },
+              {
+                  "canonicalForm": "Corrugated Boards",
+                  "list": []
+              },
+              {
+                  "canonicalForm": "Courier, Express and Parcel Services",
+                  "list": []
+              },
+              {
+                  "canonicalForm": "Creative Advertising",
+                  "list": []
+              },
+              {
+                  "canonicalForm": "Credit Bureau Services",
+                  "list": []
+              },
+              {
+                  "canonicalForm": "Crude Oil",
+                  "list": []
+              },
+              {
+                  "canonicalForm": "Customer Relationship Management (CRM)",
+                  "list": []
+              },
+              {
+                  "canonicalForm": "DIN Rail Terminal Blocks",
+                  "list": []
+              },
+              {
+                  "canonicalForm": "DNA Sequencing",
+                  "list": []
+              },
+              {
+                  "canonicalForm": "DNA Vaccines",
+                  "list": []
+              },
+              {
+                  "canonicalForm": "Data Center Hosting Services",
+                  "list": []
+              },
+              {
+                  "canonicalForm": "Database Management System (DBMS)",
+                  "list": []
+              },
+              {
+                  "canonicalForm": "Debt Collection Services",
+                  "list": []
+              },
+              {
+                  "canonicalForm": "Debt Collection Software",
+                  "list": []
+              },
+              {
+                  "canonicalForm": "Debt Sales",
+                  "list": []
+              },
+              {
+                  "canonicalForm": "Deep Freezers",
+                  "list": []
+              },
+              {
+                  "canonicalForm": "Dibasic Calcium Phosphate",
+                  "list": []
+              },
+              {
+                  "canonicalForm": "Diesel",
+                  "list": []
+              },
+              {
+                  "canonicalForm": "Digital Marketing Services",
+                  "list": []
+              },
+              {
+                  "canonicalForm": "Digital Payment Services",
+                  "list": []
+              },
+              {
+                  "canonicalForm": "Dimethicone",
+                  "list": []
+              },
+              {
+                  "canonicalForm": "Direct Mail Services",
+                  "list": []
+              },
+              {
+                  "canonicalForm": "Directional Drilling Services",
+                  "list": []
+              },
+              {
+                  "canonicalForm": "Discovery Services",
+                  "list": []
+              },
+              {
+                  "canonicalForm": "Disposable Gloves",
+                  "list": []
+              },
+              {
+                  "canonicalForm": "Drilling Chemicals",
+                  "list": []
+              },
+              {
+                  "canonicalForm": "Drilling Equipment and Consumables",
+                  "list": []
+              },
+              {
+                  "canonicalForm": "ERP Software",
+                  "list": []
+              },
+              {
+                  "canonicalForm": "Eggs",
+                  "list": []
+              },
+              {
+                  "canonicalForm": "Electrical Design & Engineering Services",
+                  "list": []
+              },
+              {
+                  "canonicalForm": "Electricity",
+                  "list": []
+              },
+              {
+                  "canonicalForm": "Electronic Manufacturing Services",
+                  "list": []
+              },
+              {
+                  "canonicalForm": "Employee Relocation Management",
+                  "list": []
+              },
+              {
+                  "canonicalForm": "Empty Capsules",
+                  "list": []
+              },
+              {
+                  "canonicalForm": "Emulsifiers",
+                  "list": []
+              },
+              {
+                  "canonicalForm": "Energy As A Service (Eaas)",
+                  "list": []
+              },
+              {
+                  "canonicalForm": "Engineering And Design Services",
+                  "list": []
+              },
+              {
+                  "canonicalForm": "Enterprise Routers And Switches",
+                  "list": []
+              },
+              {
+                  "canonicalForm": "Epoxy resins",
+                  "list": []
+              },
+              {
+                  "canonicalForm": "Ethanolamine",
+                  "list": []
+              },
+              {
+                  "canonicalForm": "Ethyl Acetate",
+                  "list": []
+              },
+              {
+                  "canonicalForm": "Ethylene Glycol MEG",
+                  "list": []
+              },
+              {
+                  "canonicalForm": "Explosive Accessories",
+                  "list": []
+              },
+              {
+                  "canonicalForm": "Explosives",
+                  "list": []
+              },
+              {
+                  "canonicalForm": "External Audit Services",
+                  "list": []
+              },
+              {
+                  "canonicalForm": "Face Masks",
+                  "list": []
+              },
+              {
+                  "canonicalForm": "Fasteners",
+                  "list": []
+              },
+              {
+                  "canonicalForm": "Finance Accounting And Outsourcing",
+                  "list": []
+              },
+              {
+                  "canonicalForm": "Fixed Line Services",
+                  "list": []
+              },
+              {
+                  "canonicalForm": "Fleet Management",
+                  "list": []
+              },
+              {
+                  "canonicalForm": "Flexible Intermediate Bulk Containers (FIBC)",
+                  "list": []
+              },
+              {
+                  "canonicalForm": "Floating Production Storage And Offloading",
+                  "list": []
+              },
+              {
+                  "canonicalForm": "Flooring Services",
+                  "list": []
+              },
+              {
+                  "canonicalForm": "Flow Chambers",
+                  "list": []
+              },
+              {
+                  "canonicalForm": "Fluff Pulp",
+                  "list": []
+              },
+              {
+                  "canonicalForm": "Forgings",
+                  "list": []
+              },
+              {
+                  "canonicalForm": "Fracking Proppants",
+                  "list": []
+              },
+              {
+                  "canonicalForm": "Fraud Prevention Systems",
+                  "list": []
+              },
+              {
+                  "canonicalForm": "Fuel Oil",
+                  "list": []
+              },
+              {
+                  "canonicalForm": "Gearboxes and Crushers",
+                  "list": []
+              },
+              {
+                  "canonicalForm": "Gelatin",
+                  "list": []
+              },
+              {
+                  "canonicalForm": "Gene Therapy Trials",
+                  "list": []
+              },
+              {
+                  "canonicalForm": "General/ Civil Construction Services",
+                  "list": []
+              },
+              {
+                  "canonicalForm": "Glass Bottles",
+                  "list": []
+              },
+              {
+                  "canonicalForm": "Glycerin",
+                  "list": []
+              },
+              {
+                  "canonicalForm": "Glycol Ethers",
+                  "list": []
+              },
+              {
+                  "canonicalForm": "Grinding Media",
+                  "list": []
+              },
+              {
+                  "canonicalForm": "Guar Gum",
+                  "list": []
+              },
+              {
+                  "canonicalForm": "Gum Turpentine",
+                  "list": []
+              },
+              {
+                  "canonicalForm": "HDPE",
+                  "list": []
+              },
+              {
+                  "canonicalForm": "HEOR Services",
+                  "list": []
+              },
+              {
+                  "canonicalForm": "HVAC Maintenance Services",
+                  "list": []
+              },
+              {
+                  "canonicalForm": "Hazardous/Solid Waste Management",
+                  "list": []
+              },
+              {
+                  "canonicalForm": "Heavy Mining Equipment",
+                  "list": []
+              },
+              {
+                  "canonicalForm": "High-Fructose Corn Syrup",
+                  "list": []
+              },
+              {
+                  "canonicalForm": "Hops & Adjuncts",
+                  "list": []
+              },
+              {
+                  "canonicalForm": "Hotels",
+                  "list": []
+              },
+              {
+                  "canonicalForm": "Hydraulic And Pneumatic Components",
+                  "list": []
+              },
+              {
+                  "canonicalForm": "Hydraulic Fracturing Services",
+                  "list": []
+              },
+              {
+                  "canonicalForm": "Hydrogen Peroxide",
+                  "list": []
+              },
+              {
+                  "canonicalForm": "Hydroxychloroquine",
+                  "list": []
+              },
+              {
+                  "canonicalForm": "Hydroxypropyl Methylcellulose",
+                  "list": []
+              },
+              {
+                  "canonicalForm": "IT Managed Security Services",
+                  "list": []
+              },
+              {
+                  "canonicalForm": "IT Services Outsourcing",
+                  "list": []
+              },
+              {
+                  "canonicalForm": "Ibuprofen",
+                  "list": []
+              },
+              {
+                  "canonicalForm": "In-Vitro Toxicology",
+                  "list": []
+              },
+              {
+                  "canonicalForm": "In-Vivo Toxicology Testing",
+                  "list": []
+              },
+              {
+                  "canonicalForm": "Industrial Ethanol",
+                  "list": []
+              },
+              {
+                  "canonicalForm": "Industrial Gases",
+                  "list": []
+              },
+              {
+                  "canonicalForm": "Industrial Motors",
+                  "list": []
+              },
+              {
+                  "canonicalForm": "Industrial Pumps",
+                  "list": []
+              },
+              {
+                  "canonicalForm": "Industrial Valves",
+                  "list": []
+              },
+              {
+                  "canonicalForm": "Injectors",
+                  "list": []
+              },
+              {
+                  "canonicalForm": "Insurance Services",
+                  "list": []
+              },
+              {
+                  "canonicalForm": "Integrated Facilities Management",
+                  "list": []
+              },
+              {
+                  "canonicalForm": "Investment Management",
+                  "list": []
+              },
+              {
+                  "canonicalForm": "Iron Castings",
+                  "list": []
+              },
+              {
+                  "canonicalForm": "Iron Ore",
+                  "list": []
+              },
+              {
+                  "canonicalForm": "Isopropanol",
+                  "list": []
+              },
+              {
+                  "canonicalForm": "Jerry Cans",
+                  "list": []
+              },
+              {
+                  "canonicalForm": "LAB",
+                  "list": []
+              },
+              {
+                  "canonicalForm": "LDPE",
+                  "list": []
+              },
+              {
+                  "canonicalForm": "LLDPE",
+                  "list": []
+              },
+              {
+                  "canonicalForm": "Lab Centrifuges",
+                  "list": []
+              },
+              {
+                  "canonicalForm": "Lab Chemicals",
+                  "list": []
+              },
+              {
+                  "canonicalForm": "Lab Glassware",
+                  "list": []
+              },
+              {
+                  "canonicalForm": "Lab Supplies",
+                  "list": []
+              },
+              {
+                  "canonicalForm": "Labels",
+                  "list": []
+              },
+              {
+                  "canonicalForm": "Lactic Acid",
+                  "list": []
+              },
+              {
+                  "canonicalForm": "Laminate Collapsible Tubes",
+                  "list": []
+              },
+              {
+                  "canonicalForm": "Lard",
+                  "list": []
+              },
+              {
+                  "canonicalForm": "Laundry Services",
+                  "list": []
+              },
+              {
+                  "canonicalForm": "Leaflets",
+                  "list": []
+              },
+              {
+                  "canonicalForm": "Learning & Development",
+                  "list": []
+              },
+              {
+                  "canonicalForm": "Legal Services",
+                  "list": []
+              },
+              {
+                  "canonicalForm": "Lighting Services",
+                  "list": []
+              },
+              {
+                  "canonicalForm": "Lime",
+                  "list": []
+              },
+              {
+                  "canonicalForm": "Liquid Chromatography",
+                  "list": []
+              },
+              {
+                  "canonicalForm": "Lockbox Services",
+                  "list": []
+              },
+              {
+                  "canonicalForm": "Lotion Pumps",
+                  "list": []
+              },
+              {
+                  "canonicalForm": "Loyalty Programs",
+                  "list": []
+              },
+              {
+                  "canonicalForm": "Lubricants And Greases",
+                  "list": []
+              },
+              {
+                  "canonicalForm": "Machining",
+                  "list": []
+              },
+              {
+                  "canonicalForm": "Magnesium Chloride (MgCl2)",
+                  "list": []
+              },
+              {
+                  "canonicalForm": "Maintenance Repair & Overhaul (MRO)",
+                  "list": []
+              },
+              {
+                  "canonicalForm": "Maintenance Services",
+                  "list": []
+              },
+              {
+                  "canonicalForm": "Management Consulting",
+                  "list": []
+              },
+              {
+                  "canonicalForm": "Mannequins",
+                  "list": []
+              },
+              {
+                  "canonicalForm": "Mannitol",
+                  "list": []
+              },
+              {
+                  "canonicalForm": "Marketing Fulfilment Services",
+                  "list": []
+              },
+              {
+                  "canonicalForm": "Material Handling Equipment (MHE)",
+                  "list": []
+              },
+              {
+                  "canonicalForm": "Mechanical, Electrical And Plumbing Services",
+                  "list": []
+              },
+              {
+                  "canonicalForm": "Media Monitoring Services",
+                  "list": []
+              },
+              {
+                  "canonicalForm": "Media Planning And Buying",
+                  "list": []
+              },
+              {
+                  "canonicalForm": "Medical Agencies",
+                  "list": []
+              },
+              {
+                  "canonicalForm": "Medical Coveralls",
+                  "list": []
+              },
+              {
+                  "canonicalForm": "Medical Writing Services",
+                  "list": []
+              },
+              {
+                  "canonicalForm": "Meetings & Events",
+                  "list": []
+              },
+              {
+                  "canonicalForm": "Mentha Oil",
+                  "list": []
+              },
+              {
+                  "canonicalForm": "Menthol",
+                  "list": []
+              },
+              {
+                  "canonicalForm": "Metal Drums",
+                  "list": []
+              },
+              {
+                  "canonicalForm": "Metal Stamping and Fabrication",
+                  "list": []
+              },
+              {
+                  "canonicalForm": "Methanol",
+                  "list": []
+              },
+              {
+                  "canonicalForm": "Methyl Ester Sulfonate",
+                  "list": []
+              },
+              {
+                  "canonicalForm": "Methyl Isobutyl Ketone",
+                  "list": []
+              },
+              {
+                  "canonicalForm": "Milk Powders",
+                  "list": []
+              },
+              {
+                  "canonicalForm": "Mining Exploration Services",
+                  "list": []
+              },
+              {
+                  "canonicalForm": "Mining Support Equipment",
+                  "list": []
+              },
+              {
+                  "canonicalForm": "Mobile Device Management",
+                  "list": []
+              },
+              {
+                  "canonicalForm": "Mobility - Voice And Data",
+                  "list": []
+              },
+              {
+                  "canonicalForm": "Molybdenum",
+                  "list": []
+              },
+              {
+                  "canonicalForm": "Natural Gas",
+                  "list": []
+              },
+              {
+                  "canonicalForm": "Natural Rubber",
+                  "list": []
+              },
+              {
+                  "canonicalForm": "Natural Vitamins",
+                  "list": []
+              },
+              {
+                  "canonicalForm": "Nickel",
+                  "list": []
+              },
+              {
+                  "canonicalForm": "Non-Woven",
+                  "list": []
+              },
+              {
+                  "canonicalForm": "Nylon",
+                  "list": []
+              },
+              {
+                  "canonicalForm": "Ocean Freight Services",
+                  "list": []
+              },
+              {
+                  "canonicalForm": "Off The Road Tires",
+                  "list": []
+              },
+              {
+                  "canonicalForm": "Office Furniture",
+                  "list": []
+              },
+              {
+                  "canonicalForm": "Office Supplies",
+                  "list": []
+              },
+              {
+                  "canonicalForm": "Offshore Aviation Logistics",
+                  "list": []
+              },
+              {
+                  "canonicalForm": "Offshore Labor",
+                  "list": []
+              },
+              {
+                  "canonicalForm": "Oil And Gas Surface Rental Equipment",
+                  "list": []
+              },
+              {
+                  "canonicalForm": "Oil Country Tubular Goods (OCTG)",
+                  "list": []
+              },
+              {
+                  "canonicalForm": "Oleochemicals",
+                  "list": []
+              },
+              {
+                  "canonicalForm": "Onions",
+                  "list": []
+              },
+              {
+                  "canonicalForm": "Onshore Drilling Rigs",
+                  "list": []
+              },
+              {
+                  "canonicalForm": "Orange Oil",
+                  "list": []
+              },
+              {
+                  "canonicalForm": "Oranges",
+                  "list": []
+              },
+              {
+                  "canonicalForm": "Outplacement Services",
+                  "list": []
+              },
+              {
+                  "canonicalForm": "PE Films",
+                  "list": []
+              },
+              {
+                  "canonicalForm": "PET",
+                  "list": []
+              },
+              {
+                  "canonicalForm": "POS Lending Platforms",
+                  "list": []
+              },
+              {
+                  "canonicalForm": "PVC",
+                  "list": []
+              },
+              {
+                  "canonicalForm": "PVOH",
+                  "list": []
+              },
+              {
+                  "canonicalForm": "Palm Kernel Oil",
+                  "list": []
+              },
+              {
+                  "canonicalForm": "Palm Oil",
+                  "list": []
+              },
+              {
+                  "canonicalForm": "Paper",
+                  "list": []
+              },
+              {
+                  "canonicalForm": "Paracetamol",
+                  "list": []
+              },
+              {
+                  "canonicalForm": "Passive Components",
+                  "list": []
+              },
+              {
+                  "canonicalForm": "Patient Affordability",
+                  "list": []
+              },
+              {
+                  "canonicalForm": "Patient Monitors",
+                  "list": []
+              },
+              {
+                  "canonicalForm": "Patient Temperature Monitoring Devices",
+                  "list": []
+              },
+              {
+                  "canonicalForm": "Payment Processing Services",
+                  "list": []
+              },
+              {
+                  "canonicalForm": "Payroll Outsourcing Services",
+                  "list": []
+              },
+              {
+                  "canonicalForm": "Peanuts",
+                  "list": []
+              },
+              {
+                  "canonicalForm": "Penicillin",
+                  "list": []
+              },
+              {
+                  "canonicalForm": "Permanent Recruitment",
+                  "list": []
+              },
+              {
+                  "canonicalForm": "Personal Computing",
+                  "list": []
+              },
+              {
+                  "canonicalForm": "Personal Protective Equipment",
+                  "list": []
+              },
+              {
+                  "canonicalForm": "Pharmacovigilance Services",
+                  "list": []
+              },
+              {
+                  "canonicalForm": "Phenol",
+                  "list": []
+              },
+              {
+                  "canonicalForm": "Physical Security Services",
+                  "list": []
+              },
+              {
+                  "canonicalForm": "Pipes, Valves & Fittings",
+                  "list": []
+              },
+              {
+                  "canonicalForm": "Plant Equipment",
+                  "list": []
+              },
+              {
+                  "canonicalForm": "Plastic Bottles",
+                  "list": []
+              },
+              {
+                  "canonicalForm": "Plastic Collapsible Tubes",
+                  "list": []
+              },
+              {
+                  "canonicalForm": "Plastic Jars",
+                  "list": []
+              },
+              {
+                  "canonicalForm": "Plunger Pumps",
+                  "list": []
+              },
+              {
+                  "canonicalForm": "Point Of Sale Materials",
+                  "list": []
+              },
+              {
+                  "canonicalForm": "Polybags",
+                  "list": []
+              },
+              {
+                  "canonicalForm": "Polycarbonate",
+                  "list": []
+              },
+              {
+                  "canonicalForm": "Polypropylene",
+                  "list": []
+              },
+              {
+                  "canonicalForm": "Polystyrene",
+                  "list": []
+              },
+              {
+                  "canonicalForm": "Pork",
+                  "list": []
+              },
+              {
+                  "canonicalForm": "Potassium Chloride (KCl)",
+                  "list": []
+              },
+              {
+                  "canonicalForm": "Potatoes",
+                  "list": []
+              },
+              {
+                  "canonicalForm": "Poultry",
+                  "list": []
+              },
+              {
+                  "canonicalForm": "Pre-Fabricated Buildings & Structures",
+                  "list": []
+              },
+              {
+                  "canonicalForm": "Prefilled Syringes",
+                  "list": []
+              },
+              {
+                  "canonicalForm": "Pressure Sensitive Labels",
+                  "list": []
+              },
+              {
+                  "canonicalForm": "Primary Market Research",
+                  "list": []
+              },
+              {
+                  "canonicalForm": "Printed Circuit Boards (PCBs)",
+                  "list": []
+              },
+              {
+                  "canonicalForm": "Process Automation",
+                  "list": []
+              },
+              {
+                  "canonicalForm": "Process Instrumentation And Measurement",
+                  "list": []
+              },
+              {
+                  "canonicalForm": "Product Engineering Services",
+                  "list": []
+              },
+              {
+                  "canonicalForm": "Production Chemicals",
+                  "list": []
+              },
+              {
+                  "canonicalForm": "Professional Education",
+                  "list": []
+              },
+              {
+                  "canonicalForm": "Promotional Items",
+                  "list": []
+              },
+              {
+                  "canonicalForm": "Propylene Glycol",
+                  "list": []
+              },
+              {
+                  "canonicalForm": "Public Relations",
+                  "list": []
+              },
+              {
+                  "canonicalForm": "Pulp",
+                  "list": []
+              },
+              {
+                  "canonicalForm": "Rapeseed Oil and Meal",
+                  "list": []
+              },
+              {
+                  "canonicalForm": "Rare Earth Elements",
+                  "list": []
+              },
+              {
+                  "canonicalForm": "Records Management",
+                  "list": []
+              },
+              {
+                  "canonicalForm": "Recovered Paper",
+                  "list": []
+              },
+              {
+                  "canonicalForm": "Refractories",
+                  "list": []
+              },
+              {
+                  "canonicalForm": "Refrigerated Road Freight Services",
+                  "list": []
+              },
+              {
+                  "canonicalForm": "Renewable Energy",
+                  "list": []
+              },
+              {
+                  "canonicalForm": "Respiratory Devices",
+                  "list": []
+              },
+              {
+                  "canonicalForm": "Returnable Glass Bottles",
+                  "list": []
+              },
+              {
+                  "canonicalForm": "Rice",
+                  "list": []
+              },
+              {
+                  "canonicalForm": "Rigid Intermediate Bulk Containers (RIBC)",
+                  "list": []
+              },
+              {
+                  "canonicalForm": "Road Freight Services",
+                  "list": []
+              },
+              {
+                  "canonicalForm": "Robotic Process Automation",
+                  "list": []
+              },
+              {
+                  "canonicalForm": "Robotics",
+                  "list": []
+              },
+              {
+                  "canonicalForm": "Rubber Stoppers",
+                  "list": []
+              },
+              {
+                  "canonicalForm": "Saccharin",
+                  "list": []
+              },
+              {
+                  "canonicalForm": "Salmon",
+                  "list": []
+              },
+              {
+                  "canonicalForm": "Sand Castings",
+                  "list": []
+              },
+              {
+                  "canonicalForm": "Secondary Packaging Equipment",
+                  "list": []
+              },
+              {
+                  "canonicalForm": "Serum",
+                  "list": []
+              },
+              {
+                  "canonicalForm": "Service Integration And Management (SIAM)",
+                  "list": []
+              },
+              {
+                  "canonicalForm": "Shrimp",
+                  "list": []
+              },
+              {
+                  "canonicalForm": "Shrink Films",
+                  "list": []
+              },
+              {
+                  "canonicalForm": "Signage",
+                  "list": []
+              },
+              {
+                  "canonicalForm": "Silicones",
+                  "list": []
+              },
+              {
+                  "canonicalForm": "Social Media Marketing Services",
+                  "list": []
+              },
+              {
+                  "canonicalForm": "Soda Ash",
+                  "list": []
+              },
+              {
+                  "canonicalForm": "Sodium Bicarbonate (NaHCO3)",
+                  "list": []
+              },
+              {
+                  "canonicalForm": "Sodium Chloride (NaCl)",
+                  "list": []
+              },
+              {
+                  "canonicalForm": "Sodium Cyanide",
+                  "list": []
+              },
+              {
+                  "canonicalForm": "Sodium Hypochlorite",
+                  "list": []
+              },
+              {
+                  "canonicalForm": "Sodium Silicate",
+                  "list": []
+              },
+              {
+                  "canonicalForm": "Sodium Sulfate (Na2SO4)",
+                  "list": []
+              },
+              {
+                  "canonicalForm": "Software Asset Management",
+                  "list": []
+              },
+              {
+                  "canonicalForm": "Sorbitol",
+                  "list": []
+              },
+              {
+                  "canonicalForm": "Soybean",
+                  "list": []
+              },
+              {
+                  "canonicalForm": "Soybean Oil",
+                  "list": []
+              },
+              {
+                  "canonicalForm": "Stainless Steel",
+                  "list": []
+              },
+              {
+                  "canonicalForm": "Starch",
+                  "list": []
+              },
+              {
+                  "canonicalForm": "Stimulation Chemicals",
+                  "list": []
+              },
+              {
+                  "canonicalForm": "Storefront Design & Installation Services",
+                  "list": []
+              },
+              {
+                  "canonicalForm": "Strawberries",
+                  "list": []
+              },
+              {
+                  "canonicalForm": "Stretch Films",
+                  "list": []
+              },
+              {
+                  "canonicalForm": "Sugar",
+                  "list": []
+              },
+              {
+                  "canonicalForm": "Sulfuric Acid",
+                  "list": []
+              },
+              {
+                  "canonicalForm": "Super Absorbent Polymers",
+                  "list": []
+              },
+              {
+                  "canonicalForm": "Switchgears",
+                  "list": []
+              },
+              {
+                  "canonicalForm": "Synthetic Vitamins",
+                  "list": []
+              },
+              {
+                  "canonicalForm": "Tablet Coatings",
+                  "list": []
+              },
+              {
+                  "canonicalForm": "Tallow",
+                  "list": []
+              },
+              {
+                  "canonicalForm": "Temporary Labour",
+                  "list": []
+              },
+              {
+                  "canonicalForm": "Thermoformed Trays",
+                  "list": []
+              },
+              {
+                  "canonicalForm": "Third Party Administrator Services",
+                  "list": []
+              },
+              {
+                  "canonicalForm": "Threads",
+                  "list": []
+              },
+              {
+                  "canonicalForm": "Tin",
+                  "list": []
+              },
+              {
+                  "canonicalForm": "Zippers",
+                  "list": []
+              },
+              {
+                  "canonicalForm": "Zinc Oxide",
+                  "list": []
+              },
+              {
+                  "canonicalForm": "Zinc",
+                  "list": []
+              },
+              {
+                  "canonicalForm": "Yeast",
+                  "list": []
+              },
+              {
+                  "canonicalForm": "Xylitol",
+                  "list": []
+              },
+              {
+                  "canonicalForm": "Xylene",
+                  "list": []
+              },
+              {
+                  "canonicalForm": "Xanthan Gum",
+                  "list": []
+              },
+              {
+                  "canonicalForm": "Wooden Pallets",
+                  "list": []
+              },
+              {
+                  "canonicalForm": "Wireline Services",
+                  "list": []
+              },
+              {
+                  "canonicalForm": "Whey Powder",
+                  "list": []
+              },
+              {
+                  "canonicalForm": "Wheat",
+                  "list": []
+              },
+              {
+                  "canonicalForm": "Water",
+                  "list": []
+              },
+              {
+                  "canonicalForm": "Waste Water Treatment Services ",
+                  "list": []
+              },
+              {
+                  "canonicalForm": "Warehousing Services",
+                  "list": []
+              },
+              {
+                  "canonicalForm": "Vitamin C",
+                  "list": []
+              },
+              {
+                  "canonicalForm": "Vitamin B",
+                  "list": []
+              },
+              {
+                  "canonicalForm": "Visual Merchandizing, Fixtures, And Furnishings",
+                  "list": []
+              },
+              {
+                  "canonicalForm": "Viral Vaccines",
+                  "list": []
+              },
+              {
+                  "canonicalForm": "Vials and Ampoules",
+                  "list": []
+              },
+              {
+                  "canonicalForm": "Veterinary Healthcare Services",
+                  "list": []
+              },
+              {
+                  "canonicalForm": "Ventilators",
+                  "list": []
+              },
+              {
+                  "canonicalForm": "Vanillin",
+                  "list": []
+              },
+              {
+                  "canonicalForm": "Urea",
+                  "list": []
+              },
+              {
+                  "canonicalForm": "Uniform Services",
+                  "list": []
+              },
+              {
+                  "canonicalForm": "Underground Mining Equipment",
+                  "list": []
+              },
+              {
+                  "canonicalForm": "Tuna",
+                  "list": []
+              },
+              {
+                  "canonicalForm": "Translation Services",
+                  "list": []
+              },
+              {
+                  "canonicalForm": "Transformers",
+                  "list": []
+              },
+              {
+                  "canonicalForm": "Transformer Oil",
+                  "list": []
+              },
+              {
+                  "canonicalForm": "Toluene",
+                  "list": []
+              },
+              {
+                  "canonicalForm": "Titanium Dioxide",
+                  "list": []
+              }
+          ],
+          "roles": []
+        },
+        {
+            "name": "HierarchicalEntity",
+            "subLists": [
+                {
+                    "canonicalForm": "top - bottom",
+                    "list": [
+                        "best",
+                        "leading",
+                        "greatest",
+                        "highest",
+                        "finest",
+                        "foremost",
+                        "supreme",
+                        "top",
+                        "Top",
+                        "Best"
+                    ]
+                },
+                {
+                    "canonicalForm": "bottom - top",
+                    "list": [
+                        "least",
+                        "worst",
+                        "lowest",
+                        "bottom"
+                    ]
+                }
+            ],
+            "roles": []
+        },
+        {
+            "name": "TypesDisruptionEntity",
+            "subLists": [
+                {
+                    "canonicalForm": "liquidity",
+                    "list": [
+                        "liquidity"
+                    ]
+                },
+                {
+                    "canonicalForm": "capacity",
+                    "list": [
+                        "capacity",
+                        "capacities"
+                    ]
+                },
+                {
+                    "canonicalForm": "margin",
+                    "list": [
+                        "margin",
+                        "margins"
+                    ]
+                }
+            ],
+            "roles": []
+        }
+    ],
+    "patternAnyEntities": [
+        {
+            "name": "KeyNameEntity",
+            "explicitList": [],
+            "roles": []
+        }
+    ],
+    "phraseLists": [
+        {
+            "name": "diversity",
+            "mode": false,
+            "words": "female-headed,minority-headed,women-owned,lgbt-owned,owned by women,owned by non profit,owned by fortune 500 companies,Indian tribe,HUBZone,HUBZone certified,jewish owned,non sectarian owned,african american owned,south american owned,hispanic owned,european owned,gay or lesbian owned,minority owned,asian owned,american owned,veteran owned,disabled veteran owned",
+            "activated": true,
+            "enabledForAllModels": false
+        },
+        {
+            "name": "businessTypes",
+            "mode": false,
+            "words": "small business,big business,large corporations,fortune 500,fortune 500 companies,women-owned business,LGBT-owned business,Service Disabled Veteran Business Enterprise,Veteran-owned Business Enterprise,Minority-owned Business Enterprise,Small Disadvantaged Business,HUBZone,HUBZone certified,Alaska Native corporation,Community Development Corporation,Native Hawaiian organization,Indian tribe",
+            "activated": true,
+            "enabledForAllModels": false
+        },
+        {
+            "name": "details",
+            "mode": false,
+            "words": "tell me about,tell me more information,provide more info,tell me more about,what do you know about,give me details on,give me more details,give me more info,give me some info on,show me more information,more info,give me info,what is the,is there a,has there been any,whats the,what's the",
+            "activated": true,
+            "enabledForAllModels": false
+        },
+        {
+            "name": "disruptions",
+            "mode": false,
+            "words": "disruptions,disrupt,disturbance,interference,obstruction,interruption,disruption",
+            "activated": true,
+            "enabledForAllModels": false
+        },
+        {
+            "name": "distance",
+            "mode": false,
+            "words": "nearest,farthest,closest,near,nearby,within reach",
+            "activated": true,
+            "enabledForAllModels": false
+        },
+        {
+            "name": "AdverseMedia",
+            "mode": false,
+            "words": "in the news,bad press,defamation,disgrace,aspersion,censure,adverse media",
+            "activated": true,
+            "enabledForAllModels": false
+        },
+        {
+            "name": "find",
+            "mode": false,
+            "words": "Search,find,search for,look for,locate,show,show me the list,find the list,look for the list,reveal,display the list,reveal the list,who,what,where,pull out,I would like to see,I want to know,give me,provide,I want to see,where can I find,I need to find,I need,i am looking for,I am searching for,give me the,show me the,can you show me,im looking for,im looking for a,Search for,find me a,Find me a,i am looking for a,i want to find,I would like to find,show me,help me find,identify,is there a,is there,are there",
+            "activated": true,
+            "enabledForAllModels": false
+        },
+        {
+            "name": "geopolitcalRisk",
+            "mode": true,
+            "words": "geopolitical risks,politically exposed person,location disruption,child labor,labor health risk,government sanctions,sanctions list,sanction,sanctions,sanction list",
+            "activated": true,
+            "enabledForAllModels": false
+        },
+        {
+            "name": "toAnalyst",
+            "mode": true,
+            "words": "transfer me to analyst,connect me with an analyst,I want to speak to a human,connect me with a specialist,connect me to an analyst,talk to analyst,talk to human,chat with an analyst,chat with a human,connect me to analyst",
+            "activated": true,
+            "enabledForAllModels": false
+        },
+        {
+            "name": "supplier",
+            "mode": true,
+            "words": "suppliers,distributor,provider,provisioner,businesses,business,firm,firms,office,offices,center,services,service,dealer,dealers,merchant,broker,merchandiser,wholesaler,service providers,service provider",
+            "activated": true,
+            "enabledForAllModels": false
+        },
+        {
+            "name": "UniqueQuery",
+            "mode": false,
+            "words": "mbb,non mbb",
+            "activated": true,
+            "enabledForAllModels": true
+        },
+        {
+            "name": "contribution",
+            "mode": true,
+            "words": "contribution,contributed,contribute,contributes,value,impact,contributing to the cost of",
+            "activated": true,
+            "enabledForAllModels": false
+        },
+        {
+            "name": "greet",
+            "mode": false,
+            "words": "hi,hello,whats up,how are you,hows it going,how's it going,how you been",
+            "activated": true,
+            "enabledForAllModels": false
+        },
+        {
+            "name": "risks",
+            "mode": false,
+            "words": "risks,risk",
+            "activated": true,
+            "enabledForAllModels": false
+        },
+        {
+            "name": "commonWords",
+            "mode": false,
+            "words": "is,the,on,in,at,from,to,who,with,of,for,of my,my,whats the,what is the,whats the recent,has there been any,has there been,has,there,been,were,any",
+            "activated": true,
+            "enabledForAllModels": false
+        },
+        {
+            "name": "price",
+            "mode": false,
+            "words": "price of,cost of,how much is,how much are,price in,the price of",
+            "activated": true,
+            "enabledForAllModels": false
+        },
+        {
+            "name": "sustainability",
+            "mode": false,
+            "words": "sustainability,sustainability certification",
+            "activated": true,
+            "enabledForAllModels": false
+        },
+        {
+            "name": "cyber",
+            "mode": false,
+            "words": "cyber security risk,internet security risk,network security breach",
+            "activated": true,
+            "enabledForAllModels": false
+        },
+        {
+            "name": "price_change",
+            "mode": false,
+            "words": "change in,fluctuate,fluctuation,fluctuation in",
+            "activated": true,
+            "enabledForAllModels": false
+        },
+        {
+            "name": "FinancialRisk",
+            "mode": false,
+            "words": "bankruptcy,market risk,credit risk,liquidity risk,legal risk,operational risk,loss if investment,financial risk,credit,montery,money,economic,banking,commerce,commercial,business,investment,accounting,fiscal,financial,finance,liquidity,margin,margins",
+            "activated": true,
+            "enabledForAllModels": false
+        }
+    ]
+}

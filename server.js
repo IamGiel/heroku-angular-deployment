@@ -38,8 +38,76 @@ const categories = parse(
     columns: true,
   }
 );
+const test_data = {
+  data: [
+    { name: "Joe", age: 29 },
+    { name: "Casper", age: 45 },
+  ],
+};
+console.log("server js talking.. ");
+
+function normedLuis_Date(date_string, whichTime) {
+  // console.log(`${date_string}`); // 2020-01-01
+  let os = `${date_string}`; // format for luis date new Date("YYYY", "MM", -29)
+  let date_result;
+  if (whichTime == "parsedValue") {
+    alert("parsedValue");
+    let month = os.substring(4, 7);
+    let year = os.substring(11, 15);
+    let ds = `${year}-${month}-21`;
+    // console.log("ds for luis date ", ds);
+    date_result = new Date(ds);
+  } else if (whichTime == "timex") {
+    alert("timex"); // format for luis date new Date("YYYY", "11", -29)
+    let month = os.substring(5, 7);
+    let year = os.substring(0, 4);
+    // console.log(month, year);
+    date_result = new Date(parseInt(year), parseInt(month), -29);
+
+    // console.log(date_result);
+  }
+
+  return date_result;
+  return date_result.getTime();
+}
+function normedDBDate(db_date) {
+  // console.log("dbdate", db_date); // format for db date --> new Date("Month YYYY")
+  let year = parseInt(db_date.substring(4, 6));
+  let month = db_date.substring(0, 3); // 3 char month abbreviations July = Jul
+  // console.log(month, year, "format we want: ", `new Date("Month YYYY")`);
+  let res;
+  // case 21 for 20 20s
+  // case 19 for 20 10s
+  // case 07 for 20 00s
+  // case 00 for 20 00s
+  // case 99 for 19 00s
+  // case 89 for 19 00s
+  // return `20${year}`;
+
+  if (year <= 99 && year >= 50) {
+    // prepend 19 to year
+    res = `19${year}`;
+  }
+  if (year <= 50) {
+    // prepend 19 to year
+    res = `20${year}`;
+  }
+  // console.log("dbdate before output = ", `${month} and ${res}`);
+  let output = new Date(`${month}, ${res}`);
+  // console.log(output.getTime);
+
+  return `${output}`;
+}
+
 const root = {
+  test_data: (args) => {
+    console.log(args, test_data);
+    return test_data.data.find((ch) => ch.name == args.name);
+
+    return args;
+  },
   characters: (args) => {
+    console.log(characters);
     return {
       count: characters.length,
       characters: characters.slice(args.offset, args.offset + args.limit),
@@ -51,50 +119,8 @@ const root = {
   species: (args) => {
     return species.find((ch) => ch.name === args.name);
   },
-  // categories: (args) => {
-  //   let result = categories.slice(args.offset, args.offset + args.limit);
-  //   let output = returnMatch(result, args);
-  //   // let final = result
-  //   //   .filter((f, i) => {
-  //   //     console.log(i);
-  //   //     // console.log(f["Name of Sub Category"]),
-  //   //     // console.log(f["Actual Period"]),
-  //   //     // console.log(f["Market Overview"]),
-  //   //     // console.log(f["Name of Category"]),
-  //   //     // console.log(f["Guidance"]),
-  //   //     // console.log(f["Grade ID"]),
-  //   //     // console.log(f["Grade"]),
-  //   //     // console.log(f["Region"]),
-  //   //     // console.log(f["Price Point "]),
-  //   //     // console.log(f["Currency"]),
-  //   //     // console.log(f["Unit"]);
-  //   //     console.log("==================== end ===============");
-
-  //   //   })
-
-  //   //   .map((k, i) => {
-  //   //     // console.log("THESE K after filter >>>>>> ", k);
-  //   //     return {
-  //   //       Name_of_Sub_Category: k["Name of Sub Category"],
-  //   //       Actual_Period: k["Actual Period"],
-  //   //       Market_Overview: k["Market Overview"],
-  //   //       Name_of_Category: k["Name of Category"],
-  //   //       Guidance: k["Guidance"],
-  //   //       Grade_ID: k["Grade ID"],
-  //   //       Grade: k["Grade"],
-  //   //       Region: k["Region"],
-  //   //       Price_Point: k["Price Point "],
-  //   //       Currency: k["Currency"],
-  //   //       Unit: k["Unit"],
-  //   //     };
-  //   //   });
-  //   return {
-  //     count: output.length,
-  //     category: output,
-  //   };
-  // },
   categories: (args) => {
-    console.log("line 91 args", args);
+    // console.log("line 91 args", args);
     let result = categories.slice(args.offset, args.offset + args.limit);
 
     let final = result
@@ -106,6 +132,7 @@ const root = {
           period: "Actual Period",
           region: "Region",
           grade: "Grade",
+          daterange: "",
         };
         // console.log(Object.entries(fields));
         // [
@@ -117,16 +144,19 @@ const root = {
         return Object.entries(fields).every(([key, value]) => {
           // args[key] is the user input
           // console.log("args[key] ", args[key], "cat[value] ", cat[value]);
+          // console.log(key, value);
           if (
             args[key] &&
             args[key].toLowerCase().trim() !== cat[value].toLowerCase().trim()
           ) {
-            if (args[key] === cat[value]) {
-              console.log("check same ? ", args[key], cat[value]);
-            }
             return false;
+          } else {
+            if (key == "daterange") {
+              console.log("daterange ! ", args[key], cat[value]);
+              // root.categoriesv2(args);
+            }
+            return true;
           }
-          return true;
         });
       })
       .map((k, i) => {
@@ -153,111 +183,30 @@ const root = {
       category: final,
     };
   },
-  categories2: (args) => {
-    console.log("line 91 args", args);
+  categoriesv2: (args) => {
+    console.log("categoriesv2 ", args);
+    console.log(JSON.parse(args.daterange));
+    let start = new Date(JSON.parse(args.daterange).start);
+    let end = new Date(JSON.parse(args.daterange).end);
+    let dbdate;
     let result = categories.slice(args.offset, args.offset + args.limit);
+    // console.log(result);
 
-    let final = result
-      .filter((cat) => {
-        const fields = {
-          guidance: "Guidance",
-          Grade_ID: "Grade ID",
-          name: "Name of Sub Category",
-          period: "Actual Period",
-          region: "Region",
-          grade: "Grade",
-        };
-        // console.log(Object.entries(fields));
-        // [
-        //   [ 'guidance', 'Guidance' ],
-        //   [ 'Grade_ID', 'Grade ID' ],
-        //   [ 'name', 'Name of Sub Category' ],
-        //   [ 'period', 'Actual Period' ]
-        // ]
-        return Object.entries(fields).every(([key, value]) => {
-          // args[key] is the user input
-          // console.log("args[key] ", args[key], "cat[value] ", cat[value]);
-          if (
-            args[key] &&
-            args[key].toLowerCase().trim() !== cat[value].toLowerCase().trim()
-          ) {
-            if (args[key] === cat[value]) {
-              console.log("check same ? ", args[key], cat[value]);
-            }
-            return false;
-          }
-          return true;
-        });
-
-        // if (args.guidance && args.guidance !== cat.Guidance) {
-        //   return false;
-        // }
-
-        // if (args.Grade_ID && args.Grade_ID !== cat["Grade ID"]) {
-        //   return false;
-        // }
-
-        // if (args.name && args.name !== cat["Name of Sub Category"]) {
-        //   return false;
-        // }
-
-        // if (args.period && args.period !== cat["Actual Period"]) {
-        //   return false;
-        // }
-
-        // return true;
-
-        // if (
-        //   !args.guidance &&
-        //   !args.Grade_ID &&
-        //   cat["Name of Sub Category"].toLowerCase().trim() ===
-        //     args.name.toLowerCase().trim() &&
-        //   cat["Actual Period"].toLowerCase().trim() ===
-        //     args.period.toLowerCase().trim()
-        // ) {
-        //   console.log("scena A");
-        //   return cat;
-        // }
-
-        // if (
-        //   args.guidance &&
-        //   !args.Grade_ID &&
-        //   cat["Name of Sub Category"].toLowerCase().trim() ===
-        //     args.name.toLowerCase().trim() &&
-        //   cat["Actual Period"].toLowerCase().trim() ===
-        //     args.period.toLowerCase().trim() &&
-        //   args.guidance === cat["Guidance"]
-        // ) {
-        //   console.log("scena B-a");
-        //   return cat;
-        // }
-
-        // if (
-        //   !args.guidance &&
-        //   args.Grade_ID &&
-        //   cat["Name of Sub Category"].toLowerCase().trim() ===
-        //     args.name.toLowerCase().trim() &&
-        //   cat["Actual Period"].toLowerCase().trim() ===
-        //     args.period.toLowerCase().trim() &&
-        //   args.Grade_ID === cat["Grade ID"]
-        // ) {
-        //   console.log("scena B-b");
-        //   return cat;
-        // }
-
-        // if (
-        //   args.guidance &&
-        //   args.Grade_ID &&
-        //   cat["Name of Sub Category"].toLowerCase().trim() ===
-        //     args.name.toLowerCase().trim() &&
-        //   cat["Actual Period"].toLowerCase().trim() ===
-        //     args.period.toLowerCase().trim() &&
-        //   args.Grade_ID === cat["Grade ID"] &&
-        //   args.guidance === cat["Guidance"]
-        // ) {
-        //   console.log("scena B-b");
-        //   return cat;
-        // }
+    // should return a range of dates given by args start and end
+    let rangeofdates = result
+      .filter((k) => {
+        dbdate = new Date(normedDBDate(k["Actual Period"]));
+        console.log(start, end, dbdate, k["Name of Sub Category"]);
+        let isWithinRange = dbdate >= start && dbdate <= end;
+        let isNameMatched =
+          args.name.toLowerCase().trim() ==
+          k["Name of Sub Category"].toLowerCase().trim();
+        let isRegionMatched =
+          args.region.toLowerCase().trim() == k["Region"].toLowerCase().trim();
+        if (isWithinRange && isNameMatched && isRegionMatched) {
+          return dbdate;
+        }
+        return false;
       })
       .map((k, i) => {
         // console.log("THESE K after filter >>>>>> ", k["Region"]);
@@ -275,12 +224,17 @@ const root = {
           Unit: k["Unit"],
         };
       });
-
-    console.log(final.length);
+    console.log(
+      "range of dates length ",
+      rangeofdates.length,
+      "/",
+      result.length
+    );
+    console.log("these are range of dates requested ", rangeofdates);
 
     return {
-      count: final.length,
-      category: final,
+      count: rangeofdates.length,
+      category: rangeofdates,
     };
   },
   category: (args) => {
@@ -346,7 +300,7 @@ function trainBot(utterance) {
       console.log(error);
     });
 }
-trainBot("nylon prices in japan");
+// trainBot("nylon prices in japan");
 // add synonyms to categoryList
 function addSynonyms() {
   let listEntities = [
@@ -380,3 +334,35 @@ app.use(
 // });
 // app.listen(4000);
 app.listen(process.env.PORT || 4000);
+
+// console.log(luisdate_start, luisdate_end)
+// console.log(new Date(luisdate_start).getTime(), new Date(luisdate_end).getTime())
+// let start:any = new Date(luisdate_start).getTime()
+// let end:any = new Date(luisdate_end).getTime();
+// let range_of_dates_requested = this.periodList.filter((k:any)=> {
+//   let convertedTime = new Date(k).getTime();
+//   return convertedTime >= start && convertedTime <= end;
+// })
+// console.log(range_of_dates_requested)
+
+// if(this.periodList.indexOf(`${luisdate_start}`) === 0){
+//   const monthNames = [
+//     "Jan",
+//     "Feb",
+//     "Mar",
+//     "Apr",
+//     "May",
+//     "Jun",
+//     "July",
+//     "Aug",
+//     "Sep",
+//     "Oct",
+//     "Nov",
+//     "Dec",
+//   ];
+//   console.log(monthNames[new Date(`${luisdate_start}`).getMonth()], new Date(`${luisdate_start}`).getFullYear());
+//   let month = monthNames[new Date(`${luisdate_start}`).getMonth()];
+//   let year = `${new Date(`${luisdate_start}`).getFullYear()}`.substring(2,4)
+//   date_reconstruct = `${month}-${year}`;
+//   console.log(date_reconstruct)
+// }

@@ -56,9 +56,15 @@ export class CategoriesService {
   private findCategoriesQuery:QueryRef<
     {categories:any}
   >;
+  private findDateRange:QueryRef<
+    {categoriesv2:any}
+  >;
   private findAllRegions:QueryRef<
     {categories:any}
   >;
+  private findAllPeriod:QueryRef<
+  {categories:any}
+>;
   private findAllCategoryNames:QueryRef<
     {categories:any}
   >;
@@ -110,6 +116,40 @@ export class CategoriesService {
       `
     })
 
+    this.findAllPeriod = this.apollo.watchQuery({
+      query:gql`
+        query PeriodInCategories($offset: Int, $limit: Int, $period: String){
+          categories(offset: $offset, limit:$limit,period:$period) {
+            count
+            category {
+              Actual_Period
+            }
+          }
+        }
+      `
+    })
+
+    this.findDateRange = this.apollo.watchQuery({
+      query:gql`
+        query DateRange($offset: Int, $limit: Int,$name:String,$region:String, $daterange: String){
+          categoriesv2(offset: $offset, limit: $limit, name:$name,region: $region, daterange:$daterange) {
+            count
+            category {
+              Name_of_Sub_Category
+              Guidance
+              Market_Overview
+              Region
+              Actual_Period
+              Price_Point
+              Currency
+              Unit
+              Grade_ID
+              Grade
+            }
+          }
+        }
+      `
+    })
   }
   async getCategories(offset?: number, limit?: number, name?: string, period?: string, guidance?: string, Grade_ID?:string, region?:string, grade?:string) {
     const result = await this.findCategoriesQuery.refetch({ offset, limit, name, period, guidance, Grade_ID, region, grade });
@@ -122,6 +162,15 @@ export class CategoriesService {
       // console.log(result.data.categories.category)
       return result.data.categories.category;
   }
+  async getPeriods(offset?: number, limit?: number, period?:string) {
+    const result = await this.findAllPeriod.refetch({ offset, limit, period });
+      return result.data.categories.category;
+  }
+  async getDateRange(offset?: number, limit?: number, name?: string,region?:string, daterange?:string ) {
+    const result = await this.findDateRange.refetch({ offset, limit, name, region, daterange });
+    console.log("sevice component result ", result.data.categoriesv2.category)
+      return result.data.categoriesv2.category;
+  }
   async getCategoryNames(offset?: number, limit?: number, name?:string) {
     const result = await this.findAllCategoryNames.refetch({ offset, limit, name });
       // console.log(result.data.categories.category)
@@ -129,7 +178,7 @@ export class CategoriesService {
   }
   testUtterance(data: string): Observable<any> {
     const headers = { 'Authorization': this.headers }
-    return this.http.post<any>('https://nlu.staging.api.onereach.ai/meaning/test', data, {headers})
+    return this.http.post<any>('https://nlu.staging.api.onereach.ai/meaning', data, {headers})
   }
 
   addUtterance(data:any): Observable<any> {
@@ -153,16 +202,4 @@ export class CategoriesService {
     return this.http.get<any>(config.url, {headers})
   }
 
-  addContext(data:any):Observable<any> {
-    // https://nlu.staging.api.onereach.ai/knowledge-base/pair
-    console.log(data)
-    let config = {
-      method: 'post',
-      url: 'https://nlu.staging.api.onereach.ai/knowledge-base/pair',
-      data : data
-    };
-
-    const headers = { 'Authorization': this.headers }
-    return this.http.post<any>(config.url, data, {headers})
-  }
 }

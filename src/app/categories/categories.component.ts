@@ -71,6 +71,7 @@ export class CategoriesComponent implements OnInit {
   region = "";
   regionList:any = [];
   categoryList:any = [];
+  periodList:any = [];
   grade = "";
   userInput = '';
   // name: "Carbon Steel", period: "Feb-22", guidance: "Delivered Eastern China Domestic"
@@ -79,8 +80,13 @@ export class CategoriesComponent implements OnInit {
   hasChange: boolean = false;
   categories: Category[] = [];
   result:any = null;
-  appId = '4597897d-addf-46cd-9849-87a123cf7e26';
-  kbId = 'PgrzMKQsHIq0PkkBzCxqN';
+  // Luis migration keys
+  // appId = '4597897d-addf-46cd-9849-87a123cf7e26';
+  // kbId = 'PgrzMKQsHIq0PkkBzCxqN';
+  // abi 176 keys
+  appId = '02672bab-9538-4b8a-a669-5ed8bdaa6de5';
+  kbId = 'GivneeAOcObmDkRDQd4E2';
+
   nlpData: any;
   lvscore:number = Infinity;
 
@@ -91,6 +97,8 @@ export class CategoriesComponent implements OnInit {
   checkif_priceIntent:any = false;
   cat_name:any = '';
   reg_name:any = '';
+  period_name:any = '';
+  range_of_dates:[] = [];
 
 
 
@@ -109,11 +117,15 @@ export class CategoriesComponent implements OnInit {
   });
   // kbId = "PgrzMKQsHIq0PkkBzCxqN"; //PgrzMKQsHIq0PkkBzCxqN
   // appId = "4597897d-addf-46cd-9849-87a123cf7e26";
+  // nluForm = this.fb.group({
+  //   user_input: ['', Validators.required],
+  //   kbid: [{value: 'PgrzMKQsHIq0PkkBzCxqN', disabled: true}, Validators.required],
+  //   appid: [{value:'4597897d-addf-46cd-9849-87a123cf7e26', disabled:true}, Validators.required]
+  // });
   nluForm = this.fb.group({
     user_input: ['', Validators.required],
-    kbid: [{value: 'PgrzMKQsHIq0PkkBzCxqN', disabled: true}, Validators.required],
-    appid: [{value:'4597897d-addf-46cd-9849-87a123cf7e26', disabled:true}, Validators.required]
-
+    kbid: [{value: 'GivneeAOcObmDkRDQd4E2', disabled: true}, Validators.required],
+    appid: [{value:'02672bab-9538-4b8a-a669-5ed8bdaa6de5', disabled:true}, Validators.required]
   });
   isLoading:any = false;
   entities:any = [];
@@ -127,17 +139,9 @@ export class CategoriesComponent implements OnInit {
 
   ngOnInit(): void {
     this.updateAllRegions()
-    // updateAllCategoryNames()
     this.updateAllCategoryNames()
-    // this.nluForm.valueChanges.subscribe(onchange=>{
-    //   // console.log(onchange)
-    //   if(onchange.user_input.length <= 0){
-    //     this.isLoading = true;
-    //     console.log("1")
-    //   } else {
-    //     this.isLoading = false;
-    //   }
-    // })
+    this.updateAllPeriod()
+
   }
 
   lavenshtein(wordA:string, wordB:string){
@@ -148,12 +152,12 @@ export class CategoriesComponent implements OnInit {
 
   async updateCategories() {
     // this.isLoading = true;
-    console.log("2")
+    // console.log("2")
     const result = await this.categoriesService.getCategories(this.offset,this.limit,this.name,this.period,this.guidance, this.grade_id, this.region, this.grade);
 
     if(result){
       // this.isLoading = false;
-      console.log("3")
+      // console.log("3")
       this.result = result.data.categories.category;
     }
     if(this.result.length <= 0){
@@ -161,30 +165,34 @@ export class CategoriesComponent implements OnInit {
     }
     // this.getGuidanceDropdown(result)
     // this.getGradeeDropdown(result)
-    console.log("result >>>> ", result)
+    // console.log("result >>>> ", result)
   }
 
   async updateCategoriesWithNLUData() {
     this.checkif_priceIntent = false;
     this.cat_name = null;
     this.reg_name = null;
+    this.period_name = null;
     this.entities = null;
     this.result = null;
+    let result_;
     // this.nlpData = null;
     let entities = this.nlpData?.result?.entities;
     const region_fields:any = [
       ''
     ]
-    const calculate = (array?:[], val?:any) => {
+    const calculate = (array?:[], val?:any, controller?:string) => {
+      // console.log(val, controller)
       let minL = Infinity;
       let result:any;
+      let date_reconstruct:any;
       let currentL;
       let o:any = {};
-      console.log("this array ", array)
-      if(array && array.length){
+      // console.log("this array ", array)
+      if(array&&controller!=='daterange'){
         array.forEach((element:any) => {
           let db_string = element.toLowerCase().replace(/[^a-zA-Z]/g, "");
-          let user_string = val.toLowerCase().replace(/[^a-zA-Z]/g, "");
+          let user_string = val.value.toLowerCase().replace(/[^a-zA-Z]/g, "");
           currentL = this.lavenshtein(db_string, user_string);
           if(db_string.includes(user_string)){
             // console.log('string exist!')
@@ -200,20 +208,55 @@ export class CategoriesComponent implements OnInit {
         });
 
         // this goes through the keys of o, and returns the key with the lowest score
-        let key = Object.keys(o).reduce((key, v) => o[v] < o[key] ? v : key);
-        console.log(key, o[key])
-
+        let key:any = Object.keys(o).reduce((key, v) => o[v] < o[key] ? v : key);
+        // console.log(key)
         result = {
           "key":key,
+          // "range":{
+          //   "start":key.parsedValue[0].resolution[0].start,
+          //   "end":key.parsedValue[0].resolution[0].end,
+          // },
           "score":minL
-
         }
 
+      } else if(controller=='daterange') {
+        // console.log("controller = daterange")
+        let luisdate_start = this.normedLuis_Date(val?.parsedValue[0]?.resolution[0]?.start, "timex");
+        let luisdate_end = this.normedLuis_Date(val?.parsedValue[0]?.resolution[0]?.end, "timex");
+        this.getAllRangofDates(luisdate_start, luisdate_end)
+        if(this.periodList.indexOf(`${luisdate_start}`) === 0){
+          const monthNames = [
+            "Jan",
+            "Feb",
+            "Mar",
+            "Apr",
+            "May",
+            "Jun",
+            "July",
+            "Aug",
+            "Sep",
+            "Oct",
+            "Nov",
+            "Dec",
+          ];
+          // console.log(monthNames[new Date(`${luisdate_start}`).getMonth()], new Date(`${luisdate_start}`).getFullYear());
+          let month = monthNames[new Date(`${luisdate_start}`).getMonth()];
+          let year = `${new Date(`${luisdate_start}`).getFullYear()}`.substring(2,4)
+          date_reconstruct = `${month}-${year}`;
+          // console.log(date_reconstruct)
+        }
+        result = {
+          "key":date_reconstruct,
+          "score":minL,
+          "daterange": val?.parsedValue[0]?.resolution[0]
+        }
       }
 
+      // console.log("calculate returned result >>>>> ", result)
       return result;
     }
     let entityObj:any = {
+      "datetimeV2":{array:this.periodList, assign:(val:any)=>{this.period_name = val},score:null, detailedType:(detail_type:any)=>detail_type},
       "RegionEntity":{array:this.regionList, assign:(val:any)=>{this.reg_name = val},score:null},
       "geographyV2":{array:this.regionList, assign:(val:any)=>{this.reg_name = val},score:null},
       "CategoryListEntity":{array:this.categoryList, assign:(val:any)=>{this.cat_name = val},score:null}
@@ -221,60 +264,85 @@ export class CategoriesComponent implements OnInit {
 
     if(entities && entities.length){
       entities.forEach((k:any)=> {
-
+        // capture key words
         if(k.entity in entityObj){
-          const res:any = calculate(entityObj[k.entity].array, k.value)
-          console.log(res)
+          const res:any = calculate(entityObj[k.entity].array, k, k.detailedType)
+          // console.log(res)
           if(res){
-            console.log(res,entityObj)
             entityObj[k.entity].assign(res.key)
             entityObj[k.entity].score = res.score;
+            if(res.daterange){
+              this.range_of_dates = res.daterange
+              console.log("this range of dates: ",this.range_of_dates)
+            }
           }
-        }
 
+        }
+        // capture intent
         if(k.entity == "PriceKeyWordEntity"){
           alert("price")
           this.checkif_priceIntent = true;
         }
       })
 
-      const result = await this.categoriesService.getCategories(this.offset,this.limit,this.cat_name,this.period,this.guidance, this.grade_id, this.reg_name, this.grade);
-      console.log(result)
-      if(result){
-        console.log("4" , entityObj)
-        this.result = result.data.categories.category;
+
+      if(this.range_of_dates){
+        // console.log("have range of dates block")
+         result_ = await this.categoriesService.getDateRange(this.offset,this.limit,this.cat_name, this.reg_name, this.period_name);
+      } else {
+         result_ = await this.categoriesService.getCategories(this.offset,this.limit,this.cat_name,this.period_name,this.guidance, this.grade_id, this.reg_name, this.grade);
+      }
+      if(result_){
+        console.log("result blok")
+        this.result = result_.data.categories.category;
         this.payload.category = {"name":this.cat_name, "score":entityObj["CategoryListEntity"].score};
-        this.payload.region ={"name":this.reg_name, "score":entityObj["RegionEntity"].score?entityObj["RegionEntity"].score:entityObj["geographyV2"].score}
+        this.payload.region ={"name":this.reg_name, "score":entityObj["RegionEntity"].score}
         this.payload.priceIntent = this.checkif_priceIntent;
-        // console.log(this.payload)
+        this.payload.period = {"name":this.period_name, "score":entityObj["datetimeV2"].score};
+        this.payload.daterange = {"name":this.range_of_dates, "score":entityObj["datetimeV2"].score};
+        console.log(this.payload)
       } else {
         alert('err')
-        console.log("5")
+        // console.log("5")
       }
     }
-
-
-
-
   }
 
   async updateAllRegions(){
     // let regions_array:any = [];
     const result = await this.categoriesService.getRegions(this.offset, this.limit, '');
-    // console.log(result)
-
-
-    // **** misuse of map here, since map reutrns an array
-    // result.map((k:any)=> {
-    //   regions_array.push(k.Region)
-    // })
     let regions_array:any = result.map((k:any)=>k.Region);
-
-
     // let unique_regions = regions_array.filter(this.onlyUnique);
     let unique_regions = [...new Set(regions_array)];
-    console.log(unique_regions);
+    // console.log(unique_regions);
     this.regionList = unique_regions;
+  }
+
+  async updateAllPeriod(){
+    this.isLoading = true;
+    const result = await this.categoriesService.getPeriods(this.offset, this.limit, '');
+    if(result){
+      this.isLoading = false;
+      // console.log(result)
+      let temp_array:any = result.map((k:any)=>{
+        // console.log(this.normedDBDate(k.Actual_Period))
+        return this.normedDBDate(k.Actual_Period); // date in getTime() value
+      });
+      let unique_periods = [...new Set(temp_array)];
+      // console.log(unique_periods);
+      this.periodList = unique_periods;
+    }
+
+  }
+
+  async getAllRangofDates(start:any,end:any){
+    // console.log("im here! ", JSON.stringify(start), JSON.stringify(end))
+    let daterange_payload:any = {
+      start,end
+    };
+    const result = await this.categoriesService.getDateRange(this.offset, this.limit, this.cat_name,this.reg_name,  JSON.stringify(daterange_payload));
+    // console.log(result)
+    this.result = result;
   }
 
   async updateAllCategoryNames(){
@@ -292,17 +360,65 @@ export class CategoriesComponent implements OnInit {
       // console.log(unique_categories);
       this.categoryList = unique_categories;
   }
+
   // helpers
 
+  normedLuis_Date(date_string:string, whichTime:any) {
+    // console.log(`${date_string}`); // 2020-01-01
+    let os = `${date_string}`; // format for luis date new Date("YYYY", "MM", -29)
+    let date_result;
+    if (whichTime == "parsedValue") {
+        alert("parsedValue");
+        let month = os.substring(4, 7);
+        let year = os.substring(11, 15);
+        let ds = `${year}-${month}-21`;
+        // console.log("ds for luis date ", ds);
+        date_result = new Date(ds);
+    } else if (whichTime == "timex") {
+        alert("timex"); // format for luis date new Date("YYYY", "11", -29)
+        let month = os.substring(5, 7);
+        let year = os.substring(0, 4);
+        // console.log(month, year);
+        date_result = new Date(parseInt(year), parseInt(month), -29);
+
+        // console.log(date_result);
+    }
+
+    return date_result;
+    return date_result.getTime();
+}
+  normedDBDate(db_date:string) {
+    // console.log("dbdate", db_date); // format for db date --> new Date("Month YYYY")
+    let year = parseInt(db_date.substring(4, 6));
+    let month = db_date.substring(0, 3); // 3 char month abbreviations July = Jul
+    // console.log(month, year, "format we want: ", `new Date("Month YYYY")`);
+    let res;
+    // case 21 for 20 20s
+    // case 19 for 20 10s
+    // case 07 for 20 00s
+    // case 00 for 20 00s
+    // case 99 for 19 00s
+    // case 89 for 19 00s
+    // return `20${year}`;
+
+    if (year <= 99 && year >= 50) {
+        // prepend 19 to year
+        res = `19${year}`;
+    }
+    if (year <= 50) {
+        // prepend 19 to year
+        res = `20${year}`;
+    }
+    // console.log("dbdate before output = ", `${month} and ${res}`);
+    let output = new Date(`${month}, ${res}`);
+    // console.log(output.getTime);
+
+    return `${output}`;
+}
   getLowestKey(obj:any) {
     let key = Object.keys(obj).reduce((key, v) => obj[v] < obj[key] ? v : key);
     return key
   }
-
-  // var lowest = lowestValueAndKey(arr);
-  // console.log(lowest);
-
-
   onlyUnique(value:any, index:any, self:any) {
     return self.indexOf(value) === index;
   }
@@ -312,8 +428,8 @@ export class CategoriesComponent implements OnInit {
 // button submit functions
   onSubmit() {
     // TODO: Use EventEmitter with form value
-    console.warn(this.profileForm.value);
-    console.warn(this.profileForm.value.categoryName);
+    // console.warn(this.profileForm.value);
+    // console.warn(this.profileForm.value.categoryName);
     this.name = this.profileForm.value.categoryName;
     this.period = this.profileForm.value.period;
     this.guidance = this.profileForm.value.guidance;
@@ -322,7 +438,7 @@ export class CategoriesComponent implements OnInit {
     this.grade = this.profileForm.value.grade;
 
     if(this.profileForm.value){
-      console.log(this.profileForm.value)
+      // console.log(this.profileForm.value)
       this.updateCategories();
       // this.profileForm.value.guidance = '';
       // this.profileForm.value.gradeID = '';
@@ -344,32 +460,26 @@ export class CategoriesComponent implements OnInit {
       appid:this.appId
   });
 
-    console.log(this.userInput)
     let payload =JSON.stringify({
-        "appId": this.appId,
+        "appId":  this.appId,
         "kbId": this.kbId,
-        "q": this.userInput
+        "q": this.userInput,
+        "suggestedConfidenceRange": [90,100],
+        "unrecognizedConfidenceRange": [0,89],
+        "allowSuggested": true,
+        "allowUnrecognized": true,
+        "spellCheckEnabled": true
       });
-
-      console.log("7")
-      console.log("user asked:  ", this.nluForm.value)
-      console.log("pass this to nlu api, get response")
       this.isLoading = true;
-      this.categoriesService.testUtterance(payload).subscribe(data => {
-        // console.log(data)
-
-      if(data){
-        this.nlpData = data;
-        this.isLoading = false;
-        alert("im here")
-        this.updateCategoriesWithNLUData()
-      }
-
-      },
-      err=> {
-        // this.isLoading = false;
-        console.log("9")
-        console.log(err)
+      this.categoriesService.testUtterance(payload).subscribe(data=>{
+        if(data){
+          this.nlpData = data;
+          this.isLoading = false;
+          alert("im here")
+          this.updateCategoriesWithNLUData()
+        }
+      }, err=> {
+        // console.log(err)
       })
   }
 
