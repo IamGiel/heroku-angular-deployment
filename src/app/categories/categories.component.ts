@@ -98,7 +98,7 @@ export class CategoriesComponent implements OnInit {
   cat_name:any = '';
   reg_name:any = '';
   period_name:any = '';
-  range_of_dates:[] = [];
+  range_of_dates:any = null;
 
 
 
@@ -175,6 +175,7 @@ export class CategoriesComponent implements OnInit {
     this.period_name = null;
     this.entities = null;
     this.result = null;
+    this.range_of_dates = null;
     let result_;
     // this.nlpData = null;
     let entities = this.nlpData?.result?.entities;
@@ -287,7 +288,7 @@ export class CategoriesComponent implements OnInit {
 
 
       if(this.range_of_dates){
-        // console.log("have range of dates block")
+        console.log("have range of dates block")
          result_ = await this.categoriesService.getDateRange(this.offset,this.limit,this.cat_name, this.reg_name, this.period_name);
       } else {
          result_ = await this.categoriesService.getCategories(this.offset,this.limit,this.cat_name,this.period_name,this.guidance, this.grade_id, this.reg_name, this.grade);
