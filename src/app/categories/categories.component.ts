@@ -95,6 +95,7 @@ export class CategoriesComponent implements OnInit {
 
   // reactive response
   checkif_priceIntent:any = false;
+  hasDateRangeEntity:any = false;
   cat_name:any = '';
   reg_name:any = '';
   period_name:any = '';
@@ -170,9 +171,10 @@ export class CategoriesComponent implements OnInit {
 
   async updateCategoriesWithNLUData() {
     this.checkif_priceIntent = false;
-    this.cat_name = null;
-    this.reg_name = null;
-    this.period_name = null;
+    this.hasDateRangeEntity = false;
+    this.cat_name = "";
+    this.reg_name = "";
+    this.period_name = "";
     this.entities = null;
     this.result = null;
     this.range_of_dates = null;
@@ -284,10 +286,14 @@ export class CategoriesComponent implements OnInit {
           alert("price")
           this.checkif_priceIntent = true;
         }
+        if(k.entity == "DateRangeKeywordEntity"){
+          alert("price")
+          this.hasDateRangeEntity = true;
+        }
       })
 
 
-      if(this.range_of_dates){
+      if(this.hasDateRangeEntity){
         console.log("have range of dates block")
          result_ = await this.categoriesService.getDateRange(this.offset,this.limit,this.cat_name, this.reg_name, this.period_name);
       } else {

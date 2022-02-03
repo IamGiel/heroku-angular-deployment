@@ -166,7 +166,7 @@ export class CategoriesService {
     const result = await this.findAllPeriod.refetch({ offset, limit, period });
       return result.data.categories.category;
   }
-  async getDateRange(offset?: number, limit?: number, name?: string,region?:string, daterange?:string ) {
+  async getDateRange(offset?: number, limit?: number, name?: string, region?:string, daterange?:string ) {
     const result = await this.findDateRange.refetch({ offset, limit, name, region, daterange });
     console.log("sevice component result ", result.data.categoriesv2.category)
       return result.data.categoriesv2.category;

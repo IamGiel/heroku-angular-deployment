@@ -201,8 +201,9 @@ const root = {
         let isNameMatched =
           args.name.toLowerCase().trim() ==
           k["Name of Sub Category"].toLowerCase().trim();
-        let isRegionMatched =
-          args.region.toLowerCase().trim() == k["Region"].toLowerCase().trim();
+        let isRegionMatched = args.region
+          ? args.region.toLowerCase().trim() == k["Region"].toLowerCase().trim()
+          : "";
         if (isWithinRange && isNameMatched && isRegionMatched) {
           return dbdate;
         }
