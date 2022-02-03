@@ -204,7 +204,11 @@ const root = {
         let isRegionMatched = args.region
           ? args.region.toLowerCase().trim() == k["Region"].toLowerCase().trim()
           : "";
-        if (isWithinRange && isNameMatched && isRegionMatched) {
+        if (
+          (isWithinRange ? isWithinRange : "{}") &&
+          isNameMatched &&
+          isRegionMatched
+        ) {
           return dbdate;
         }
         return false;
