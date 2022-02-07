@@ -395,7 +395,7 @@ export class CategoriesComponent implements OnInit {
     return date_result.getTime();
 }
   normedDBDate(db_date:string) {
-    // console.log("dbdate", db_date); // format for db date --> new Date("Month YYYY")
+    console.log("dbdate", db_date); // format for db date --> new Date("Month YYYY")
     let year = parseInt(db_date.substring(4, 6));
     let month = db_date.substring(0, 3); // 3 char month abbreviations July = Jul
     // console.log(month, year, "format we want: ", `new Date("Month YYYY")`);
@@ -418,7 +418,7 @@ export class CategoriesComponent implements OnInit {
     }
     // console.log("dbdate before output = ", `${month} and ${res}`);
     let output = new Date(`${month}, ${res}`);
-    // console.log(output.getTime);
+    console.log(`${month}-${res}`);
 
     return `${output}`;
 }

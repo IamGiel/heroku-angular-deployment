@@ -189,29 +189,40 @@ const root = {
     let start = new Date(JSON.parse(args.daterange).start);
     let end = new Date(JSON.parse(args.daterange).end);
     let dbdate;
+
     let result = categories.slice(args.offset, args.offset + args.limit);
     // console.log(result);
 
     // should return a range of dates given by args start and end
-    let rangeofdates = result
+    let list = result
       .filter((k) => {
         dbdate = new Date(normedDBDate(k["Actual Period"]));
-        console.log(start, end, dbdate, k["Name of Sub Category"]);
-        let isWithinRange = dbdate >= start && dbdate <= end;
+        // console.log(
+        //   "start ",
+        //   new Date(start),
+        //   "end ",
+        //   new Date(end),
+        //   "dbdate ",
+        //   new Date(dbdate)
+        // );
+        let isWithinRange = dbdate <= end && dbdate >= start;
         let isNameMatched =
           args.name.toLowerCase().trim() ==
           k["Name of Sub Category"].toLowerCase().trim();
-        let isRegionMatched = args.region
-          ? args.region.toLowerCase().trim() == k["Region"].toLowerCase().trim()
-          : "";
-        if (
-          (isWithinRange ? isWithinRange : "{}") &&
-          isNameMatched &&
-          isRegionMatched
-        ) {
-          return dbdate;
+        let isRegionMatched =
+          args.region.toLowerCase().trim() == k["Region"].toLowerCase().trim();
+
+        // if (!isWithinRange) {
+        //   return false;
+        // }
+        if (!isNameMatched) {
+          return false;
+        } else if (!isRegionMatched) {
+          return false;
+        } else if (!isWithinRange) {
+          return false;
         }
-        return false;
+        return true;
       })
       .map((k, i) => {
         // console.log("THESE K after filter >>>>>> ", k["Region"]);
@@ -229,17 +240,14 @@ const root = {
           Unit: k["Unit"],
         };
       });
-    console.log(
-      "range of dates length ",
-      rangeofdates.length,
-      "/",
-      result.length
-    );
-    console.log("these are range of dates requested ", rangeofdates);
 
+    console.log({
+      count: list.length,
+      category: list,
+    });
     return {
-      count: rangeofdates.length,
-      category: rangeofdates,
+      count: list.length,
+      category: list,
     };
   },
   category: (args) => {
