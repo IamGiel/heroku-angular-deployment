@@ -206,7 +206,7 @@ const root = {
         //   new Date(dbdate)
         // );
         let isWithinRange =
-          dbdate !== "" ? dbdate <= end && dbdate >= start : "{}";
+          dbdate !== "{}" ? dbdate <= end && dbdate >= start : "{}";
         let isNameMatched =
           args.name.toLowerCase().trim() ==
           k["Name of Sub Category"].toLowerCase().trim();
@@ -220,8 +220,10 @@ const root = {
           return false;
         } else if (!isRegionMatched) {
           return false;
-        } else if (isWithinRange == "{}") {
-          return false;
+        } else if (isWithinRange !== "{}") {
+          if (!isWithinRange) {
+            return false;
+          }
         }
         return true;
       })
