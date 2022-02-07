@@ -193,6 +193,7 @@ export class CategoriesComponent implements OnInit {
       let o:any = {};
       // console.log("this array ", array)
       if(array&&controller!=='daterange'){
+        console.log("controller = ?? ", controller)
         array.forEach((element:any) => {
           let db_string = element.toLowerCase().replace(/[^a-zA-Z]/g, "");
           let user_string = val.value.toLowerCase().replace(/[^a-zA-Z]/g, "");
@@ -223,7 +224,7 @@ export class CategoriesComponent implements OnInit {
         }
 
       } else if(controller=='daterange') {
-        // console.log("controller = daterange")
+        console.log("controller = daterange")
         let luisdate_start = this.normedLuis_Date(val?.parsedValue[0]?.resolution[0]?.start, "timex");
         let luisdate_end = this.normedLuis_Date(val?.parsedValue[0]?.resolution[0]?.end, "timex");
         this.getAllRangofDates(luisdate_start, luisdate_end)
@@ -251,15 +252,16 @@ export class CategoriesComponent implements OnInit {
         result = {
           "key":date_reconstruct,
           "score":minL,
-          "daterange": val?.parsedValue[0]?.resolution[0]
+          "daterange": val?.parsedValue[0]?.resolution[0],
+          "detailedType":controller
         }
       }
 
-      // console.log("calculate returned result >>>>> ", result)
+      console.log("calculate returned result >>>>> ", result)
       return result;
     }
     let entityObj:any = {
-      "datetimeV2":{array:this.periodList, assign:(val:any)=>{this.period_name = val},score:null, detailedType:(detail_type:any)=>detail_type},
+      "datetimeV2":{array:this.periodList, assign:(val:any)=>{this.period_name = val},score:null},
       "RegionEntity":{array:this.regionList, assign:(val:any)=>{this.reg_name = val},score:null},
       "geographyV2":{array:this.regionList, assign:(val:any)=>{this.reg_name = val},score:null},
       "CategoryListEntity":{array:this.categoryList, assign:(val:any)=>{this.cat_name = val},score:null}
@@ -270,14 +272,10 @@ export class CategoriesComponent implements OnInit {
         // capture key words
         if(k.entity in entityObj){
           const res:any = calculate(entityObj[k.entity].array, k, k.detailedType)
-          // console.log(res)
+          console.log(res)
           if(res){
             entityObj[k.entity].assign(res.key)
             entityObj[k.entity].score = res.score;
-            if(res.daterange){
-              this.range_of_dates = res.daterange
-              console.log("this range of dates: ",this.range_of_dates)
-            }
           }
 
         }
@@ -287,7 +285,7 @@ export class CategoriesComponent implements OnInit {
           this.checkif_priceIntent = true;
         }
         if(k.entity == "DateRangeKeywordEntity"){
-          alert("price")
+          alert("DateRangeKeywordEntity")
           this.hasDateRangeEntity = true;
         }
       })
@@ -295,13 +293,14 @@ export class CategoriesComponent implements OnInit {
 
       if(this.hasDateRangeEntity){
         console.log("have range of dates block")
-         result_ = await this.categoriesService.getDateRange(this.offset,this.limit,this.cat_name, this.reg_name, this.period_name);
+         result_ = await this.categoriesService.getDateRange(this.offset,this.limit,this.cat_name, this.reg_name, JSON.stringify(this.period_name));
       } else {
+        console.log("have NO range of dates block")
          result_ = await this.categoriesService.getCategories(this.offset,this.limit,this.cat_name,this.period_name,this.guidance, this.grade_id, this.reg_name, this.grade);
       }
-      if(result_){
+      if(result_ && result_.data.categories){
         console.log("result blok")
-        this.result = result_.data.categories.category;
+        this.result = result_.data.categories?.category;
         this.payload.category = {"name":this.cat_name, "score":entityObj["CategoryListEntity"].score};
         this.payload.region ={"name":this.reg_name, "score":entityObj["RegionEntity"].score}
         this.payload.priceIntent = this.checkif_priceIntent;

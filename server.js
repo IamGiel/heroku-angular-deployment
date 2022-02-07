@@ -211,17 +211,22 @@ const root = {
           args.name.toLowerCase().trim() ==
           k["Name of Sub Category"].toLowerCase().trim();
         let isRegionMatched =
-          args.region.toLowerCase().trim() == k["Region"].toLowerCase().trim();
+          args.region !== ""
+            ? args.region.toLowerCase().trim() ==
+              k["Region"].toLowerCase().trim()
+            : "";
 
         // if (!isWithinRange) {
         //   return false;
         // }
         if (!isNameMatched) {
           return false;
-        } else if (!isRegionMatched) {
-          return false;
         } else if (isWithinRange !== "{}") {
           if (!isWithinRange) {
+            return false;
+          }
+        } else if (isRegionMatched == true || isRegionMatched == false) {
+          if (!isRegionMatched) {
             return false;
           }
         }
