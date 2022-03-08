@@ -14,7 +14,7 @@ import { AbiOrComponent } from './abi-or/abi-or.component';
 import { HomeComponent } from './home/home.component';
 import { ShortlistComponent } from './shortlist/shortlist.component';
 import { AvatarComponent } from './avatar/avatar.component';
-import { ColorPickerModule } from 'ngx-color-picker';
+// import { ColorPickerModule } from 'ngx-color-picker';
 import {MatTabsModule} from '@angular/material/tabs';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
@@ -36,7 +36,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
-    ColorPickerModule,
+    // ColorPickerModule,
     MatTabsModule,
     BrowserAnimationsModule
   ],
