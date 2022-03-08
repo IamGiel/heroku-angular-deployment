@@ -1,0 +1,140 @@
+.av_container {
+    display: flex;
+    flex-direction: row;
+    padding: 12px;
+    margin: 12px;
+    gap: 12px!important;
+    border: 1px solid grey;
+}
+
+.svg {
+    // width: 300px;
+}
+
+.sub {
+    display: flex;
+    flex-direction: row;
+    gap: 5;
+}
+
+.scaling-svg-container {
+    position: relative;
+    padding: 0;
+}
+
+.highlight {
+    background-color: #4B7BA5;
+}
+
+.buttons-to-select {
+    display: flex;
+    flex-direction: row;
+    // gap: 8;
+    height: 34px;
+}
+
+.btnSelect {
+    min-width: 120px;
+}
+
+img {
+    outline: 1px solid #22746b!important;
+    height: 100px;
+}
+
+.scaling-svg {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    left: 14px px;
+    top: 10px;
+}
+
+.scaling-svg-main {
+    position: absolute;
+    top: 0px;
+    border: 1px solid grey;
+}
+
+.item {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    position: relative;
+    border: 1px solid grey;
+    padding: 12px 8px;
+}
+
+.ava {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    position: relative;
+    width: 76px;
+}
+
+.colorInput {
+    width: 124px;
+    margin: 12px px;
+    border: 1px solid grey;
+    border-radius: 12px;
+    padding: 3px 12px;
+    cursor: pointer;
+}
+
+label {
+    display: inline-block;
+    margin-bottom: 0.5rem;
+    margin-right: 12px!important;
+}
+
+.btn-containers {
+    display: flex;
+    flex-direction: row;
+    /* max-width: 61vw; */
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.configSection {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    min-height: 202px;
+    border: 1px solid grey;
+    padding: 12px;
+}
+
+.someSelections {
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    margin-left: auto;
+}
+
+.svgBox {
+    display: flex;
+    flex-direction: column;
+    gap: 10;
+    border: 1px solid grey;
+}
+
+::placeholder {
+    mix-blend-mode: difference;
+    opacity: 1;
+    /* Firefox */
+}
+
+.selectFacialFeature {
+    display: flex;
+    flex-direction: column;
+    gap: 3px px;
+    padding: 12px;
+    border: 1px solid grey;
+    margin: 2px;
+}
+
+.listConfigs {
+    display: flex;
+    flex-direction: row;
+}

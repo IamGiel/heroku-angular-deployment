@@ -8,7 +8,8 @@ import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 })
 export class AbiOrComponent implements OnInit {
   // url: string = 'https://chat.staging.onereach.ai/GapF3hg0QZ-V3pVTbzuZQA/0fd6edi'; // abi v2
-  url: string = 'https://chat.staging.onereach.ai/GapF3hg0QZ-V3pVTbzuZQA/abi_v3'; // abi 176
+  // url: string = 'https://chat.staging.onereach.ai/GapF3hg0QZ-V3pVTbzuZQA/abi_v3'; // abi 176
+  url:string = 'https://chat.staging.onereach.ai/GapF3hg0QZ-V3pVTbzuZQA/0fd6edi?loader=auto' // sandbox
   urlSafe:any;
 
   // window['myToken'] = this.localStorageService.retrieve('accessToken');

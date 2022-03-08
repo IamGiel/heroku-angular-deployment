@@ -1,0 +1,147 @@
+<div class="avatar-component-container" style="display: flex; flex-direction: column">
+    <div class="avatar-creation" style="display: flex; flex-direction: column">
+        <div class="headerSec">
+            <h1>Create an Avatar</h1>
+        </div>
+        <div class="configurationSec" style="display: flex; flex-direction: column">
+            <div>
+                <h4>Configure Avatar skin</h4>
+            </div>
+            <div class="configSection">
+                <mat-tab-group>
+                    <mat-tab label="Mouth Types">
+                        <div class="selectFacialFeature">
+                            <div>
+                                <label>Select a type: </label>
+                            </div>
+                            <div class="btn-containers">
+                                <div class="buttons-to-select" *ngFor="let mouth of mouthTypes; let i = index">
+                                    <button class="btnSelect" (click)="selectMouthBtn(mouth, i)" [ngClass]="{'highlight': selectedIndexMouth === i}"><p>{{ mouth }}</p></button>
+                                </div>
+                            </div>
+                        </div>
+                    </mat-tab>
+                    <mat-tab label="Eye Types">
+                        <div class="selectFacialFeature">
+                            <div>
+                                <label>Select an eye type: </label>
+                            </div>
+                            <div class="btn-containers">
+                                <div class="buttons-to-select" *ngFor="let eye of eyeTypes; let i = index">
+                                    <button class="btnSelect" (click)="selectEyeBtn(eye, i)" [ngClass]="{'highlight': selectedIndexEyes === i}">{{ eye }}</button>
+                                </div>
+                            </div>
+                        </div>
+                    </mat-tab>
+                    <mat-tab label="Clothing Types">
+                        <div class="selectFacialFeature">
+                            <div>
+                                <label>Select a clothing: </label>
+                            </div>
+                            <div class="btn-containers">
+                                <div class="buttons-to-select" *ngFor="let clothe of clotheTypes; let i = index">
+                                    <button class="btnSelect" (click)="selectClothesBtn(clothe, i)" [ngClass]="{'highlight': selectedIndexClothes === i}">{{ clothe }}</button>
+                                </div>
+                            </div>
+                        </div>
+                    </mat-tab>
+                    <mat-tab label="Skin Types">
+                        <div class="selectFacialFeature">
+                            <div>
+                                <label>Select a skin type: </label>
+                            </div>
+                            <div class="btn-containers">
+                                <div class="buttons-to-select" *ngFor="let skin of skinTypes; let i= index">
+                                    <button class="btnSelect" (click)="selectSkinBtn(skin, i)" [ngClass]="{'highlight': selectedIndexSkin === i}">{{ skin }}</button>
+                                </div>
+                            </div>
+                        </div>
+                    </mat-tab>
+                    <mat-tab label="Hair Types">
+                        <div class="selectFacialFeature">
+                            <div>
+                                <label>Select a hair type: </label>
+                            </div>
+                            <div class="btn-containers">
+                                <div class="buttons-to-select" *ngFor="let hair of hairTypes; let i = index">
+                                    <button class="btnSelect" (click)="selectHairBtn(hair, i)" [ngClass]="{'highlight': selectedIndexHair === i}">{{ hair }}</button>
+                                </div>
+                            </div>
+                        </div>
+                    </mat-tab>
+                    <mat-tab label="Hair Types">
+                        <div class="selectFacialFeature">
+                            <div>
+                                <label>Select a hair color type: </label>
+                            </div>
+                            <div class="btn-containers">
+                                <div class="buttons-to-select" *ngFor="let hair of hairColorTypes; let i = index">
+                                    <button class="btnSelect" (click)="selectHairColorBtn(hair, i)" [ngClass]="{'highlight': selectedIndexHairColor === i}">{{ hair }}</button>
+                                </div>
+                            </div>
+                        </div>
+                    </mat-tab>
+                </mat-tab-group>
+                <div class="someSelections">
+                    <!-- <div>
+                        <span>wer</span>
+                    </div>
+                    <div>
+                        <span>wer</span>
+                    </div>
+                    <div>
+                        <span>wer</span>
+                    </div>
+                    <div>
+                        <span>wer</span>
+                    </div> -->
+                </div>
+                <div class="imagePreview" style="margin-left: auto">
+                    <div class="svgBox">
+                        <div>
+                            <div [innerHTML]="svg"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- <div class="avatar-list">
+        <div class="av_container">
+            <div class="item ava">
+                <div class="scaling-svg" [innerHTML]="svg"></div>
+            </div>
+            <div class="item">
+                <p>Name:&nbsp;</p>
+            </div>
+            <div class="item">
+                <p>Tester TEst</p>
+            </div>
+        </div>
+
+        <div class="av_container">
+            <div class="item ava">
+                <div class="scaling-svg" [innerHTML]="svg"></div>
+            </div>
+            <div class="item">
+                <p>Name:&nbsp;</p>
+            </div>
+            <div class="item">
+                <p>Tester TEst</p>
+            </div>
+        </div>
+
+        <div class="av_container">
+            <div class="item ava">
+                <div class="scaling-svg" [innerHTML]="svg"></div>
+            </div>
+            <div class="item">
+                <p>Name:&nbsp;</p>
+            </div>
+            <div class="item">
+                <p>Tester TEst</p>
+            </div>
+        </div>
+    </div> -->
+</div>
